@@ -24,6 +24,7 @@ class CentroidDecomp(private val g: Array<IntArray>) {
     }
 
     // Compute subtree sizes for the active (non-removed) component rooted at `root`.
+    // Populates sz[v] for every v reachable from root (excluding removed vertices).
     private fun calcSz(root: Int, initPar: Int) {
         var top = 0; var cnt = 0
         vStk[top] = root; pStk[top] = initPar; top++

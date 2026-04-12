@@ -2,9 +2,12 @@
 
 // Bottom-up DP on a rooted tree.
 //
-// init(v)                     — initial state for vertex v (before processing children)
-// merge(state, childDP, child) — fold child's result into the running state for v
+// init(v)                      — initial state for vertex v (before processing children)
+// merge(state, childDP, child) — fold child's DP result into the running state for v
 // finalize(v, state)           — optional post-processing after all children of v
+//
+// Example — subtree size:
+//   treeDP(g, init = { 1 }, merge = { s, c, _ -> s + c })
 //
 // Returns dp[] where dp[v] holds the result for the subtree rooted at v.
 // Access result as: dp[v] as T
@@ -39,13 +42,12 @@ fun <T> treeDP(
 // Re-rooting DP: computes the DP answer for every possible root in O(n · max_degree).
 // For trees with bounded degree (e.g. binary trees) this is O(n).
 //
-// init(v)          — initial state for vertex v
-// merge(state, childDP, child) — same semantics as treeDP
+// init(v)                      — initial state for vertex v
+// merge(state, childDP, child) — same semantics as treeDP; IMPORTANT: during the
+//                                top-down pass the parent is passed as a virtual child,
+//                                so merge will be called with child = parent[v].
+//                                Ensure your merge function handles this correctly.
 // finalize(v, state)           — same semantics as treeDP
-//
-// During the top-down pass, each vertex's "up" contribution is passed to its
-// children as a virtual child result, using the original parent index as the
-// child argument to merge.  The user's merge function must handle this.
 //
 // Returns ans[] where ans[v] is the DP answer when v is the root.
 // Access result as: ans[v] as T
