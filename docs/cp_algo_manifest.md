@@ -303,7 +303,7 @@
 | Binomial Coefficients | `math/BinomialCoeff.kt` | `nCr` | `numeric_utility` | `fun nCr(n, r, mod): Long` | Precompute factorial + inverse factorial; Lucas' theorem for large n mod small prime |
 | Catalan Numbers | `math/Catalan.kt` | `catalan` | `numeric_utility` | `fun catalan(n: Int, mod: Long): Long` | C(2n,n)/(n+1); DP table for sequence |
 | Inclusion-Exclusion | `math/InclusionExclusion.kt` | `inclusionExclusion` | `plain_function` | `fun inclusionExclusion(sets, intersections): Long` | Bitmask enumeration; sign = (−1)^(|S|+1) |
-| Burnside's Lemma | `math/Burnside.kt` | `burnside` | `plain_function` | `fun burnside(groupOps, n, mod): Long` | Count fixed points per group element; Pólya enumeration generalisation |
+| Burnside's Lemma | `math/Burnside.kt` | `burnside` | `plain_function` | `fun burnside(groupOps, n, mod): Long` | Count fixed points per group element; Polya enumeration generalisation |
 | Möbius Function and Inversion | `math/Mobius.kt` | `mobiusSieve` | `plain_function` | `fun mobiusSieve(n: Int): IntArray` | Sieve μ values; Dirichlet convolution / Möbius inversion |
 
 ---
@@ -328,16 +328,16 @@
 
 | Category | # Articles |
 |---|---|
-| Algebra (Fundamentals + Primes + Modular + Number Systems + Misc) | 22 |
-| Data Structures (Fundamentals + Advanced) | 14 |
-| Dynamic Programming (Optimizations + Classical) | 13 |
+| Algebra (Fundamentals + Primes + Modular + Number Systems + Misc) | 21 |
+| Data Structures (Fundamentals + Advanced) | 12 |
+| Dynamic Programming (Optimizations + Classical) | 12 |
 | String Processing (Fundamentals + Advanced) | 9 |
 | Linear Algebra | 7 |
 | Geometry | 8 |
 | Graphs (all subcategories) | 31 |
 | Combinatorics | 5 |
-| Miscellaneous | 9 |
-| **Total** | **118** |
+| Miscellaneous | 12 |
+| **Total** | **117** |
 
 ---
 
