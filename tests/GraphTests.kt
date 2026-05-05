@@ -393,19 +393,24 @@ fun testEulerPathUndirected() {
     check(path!!.size == 4)
 }
 
-fun testEulerPathNonExistent() {
-    // 4 odd-degree vertices — no Euler path
-    val g = SparseGraph(4, directed = false)
-    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 3)
-    // Vertices 0,1,2,3 all have degree 2 — actually bipartite, should have circuit not path
-    // Let's make a proper no-Euler-path case: K4 has all even degrees → circuit
-    // Use a different graph where 4 vertices have odd degree
+fun testEulerPathValidAndInvalid() {
+    // Graph with 4 odd-degree vertices (degrees: 0=2, 1=3, 2=3, 3=2, 4=2 for a different topology)
+    // First: a graph with exactly 2 odd-degree vertices → valid Euler path
     val g2 = SparseGraph(5, directed = false)
     g2.addEdge(0, 1); g2.addEdge(0, 2); g2.addEdge(1, 3); g2.addEdge(2, 3); g2.addEdge(3, 4)
-    // degrees: 0=2, 1=2, 2=2, 3=3, 4=1 → 2 odd vertices → Euler path exists (3 to 4 or 4 to 3)
+    // degrees: 0=2, 1=2, 2=2, 3=3, 4=1 → odd: {3, 4} → Euler path exists
     val path2 = g2.eulerPath()
     check(path2 != null)
     check(path2!!.size == 6)
+
+    // Graph with 4 odd-degree vertices → no Euler path or circuit
+    val g3 = SparseGraph(4, directed = false)
+    g3.addEdge(0, 1); g3.addEdge(0, 2); g3.addEdge(1, 2); g3.addEdge(2, 3)
+    // degrees: 0=2, 1=2, 2=3, 3=1 → odd: {2, 3} → path exists, so use a case with 4 odd vertices
+    val g4 = SparseGraph(4, directed = false)
+    g4.addEdge(0, 1); g4.addEdge(0, 2); g4.addEdge(1, 3); g4.addEdge(2, 3); g4.addEdge(0, 3); g4.addEdge(1, 2)
+    // degrees: all degree 3 → 4 odd-degree vertices → neither path nor circuit
+    check(g4.eulerPath() == null)
 }
 
 // ── LCA tests ─────────────────────────────────────────────────────────────────
@@ -464,7 +469,7 @@ fun main() {
         "Euler circuit invalid"     to ::testEulerCircuitInvalidOddDegree,
         "Euler path (directed)"     to ::testEulerPathDirected,
         "Euler path (undirected)"   to ::testEulerPathUndirected,
-        "Euler path non-existent"   to ::testEulerPathNonExistent,
+        "Euler path valid+invalid"  to ::testEulerPathValidAndInvalid,
         "LCA"                       to ::testLCA,
     )
 

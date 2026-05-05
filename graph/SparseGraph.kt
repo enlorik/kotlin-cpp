@@ -392,21 +392,9 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
     // Each undirected edge is stored twice; we use a global edge-id to avoid
     // consuming the same physical edge from both endpoints.
     //
-    // Edge ids are assigned at addEdge time: directed graph stores one id per
-    // directed edge; undirected graph stores consecutive ids (2k, 2k+1) so that
-    // the reverse edge can be blocked via id ^ 1.
-
-    private var edgeCount = 0
-    private val edgeId: Array<ArrayList<Int>> = Array(n) { ArrayList() }   // parallel to g
-
-    // Shadow addEdge that also records edge ids.  We override the behaviour of
-    // the original addEdge by re-initialising edgeId lazily.
-    private fun ensureEdgeIds() {
-        // If edgeId lists are already populated (edgeCount > 0) do nothing.
-    }
-
-    // We rebuild the eulerXxx methods to operate on the *existing* g[] arrays,
-    // tracking used edges via a separate usedEdge array built on demand.
+    // Edge ids are assigned at buildEdgeIds() time: directed graph stores one id
+    // per directed edge; undirected graph stores consecutive ids so the same
+    // physical edge seen from both endpoints shares the same id.
 
     private fun buildEdgeIds(): Pair<Array<IntArray>, Int> {
         // Returns (edgeIds[v][i] = global id of g[v][i], totalEdges)
