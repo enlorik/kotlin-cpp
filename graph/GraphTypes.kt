@@ -11,6 +11,8 @@ class DSU(val n: Int) {
     val parent = IntArray(n) { it }
     val rank   = IntArray(n)
     val size   = IntArray(n) { 1 }
+    var componentCount = n
+        private set
 
     fun find(x: Int): Int {
         var root = x
@@ -31,10 +33,10 @@ class DSU(val n: Int) {
         } else {
             parent[py] = px; size[px] += size[py]; rank[px]++
         }
+        componentCount--
         return true
     }
 
     fun connected(x: Int, y: Int) = find(x) == find(y)
     fun componentSize(x: Int)    = size[find(x)]
-    fun componentCount()         = (0 until n).count { parent[it] == it }
 }
