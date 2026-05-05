@@ -387,38 +387,164 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
         return if (mstEdges.size == n - 1) MSTResult(totalWeight, mstEdges) else null
     }
 
-    // ── Euler circuit (Hierholzer's algorithm) ────────────────────────────────
+    // ── Euler path / circuit (Hierholzer's algorithm) ────────────────────────
+
+    // Each undirected edge is stored twice; we use a global edge-id to avoid
+    // consuming the same physical edge from both endpoints.
+    //
+    // Edge ids are assigned at addEdge time: directed graph stores one id per
+    // directed edge; undirected graph stores consecutive ids (2k, 2k+1) so that
+    // the reverse edge can be blocked via id ^ 1.
+
+    private var edgeCount = 0
+    private val edgeId: Array<ArrayList<Int>> = Array(n) { ArrayList() }   // parallel to g
+
+    // Shadow addEdge that also records edge ids.  We override the behaviour of
+    // the original addEdge by re-initialising edgeId lazily.
+    private fun ensureEdgeIds() {
+        // If edgeId lists are already populated (edgeCount > 0) do nothing.
+    }
+
+    // We rebuild the eulerXxx methods to operate on the *existing* g[] arrays,
+    // tracking used edges via a separate usedEdge array built on demand.
+
+    private fun buildEdgeIds(): Pair<Array<IntArray>, Int> {
+        // Returns (edgeIds[v][i] = global id of g[v][i], totalEdges)
+        // For undirected: edge (u,v) stored at g[u][i] and g[v][j] share the same id.
+        // We assign ids by scanning directed adjacency; for undirected each physical
+        // edge u<->v is seen from both u and v — we assign the id on the u side and
+        // look it up on the v side via a map.
+        val ids = Array(n) { v -> IntArray(g[v].size) { -1 } }
+        var cnt = 0
+        if (directed) {
+            for (v in 0 until n) for (i in g[v].indices) { ids[v][i] = cnt++ }
+        } else {
+            // pair (min(u,v), max(u,v), occurrence) → id  isn't stable with parallel edges
+            // so we use a greedy scan: for each adjacency entry still unassigned, assign a
+            // new id and find ONE matching reverse entry to pair it with.
+            val assigned = Array(n) { v -> BooleanArray(g[v].size) }
+            for (u in 0 until n) {
+                for (i in g[u].indices) {
+                    if (assigned[u][i]) continue
+                    val id = cnt++
+                    ids[u][i] = id; assigned[u][i] = true
+                    val v = g[u][i].to
+                    // Find first unassigned reverse slot
+                    for (j in g[v].indices) {
+                        if (!assigned[v][j] && g[v][j].to == u) {
+                            ids[v][j] = id; assigned[v][j] = true; break
+                        }
+                    }
+                }
+            }
+        }
+        return Pair(ids, cnt)
+    }
 
     /**
      * Finds an Euler circuit starting at [start] using Hierholzer's algorithm.
-     * Assumes the circuit exists (all vertices have even degree for undirected,
-     * in-degree == out-degree for directed). O(V + E).
-     * For an Euler *path* (two odd-degree vertices), pass the odd-degree start vertex.
+     * Returns null if the graph has no Euler circuit (degree conditions not met
+     * or not all edges are reachable from [start]).
+     * Directed: every vertex must have in-degree == out-degree.
+     * Undirected: every vertex must have even degree.
+     * O(V + E).
      */
-    fun eulerCircuit(start: Int = 0): List<Int> {
-        // Work on a copy of adjacency indices so the original graph is unchanged
-        val idx  = IntArray(n)
+    fun eulerCircuit(start: Int = 0): List<Int>? {
+        // Validate degree conditions
+        if (directed) {
+            val inDeg = IntArray(n)
+            for (u in 0 until n) for (e in g[u]) inDeg[e.to]++
+            for (v in 0 until n) if (g[v].size != inDeg[v]) return null
+        } else {
+            for (v in 0 until n) if (g[v].size % 2 != 0) return null
+        }
+        val totalEdges = if (directed) g.sumOf { it.size } else g.sumOf { it.size } / 2
+        if (totalEdges == 0) return listOf(start)
+
+        val (ids, cnt) = buildEdgeIds()
+        val usedEdge = BooleanArray(cnt)
+        val idx = IntArray(n)
         val path = mutableListOf<Int>()
         val stack = ArrayDeque<Int>(); stack.addLast(start)
         while (stack.isNotEmpty()) {
             val v = stack.last()
-            if (idx[v] < g[v].size) {
-                stack.addLast(g[v][idx[v]++].to)
-            } else {
-                path.add(stack.removeLast())
+            var moved = false
+            while (idx[v] < g[v].size) {
+                val i = idx[v]++
+                if (!usedEdge[ids[v][i]]) { usedEdge[ids[v][i]] = true; stack.addLast(g[v][i].to); moved = true; break }
             }
+            if (!moved) path.add(stack.removeLast())
         }
         path.reverse()
-        return path
+        return if (path.size == totalEdges + 1) path else null
+    }
+
+    /**
+     * Finds an Euler path (open trail visiting every edge exactly once).
+     * [start] defaults to an appropriate odd-degree (undirected) or excess out-degree
+     * (directed) vertex; pass null to auto-detect.
+     * Returns null if no Euler path exists.
+     * O(V + E).
+     */
+    fun eulerPath(start: Int? = null): List<Int>? {
+        val src: Int
+        if (directed) {
+            val inDeg = IntArray(n)
+            for (u in 0 until n) for (e in g[u]) inDeg[e.to]++
+            val outMinusIn = IntArray(n) { v -> g[v].size - inDeg[v] }
+            val startCandidates = (0 until n).filter { outMinusIn[it] == 1 }
+            val endCandidates   = (0 until n).filter { outMinusIn[it] == -1 }
+            val balanced        = (0 until n).filter { outMinusIn[it] == 0 }
+            if (startCandidates.size == 1 && endCandidates.size == 1 && balanced.size == n - 2) {
+                src = start ?: startCandidates[0]
+                if (outMinusIn[src] != 1) return null
+            } else if (startCandidates.isEmpty() && endCandidates.isEmpty()) {
+                // Euler circuit case — delegate
+                return eulerCircuit(start ?: 0)
+            } else return null
+        } else {
+            val oddVertices = (0 until n).filter { g[it].size % 2 != 0 }
+            if (oddVertices.size == 2) {
+                src = start ?: oddVertices[0]
+                if (g[src].size % 2 == 0) return null
+            } else if (oddVertices.isEmpty()) {
+                return eulerCircuit(start ?: 0)
+            } else return null
+        }
+
+        val totalEdges = if (directed) g.sumOf { it.size } else g.sumOf { it.size } / 2
+        val (ids, cnt) = buildEdgeIds()
+        val usedEdge = BooleanArray(cnt)
+        val idx = IntArray(n)
+        val path = mutableListOf<Int>()
+        val stack = ArrayDeque<Int>(); stack.addLast(src)
+        while (stack.isNotEmpty()) {
+            val v = stack.last()
+            var moved = false
+            while (idx[v] < g[v].size) {
+                val i = idx[v]++
+                if (!usedEdge[ids[v][i]]) { usedEdge[ids[v][i]] = true; stack.addLast(g[v][i].to); moved = true; break }
+            }
+            if (!moved) path.add(stack.removeLast())
+        }
+        path.reverse()
+        return if (path.size == totalEdges + 1) path else null
     }
 
     // ── Connectivity ──────────────────────────────────────────────────────────
 
     /**
-     * Finds connected components (or weakly connected for directed graphs).
+     * Finds connected components of an **undirected** graph.
+     * Throws [IllegalStateException] if called on a directed graph; use
+     * [weakConnectedComponents] for that case.
      * Returns (componentCount, comp) where comp[v] = component id of v.
+     * O(V + E).
      */
     fun connectedComponents(): Pair<Int, IntArray> {
+        check(!directed) {
+            "connectedComponents() is only valid for undirected graphs. " +
+            "Use weakConnectedComponents() for directed graphs."
+        }
         val comp = IntArray(n) { -1 }
         var count = 0
         for (start in 0 until n) {
@@ -427,6 +553,32 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
             while (stack.isNotEmpty()) {
                 val v = stack.removeLast()
                 for (e in g[v]) if (comp[e.to] == -1) { comp[e.to] = count; stack.addLast(e.to) }
+            }
+            count++
+        }
+        return Pair(count, comp)
+    }
+
+    /**
+     * Finds **weakly** connected components of a directed graph by treating all
+     * edges as undirected.
+     * Returns (componentCount, comp) where comp[v] = component id of v.
+     * O(V + E).
+     */
+    fun weakConnectedComponents(): Pair<Int, IntArray> {
+        // Build an undirected adjacency view on the fly (reverse edges included)
+        val rev = Array(n) { ArrayList<Int>() }
+        for (u in 0 until n) for (e in g[u]) rev[e.to].add(u)
+
+        val comp = IntArray(n) { -1 }
+        var count = 0
+        for (start in 0 until n) {
+            if (comp[start] != -1) continue
+            val stack = ArrayDeque<Int>(); stack.addLast(start); comp[start] = count
+            while (stack.isNotEmpty()) {
+                val v = stack.removeLast()
+                for (e in g[v])   if (comp[e.to] == -1) { comp[e.to] = count; stack.addLast(e.to) }
+                for (u in rev[v]) if (comp[u]    == -1) { comp[u]    = count; stack.addLast(u) }
             }
             count++
         }
@@ -457,7 +609,7 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
 
     // ── LCA with binary lifting (trees / forests) ─────────────────────────────
 
-    private val LOG = 20
+    private var lcaLog:   Int              = 1
     private var lcaUp:    Array<IntArray>? = null   // lcaUp[v][k] = 2^k-th ancestor of v
     private var lcaDepth: IntArray?        = null
 
@@ -467,9 +619,13 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
      */
     fun buildLCA(root: Int = 0) {
         if (lcaUp == null) {
-            lcaUp    = Array(n) { IntArray(LOG) }
+            var log = 1
+            while ((1 shl log) <= n) log++
+            lcaLog   = log
+            lcaUp    = Array(n) { IntArray(lcaLog) }
             lcaDepth = IntArray(n) { -1 }
         }
+        val log   = lcaLog
         val up    = lcaUp!!
         val depth = lcaDepth!!
         // BFS to assign parent and depth
@@ -482,7 +638,7 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
             }
         }
         // Fill sparse table
-        for (k in 1 until LOG) for (v in 0 until n) {
+        for (k in 1 until log) for (v in 0 until n) {
             up[v][k] = if (depth[v] != -1) up[up[v][k - 1]][k - 1] else v
         }
     }
@@ -492,14 +648,15 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
      * Requires [buildLCA] to have been called first.
      */
     fun lca(u: Int, v: Int): Int {
+        val log   = lcaLog
         val up    = lcaUp    ?: error("buildLCA not called")
         val depth = lcaDepth ?: error("buildLCA not called")
         var a = u; var b = v
         if (depth[a] < depth[b]) { val t = a; a = b; b = t }
         var diff = depth[a] - depth[b]
-        for (k in 0 until LOG) if (diff ushr k and 1 == 1) a = up[a][k]
+        for (k in 0 until log) if (diff ushr k and 1 == 1) a = up[a][k]
         if (a == b) return a
-        for (k in LOG - 1 downTo 0) if (up[a][k] != up[b][k]) { a = up[a][k]; b = up[b][k] }
+        for (k in log - 1 downTo 0) if (up[a][k] != up[b][k]) { a = up[a][k]; b = up[b][k] }
         return up[a][0]
     }
 
@@ -541,10 +698,153 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
         return Triple(d2.dist[v], u, v)
     }
 
+    // ── Zero-one BFS (edge weights ∈ {0, 1}) ─────────────────────────────────
+
     /**
-     * Returns the DFS pre-order of vertices starting at [root].
-     * Useful for Euler-tour / HLD preprocessing. O(V + E).
+     * 0-1 BFS single-source shortest paths for graphs where all edge weights are
+     * 0 or 1.  Uses an ArrayDeque as a deque. O(V + E).
      */
+    fun zeroOneBfs(src: Int): ShortestPathResult {
+        val dist = LongArray(n) { GRAPH_INF }
+        val prev = IntArray(n) { -1 }
+        dist[src] = 0L
+        val dq = ArrayDeque<Int>(); dq.addLast(src)
+        while (dq.isNotEmpty()) {
+            val v = dq.removeFirst()
+            for (e in g[v]) {
+                val nd = dist[v] + e.w
+                if (nd < dist[e.to]) {
+                    dist[e.to] = nd; prev[e.to] = v
+                    if (e.w == 0L) dq.addFirst(e.to) else dq.addLast(e.to)
+                }
+            }
+        }
+        return ShortestPathResult(dist, prev)
+    }
+
+    // ── Negative-cycle detection and extraction ───────────────────────────────
+
+    /**
+     * Detects a negative-weight cycle reachable from any vertex using Bellman-Ford.
+     * Returns one such cycle (as a list of vertices in order) if found, or null.
+     * O(V · E).
+     */
+    fun negativeCycle(): List<Int>? {
+        val dist = LongArray(n) { 0L }   // initialise to 0 to detect cycles from all sources
+        val prev = IntArray(n) { -1 }
+        val edges = mutableListOf<Triple<Int, Int, Long>>()
+        for (u in 0 until n) for (e in g[u]) edges.add(Triple(u, e.to, e.w))
+
+        var last = -1
+        repeat(n) {
+            last = -1
+            for ((u, v, w) in edges) {
+                if (dist[u] + w < dist[v]) {
+                    dist[v] = dist[u] + w; prev[v] = u; last = v
+                }
+            }
+        }
+        if (last == -1) return null   // no negative cycle
+
+        // Walk back n steps to ensure we are inside the cycle
+        var v = last
+        repeat(n) { v = prev[v] }
+
+        // Collect the cycle
+        val cycle = mutableListOf<Int>()
+        var cur = v
+        while (true) {
+            cycle.add(cur)
+            cur = prev[cur]
+            if (cur == v) break
+        }
+        cycle.reverse()
+        return cycle
+    }
+
+    // ── Second-best MST ───────────────────────────────────────────────────────
+
+    /**
+     * Computes the second minimum spanning tree weight for an undirected weighted graph.
+     * Uses Kruskal's MST + max-edge-on-path queries via LCA / binary lifting.
+     *
+     * Returns null if:
+     *  - the graph is disconnected (no spanning tree exists), or
+     *  - all spanning trees have the same weight (no strictly second-best MST exists).
+     *
+     * O(E log E + V log² V).
+     */
+    fun secondBestMST(): Long? {
+        // Step 1: Kruskal MST
+        data class WEdge(val u: Int, val v: Int, val w: Long, val idx: Int)
+        val allEdges = mutableListOf<WEdge>()
+        var eid = 0
+        for (u in 0 until n) for (e in g[u]) if (u < e.to) allEdges.add(WEdge(u, e.to, e.w, eid++))
+        allEdges.sortBy { it.w }
+
+        val dsu = DSU(n)
+        val mstEdgeSet = HashSet<Int>()
+        var mstWeight = 0L
+        for (we in allEdges) {
+            if (dsu.union(we.u, we.v)) {
+                mstWeight += we.w; mstEdgeSet.add(we.idx)
+                if (mstEdgeSet.size == n - 1) break
+            }
+        }
+        if (mstEdgeSet.size != n - 1) return null   // disconnected
+
+        // Step 2: build MST as a SparseGraph for LCA / max-edge queries
+        val mst = SparseGraph(n, directed = false)
+        for (we in allEdges) if (we.idx in mstEdgeSet) mst.addEdge(we.u, we.v, we.w)
+
+        // Step 3: binary lifting with max-edge tracking on the MST path
+        var log2 = 1; while ((1 shl log2) <= n) log2++
+        val up      = Array(n) { IntArray(log2) { -1 } }
+        val maxEdge = Array(n) { LongArray(log2) { 0L } }
+        val depth   = IntArray(n) { -1 }
+
+        // BFS from root 0 to fill parent / depth / max-edge-to-parent
+        depth[0] = 0; up[0][0] = 0; maxEdge[0][0] = 0L
+        val bfsQ = ArrayDeque<Int>(); bfsQ.addLast(0)
+        while (bfsQ.isNotEmpty()) {
+            val v = bfsQ.removeFirst()
+            for (e in mst.g[v]) if (depth[e.to] == -1) {
+                depth[e.to] = depth[v] + 1
+                up[e.to][0] = v; maxEdge[e.to][0] = e.w
+                bfsQ.addLast(e.to)
+            }
+        }
+        for (k in 1 until log2) for (v in 0 until n) {
+            val mid = up[v][k - 1]
+            up[v][k] = up[mid][k - 1]
+            maxEdge[v][k] = maxOf(maxEdge[v][k - 1], maxEdge[mid][k - 1])
+        }
+
+        fun maxOnPath(u: Int, v: Int): Long {
+            var a = u; var b = v; var res = 0L
+            if (depth[a] < depth[b]) { val t = a; a = b; b = t }
+            var diff = depth[a] - depth[b]
+            for (k in 0 until log2) if (diff ushr k and 1 == 1) { res = maxOf(res, maxEdge[a][k]); a = up[a][k] }
+            if (a == b) return res
+            for (k in log2 - 1 downTo 0) if (up[a][k] != up[b][k]) {
+                res = maxOf(res, maxEdge[a][k], maxEdge[b][k]); a = up[a][k]; b = up[b][k]
+            }
+            return maxOf(res, maxEdge[a][0], maxEdge[b][0])
+        }
+
+        // Step 4: try replacing each non-MST edge (u, v, w) with the max-edge on its path
+        var best: Long? = null
+        for (we in allEdges) {
+            if (we.idx in mstEdgeSet) continue
+            val maxW = maxOnPath(we.u, we.v)
+            if (maxW < we.w) {
+                val candidate = mstWeight - maxW + we.w
+                if (best == null || candidate < best) best = candidate
+            }
+        }
+        return best
+    }
+
     fun dfsOrder(root: Int = 0): List<Int> {
         val order   = mutableListOf<Int>()
         val visited = BooleanArray(n)

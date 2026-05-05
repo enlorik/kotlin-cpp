@@ -1,0 +1,97 @@
+{
+  "symbols": [
+    {
+      "name": "GRAPH_INF",
+      "kind": "constant",
+      "file": "graph/GraphTypes.kt",
+      "description": "Sentinel value for unreachable/infinite distance (Long.MAX_VALUE / 2)"
+    },
+    {
+      "name": "Edge",
+      "kind": "data class",
+      "file": "graph/GraphTypes.kt",
+      "description": "Weighted directed edge: to (Int), w (Long)"
+    },
+    {
+      "name": "DSU",
+      "kind": "class",
+      "file": "graph/GraphTypes.kt",
+      "description": "Disjoint Set Union with path compression, union by rank, and component size"
+    },
+    {
+      "name": "ShortestPathResult",
+      "kind": "data class",
+      "file": "graph/GraphResults.kt",
+      "description": "Result of single-source shortest-path computation (dist[], prev[])"
+    },
+    {
+      "name": "MSTResult",
+      "kind": "data class",
+      "file": "graph/GraphResults.kt",
+      "description": "Result of MST computation (totalWeight, edges)"
+    },
+    {
+      "name": "SCCResult",
+      "kind": "data class",
+      "file": "graph/GraphResults.kt",
+      "description": "SCC decomposition result (count, comp[])"
+    },
+    {
+      "name": "BridgeArtResult",
+      "kind": "data class",
+      "file": "graph/GraphResults.kt",
+      "description": "Bridges and articulation points of an undirected graph"
+    },
+    {
+      "name": "SparseGraph",
+      "kind": "class",
+      "file": "graph/SparseGraph.kt",
+      "description": "Adjacency-list graph (directed or undirected). Algorithms: BFS, multiBFS, Dijkstra, Bellman-Ford, SPFA, 0-1 BFS, topoSort, SCC (Kosaraju + Tarjan), bridges, articulation points, Prim MST, Kruskal MST, Euler path/circuit, connectedComponents, weakConnectedComponents, isBipartite, LCA, treeDiameter, weightedTreeDiameter, negativeCycle, secondBestMST, dfsOrder"
+    },
+    {
+      "name": "DenseGraph",
+      "kind": "class",
+      "file": "graph/DenseGraph.kt",
+      "description": "Adjacency-matrix graph. Algorithms: Floyd-Warshall APSP, hasNegativeCycle, transitiveClosure"
+    },
+    {
+      "name": "FlowGraph",
+      "kind": "class",
+      "file": "graph/FlowGraph.kt",
+      "description": "Network flow graph (Dinic's algorithm). Methods: addEdge, maxFlow, minCutSide, minCutEdges"
+    },
+    {
+      "name": "MCFlowGraph",
+      "kind": "class",
+      "file": "graph/FlowGraph.kt",
+      "description": "Min-cost max-flow network (SPFA augmentation). Methods: addEdge, minCostFlow, minCostMaxFlow"
+    },
+    {
+      "name": "BipartiteGraph",
+      "kind": "class",
+      "file": "graph/BipartiteGraph.kt",
+      "description": "Bipartite graph with Hopcroft-Karp matching and König's min vertex cover"
+    },
+    {
+      "name": "hungarianMinCost",
+      "kind": "function",
+      "file": "graph/BipartiteGraph.kt",
+      "description": "Hungarian algorithm for minimum-cost perfect matching on an n×n cost matrix. O(n³)"
+    },
+    {
+      "name": "TwoSAT",
+      "kind": "class",
+      "file": "graph/TwoSAT.kt",
+      "description": "2-SAT solver using Kosaraju SCC. Methods: addImplication, addOr, addXor, force, solve"
+    }
+  ],
+  "files": [
+    "graph/GraphTypes.kt",
+    "graph/GraphResults.kt",
+    "graph/SparseGraph.kt",
+    "graph/DenseGraph.kt",
+    "graph/FlowGraph.kt",
+    "graph/BipartiteGraph.kt",
+    "graph/TwoSAT.kt"
+  ]
+}
