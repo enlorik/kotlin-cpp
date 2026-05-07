@@ -21,22 +21,51 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
     // ── BFS (unweighted / unit-weight shortest paths) ─────────────────────────
 
     /**
-     * Single-source BFS. Treats all edges as weight 1.
+     * Flexible single-source BFS with optional hooks. Treats all edges as weight 1.
+     * Stops early when [target] (≥ 0) is popped from the queue.
+     * [canGo]      – called for each edge (u, e); return false to skip the edge.
+     * [onDiscover] – called when vertex v is first reached via edge e from u.
+     * [onPop]      – called when vertex u is popped from the queue.
+     * [onFinish]   – called once with the final [BfsResult] before returning.
      * O(V + E).
      */
-    fun bfs(src: Int): ShortestPathResult {
-        val dist = LongArray(n) { GRAPH_INF }
-        val prev = IntArray(n) { -1 }
+    inline fun bfsFlex(
+        src: Int,
+        target: Int = -1,
+        crossinline canGo: (u: Int, e: Edge) -> Boolean = { _, _ -> true },
+        crossinline onDiscover: (u: Int, v: Int, e: Edge) -> Unit = { _, _, _ -> },
+        crossinline onPop: (u: Int) -> Unit = {},
+        crossinline onFinish: (res: BfsResult) -> Unit = {}
+    ): BfsResult {
+        val dist   = LongArray(n) { GRAPH_INF }
+        val parent = IntArray(n) { -1 }
+        val order  = mutableListOf<Int>()
         dist[src] = 0L
         val q = ArrayDeque<Int>(); q.addLast(src)
         while (q.isNotEmpty()) {
-            val v = q.removeFirst()
-            for (e in g[v]) if (dist[e.to] == GRAPH_INF) {
-                dist[e.to] = dist[v] + 1L; prev[e.to] = v; q.addLast(e.to)
+            val u = q.removeFirst()
+            order.add(u)
+            onPop(u)
+            if (target >= 0 && u == target) break
+            for (e in g[u]) {
+                if (canGo(u, e) && dist[e.to] == GRAPH_INF) {
+                    dist[e.to] = dist[u] + 1L
+                    parent[e.to] = u
+                    onDiscover(u, e.to, e)
+                    q.addLast(e.to)
+                }
             }
         }
-        return ShortestPathResult(dist, prev)
+        val result = BfsResult(dist, parent, order.toIntArray())
+        onFinish(result)
+        return result
     }
+
+    /**
+     * Single-source BFS. Treats all edges as weight 1.
+     * O(V + E).
+     */
+    fun bfs(src: Int): BfsResult = bfsFlex(src)
 
     /**
      * Multi-source BFS from all vertices in [sources] simultaneously.
@@ -834,22 +863,53 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
     }
 
     fun dfsOrder(root: Int = 0): List<Int> {
-        val order   = mutableListOf<Int>()
+        val order = mutableListOf<Int>()
+        dfsFlex(root, onEnter = { v -> order.add(v) })
+        return order
+    }
+
+    /**
+     * Flexible iterative DFS from [root] with optional hooks.
+     * [canGo]      – return false to skip an edge entirely.
+     * [onEnter]    – called when a vertex is first visited (pre-order).
+     * [onExit]     – called when all of a vertex's neighbours have been processed (post-order).
+     * [onTreeEdge] – called when traversing to an unvisited neighbour.
+     * [onBackEdge] – called when an already-visited neighbour is encountered.
+     * Uses iterative DFS to avoid JVM stack overflow. O(V + E).
+     */
+    inline fun dfsFlex(
+        root: Int,
+        crossinline canGo: (u: Int, e: Edge) -> Boolean = { _, _ -> true },
+        crossinline onEnter: (v: Int) -> Unit = {},
+        crossinline onExit: (v: Int) -> Unit = {},
+        crossinline onTreeEdge: (u: Int, v: Int, e: Edge) -> Unit = { _, _, _ -> },
+        crossinline onBackEdge: (u: Int, v: Int, e: Edge) -> Unit = { _, _, _ -> }
+    ) {
         val visited = BooleanArray(n)
-        val stack   = ArrayDeque<IntArray>()   // frame = [vertex, edgeIndex]
-        stack.addLast(intArrayOf(root, 0)); visited[root] = true
+        visited[root] = true
+        onEnter(root)
+        val stack = ArrayDeque<IntArray>()   // frame = [vertex, edgeIndex]
+        stack.addLast(intArrayOf(root, 0))
         while (stack.isNotEmpty()) {
             val frame = stack.last()
             val v = frame[0]; val i = frame[1]
-            if (i == 0) order.add(v)
             if (i < g[v].size) {
                 frame[1]++
-                val w = g[v][i].to
-                if (!visited[w]) { visited[w] = true; stack.addLast(intArrayOf(w, 0)) }
+                val e = g[v][i]
+                if (canGo(v, e)) {
+                    if (!visited[e.to]) {
+                        visited[e.to] = true
+                        onTreeEdge(v, e.to, e)
+                        onEnter(e.to)
+                        stack.addLast(intArrayOf(e.to, 0))
+                    } else {
+                        onBackEdge(v, e.to, e)
+                    }
+                }
             } else {
                 stack.removeLast()
+                onExit(v)
             }
         }
-        return order
     }
 }

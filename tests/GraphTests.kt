@@ -425,6 +425,110 @@ fun testLCA() {
     check(g.lca(0, 4) == 0)
 }
 
+// ── bfsFlex tests ─────────────────────────────────────────────────────────────
+
+fun testBfsFlexNormal() {
+    // 1. Normal BFS: bfsFlex with all defaults should match bfs()
+    val g = SparseGraph(6, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4); g.addEdge(4, 5)
+    val r = g.bfsFlex(0)
+    check(r.dist[0] == 0L)
+    check(r.dist[3] == 2L)
+    check(r.dist[5] == 3L)
+    check(r.reconstructPath(5) == listOf(0, 2, 4, 5))
+    check(r.order[0] == 0)
+    check(r.order.size == 6)
+}
+
+fun testBfsFlexBlockedEdges() {
+    // 2. Blocked edges with canGo: blocking edges to vertex 4 makes 4 and 5 unreachable
+    val g = SparseGraph(6, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4); g.addEdge(4, 5)
+    val r = g.bfsFlex(0, canGo = { _, e -> e.to != 4 })
+    check(r.dist[3] == 2L)
+    check(r.dist[4] == GRAPH_INF)
+    check(r.dist[5] == GRAPH_INF)
+    check(4 !in r.order)
+    check(5 !in r.order)
+}
+
+fun testBfsFlexOnDiscover() {
+    // 3. Collecting children using onDiscover
+    val g = SparseGraph(5, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4)
+    val children = Array(5) { mutableListOf<Int>() }
+    g.bfsFlex(0, onDiscover = { u, v, _ -> children[u].add(v) })
+    check(children[0].containsAll(listOf(1, 2)))
+    check(children[1] == listOf(3))
+    check(children[2] == listOf(4))
+    check(children[3].isEmpty())
+    check(children[4].isEmpty())
+}
+
+fun testBfsFlexEarlyStop() {
+    // 4. Early stop with target: traversal halts when target is popped
+    val g = SparseGraph(6, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4); g.addEdge(4, 5)
+    val r = g.bfsFlex(0, target = 3)
+    check(r.dist[3] == 2L)
+    check(3 in r.order)
+    // Vertex 5 is at distance 3 and should not have been popped yet
+    check(5 !in r.order)
+}
+
+fun testBfsFlexSideArray() {
+    // 5. Custom side array filled via onPop: pop order must respect BFS levels
+    val g = SparseGraph(5, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4)
+    val popOrder = mutableListOf<Int>()
+    g.bfsFlex(0, onPop = { u -> popOrder.add(u) })
+    check(popOrder[0] == 0)
+    check(popOrder.indexOf(1) < popOrder.indexOf(3))
+    check(popOrder.indexOf(2) < popOrder.indexOf(4))
+}
+
+// ── dfsFlex tests ─────────────────────────────────────────────────────────────
+
+fun testDfsFlexEnterExit() {
+    // onEnter is pre-order, onExit is post-order: children exit before their parent
+    val g = SparseGraph(5, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4)
+    val enterOrder = mutableListOf<Int>()
+    val exitOrder  = mutableListOf<Int>()
+    g.dfsFlex(0, onEnter = { v -> enterOrder.add(v) }, onExit = { v -> exitOrder.add(v) })
+    check(enterOrder[0] == 0)
+    check(enterOrder.contains(3) && enterOrder.contains(4))
+    // post-order: every child exits before its parent
+    check(exitOrder.indexOf(3) < exitOrder.indexOf(1))
+    check(exitOrder.indexOf(4) < exitOrder.indexOf(2))
+    check(exitOrder.last() == 0)
+}
+
+fun testDfsFlexCanGo() {
+    // canGo blocks an edge: vertices reachable only through the blocked edge are not visited
+    val g = SparseGraph(5, directed = true)
+    g.addEdge(0, 1); g.addEdge(0, 2); g.addEdge(1, 3); g.addEdge(2, 4)
+    val visited = mutableListOf<Int>()
+    g.dfsFlex(0, canGo = { _, e -> e.to != 2 }, onEnter = { v -> visited.add(v) })
+    check(0 in visited && 1 in visited && 3 in visited)
+    check(2 !in visited && 4 !in visited)
+}
+
+fun testDfsFlexEdgeTypes() {
+    // Directed cycle 0→1→2→0: tree edges are 0→1 and 1→2; back edge is 2→0
+    val g = SparseGraph(3, directed = true)
+    g.addEdge(0, 1); g.addEdge(1, 2); g.addEdge(2, 0)
+    val treeEdges = mutableListOf<Pair<Int, Int>>()
+    val backEdges = mutableListOf<Pair<Int, Int>>()
+    g.dfsFlex(0,
+        onTreeEdge = { u, v, _ -> treeEdges.add(u to v) },
+        onBackEdge = { u, v, _ -> backEdges.add(u to v) }
+    )
+    check((0 to 1) in treeEdges)
+    check((1 to 2) in treeEdges)
+    check((2 to 0) in backEdges)
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 fun main() {
@@ -471,6 +575,14 @@ fun main() {
         "Euler path (undirected)"   to ::testEulerPathUndirected,
         "Euler path valid+invalid"  to ::testEulerPathValidAndInvalid,
         "LCA"                       to ::testLCA,
+        "bfsFlex normal"            to ::testBfsFlexNormal,
+        "bfsFlex blocked edges"     to ::testBfsFlexBlockedEdges,
+        "bfsFlex onDiscover"        to ::testBfsFlexOnDiscover,
+        "bfsFlex early stop"        to ::testBfsFlexEarlyStop,
+        "bfsFlex side array"        to ::testBfsFlexSideArray,
+        "dfsFlex enter/exit"        to ::testDfsFlexEnterExit,
+        "dfsFlex canGo"             to ::testDfsFlexCanGo,
+        "dfsFlex edge types"        to ::testDfsFlexEdgeTypes,
     )
 
     var passed = 0; var failed = 0
