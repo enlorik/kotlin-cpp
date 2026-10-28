@@ -2,6 +2,8 @@
 
 Reusable Kotlin competitive-programming algorithms and fast I/O.
 
+- **Binary search:** [docs/binary_search.md](docs/binary_search.md) explains `firstTrue`, `lastTrue`, `lowerBound`, and `upperBound` for Int/Long ranges and sorted arrays, with overflow-safe midpoints.
+
 - **Unified aggregation vocabulary:** [docs/unified_aggregate.md](docs/unified_aggregate.md) demonstrates matching `Nearest`, `Radius`, `Neighbors`, and `op` names for both grids and graphs.
 - **Grid aggregation:** [docs/grid_aggregate.md](docs/grid_aggregate.md) explains `grid.aggregate(...)` with `Radius`, `Offsets`, and `Nearest`.
 - **Graph aggregation:** [docs/graph_aggregate.md](docs/graph_aggregate.md) documents `g.aggregate(...)` with matching `Nearest`, `Radius`, `Neighbors` selectors (and legacy graph-specific names), including fast OR, safe distinct SUM and directed graphs.
@@ -46,3 +48,18 @@ printValues(g.n) { v -> if (g.values[v] == 0) answer.values[v] else -1 }
 ```
 
 For input with values before edges, move `values()` above `edges()`. For `u v w`, write `edges { from(); to(); weight() }`.
+
+### Binary search without boilerplate
+
+```kotlin
+val a = intArrayOf(2, 4, 4, 4, 7)
+val first = a.lowerBound(4)     // 1
+val after = a.upperBound(4)     // 4
+val count = after - first       // 3
+
+val firstNine = firstTrue(a.size) { i -> a[i] >= 9 } // a.size when absent
+val lastSmall = lastTrue(a.size) { i -> a[i] < 7 }   // 3
+val bigAnswer = firstTrue(0L, 1_000_000_000_000_000_000L) { x -> feasible(x) }
+```
+
+For standalone submissions, add only `search/BinarySearch.kt` to your solution. It does not require the graph/grid modules.
