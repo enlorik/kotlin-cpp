@@ -15,7 +15,7 @@ fun main() {
     val grid = readIntGrid(h, w)
     val result = grid.aggregate(
         selection = Nearest(sources = { r, c -> grid[r][c] != 0 }, maxDistance = 5),
-        combine = { a, b -> a or b }
+        op = IntAggregations.OR
     )
     printGrid(h, w) { r, c ->
         if (grid[r][c] != 0) -1 else result.values[r][c]
@@ -23,7 +23,7 @@ fun main() {
 }
 ```
 
-For a standalone judge file, include `io/FastIO.kt`, `grid/GridAggregate.kt`, and `grid/GridBfs.kt`.
+For a standalone judge file using the shared vocabulary, include `io/FastIO.kt`, `grid/GridAggregate.kt`, `grid/GridBfs.kt`, `graph/GraphAggregate.kt`, the base graph types, and `shared/UnifiedAggregate.kt`.
 
 Graph-version example: [examples/GraphNearestOrSolution.kt](examples/GraphNearestOrSolution.kt). This uses `readGraph(n, m)`, `GraphNearest` and `IntAggregations.OR` to calculate the nearest-tied source OR in O(V+E).
 
