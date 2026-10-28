@@ -431,6 +431,30 @@
       "kind": "function",
       "file": "graph/SparseGraph.kt",
       "description": "Access named Int edge attribute arrays in input-edge order"
+    },
+    {
+      "name": "firstTrue",
+      "kind": "function overload",
+      "file": "search/BinarySearch.kt",
+      "description": "Find first true in [0,n) or [from,until) for Int or Long; returns exclusive end when no true"
+    },
+    {
+      "name": "lastTrue",
+      "kind": "function overload",
+      "file": "search/BinarySearch.kt",
+      "description": "Find last true with T..T F..F monotone predicate; n overload returns -1, range overload returns null if absent"
+    },
+    {
+      "name": "lowerBound",
+      "kind": "extension function",
+      "file": "search/BinarySearch.kt",
+      "description": "First sorted element >= target in IntArray, LongArray, List<T> or Array<T>; subranges and custom List comparators"
+    },
+    {
+      "name": "upperBound",
+      "kind": "extension function",
+      "file": "search/BinarySearch.kt",
+      "description": "First sorted element > target in IntArray, LongArray, List<T> or Array<T>; subranges and custom List comparators"
     }
   ],
   "files": [
@@ -452,6 +476,7 @@
     "graph/GraphAggregate.kt",
     "graph/GraphIO.kt",
     "shared/UnifiedAggregate.kt",
-    "graph/GraphReadDsl.kt"
+    "graph/GraphReadDsl.kt",
+    "search/BinarySearch.kt"
   ]
 }
