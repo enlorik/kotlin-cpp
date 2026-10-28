@@ -497,6 +497,12 @@
       "kind": "class or function",
       "file": "tree/SegmentTree.kt",
       "description": "Find first monotone true prefix directly in O(log n)"
+    },
+    {
+      "name": "parallelFirstTrue",
+      "kind": "function",
+      "file": "search/ParallelBinarySearch.kt",
+      "description": "Grouped batched monotone query search with shared or per-query ranges, sorted per-round midpoints"
     }
   ],
   "files": [
@@ -522,6 +528,7 @@
     "search/BinarySearch.kt",
     "search/AdvancedBinarySearch.kt",
     "tree/SegmentTree.kt",
-    "shared/SegmentTreeAggregations.kt"
+    "shared/SegmentTreeAggregations.kt",
+    "search/ParallelBinarySearch.kt"
   ]
 }
