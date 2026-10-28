@@ -161,6 +161,36 @@
       "kind": "inline function",
       "file": "grid/GridDfs.kt",
       "description": "Grid-native iterative customizable DFS; grid.dfsFlex overloads support common grid types"
+    },
+    {
+      "name": "DijkstraFlexResult",
+      "kind": "class",
+      "file": "graph/DijkstraFlex.kt",
+      "description": "Graph Dijkstra result with final/tentative distances, parent path, relaxation order and settled flags"
+    },
+    {
+      "name": "dijkstraFlex",
+      "kind": "inline extension function",
+      "file": "graph/DijkstraFlex.kt",
+      "description": "Flexible SparseGraph Dijkstra with canGo, cost, onRelax and onFinalize callbacks"
+    },
+    {
+      "name": "GRID_DIJKSTRA_INF",
+      "kind": "constant",
+      "file": "grid/GridDijkstra.kt",
+      "description": "Grid Dijkstra infinity sentinel (Long.MAX_VALUE / 2)"
+    },
+    {
+      "name": "GridDijkstraResult",
+      "kind": "class",
+      "file": "grid/GridDijkstra.kt",
+      "description": "Grid weighted shortest-path result with distances, paths and finalized cells"
+    },
+    {
+      "name": "gridDijkstraFlex",
+      "kind": "inline function",
+      "file": "grid/GridDijkstra.kt",
+      "description": "Grid-native customizable Dijkstra with direction presets, destination costs and optional moveCost"
     }
   ],
   "files": [
@@ -174,6 +204,8 @@
     "graph/BfsFlex.kt",
     "grid/GridBfs.kt",
     "graph/DfsFlex.kt",
-    "grid/GridDfs.kt"
+    "grid/GridDfs.kt",
+    "graph/DijkstraFlex.kt",
+    "grid/GridDijkstra.kt"
   ]
 }
