@@ -127,6 +127,21 @@ class FastOutput(output: Writer = OutputStreamWriter(System.out)) {
         printGrid(values.size, if (values.isEmpty()) 0 else values[0].size) { r, c -> values[r][c] }
     }
 
+    /** Print a one-line space-separated sequence without joinToString(). */
+    fun printValues(count: Int, value: (index: Int) -> Any?) {
+        require(count >= 0) { "count must be nonnegative" }
+        for (i in 0 until count) {
+            if (i > 0) writer.write(' '.code)
+            writer.write(value(i).toString())
+        }
+        writer.newLine()
+        writer.flush()
+    }
+
+    fun printValues(values: IntArray) = printValues(values.size) { values[it] }
+    fun printValues(values: LongArray) = printValues(values.size) { values[it] }
+    fun <T> printValues(values: List<T>) = printValues(values.size) { values[it] }
+
     fun flush() = writer.flush()
 }
 
@@ -151,3 +166,10 @@ fun printGrid(rows: Int, cols: Int, value: (r: Int, c: Int) -> Any?) =
 /** Print existing Int and Long grids. */
 fun printGrid(values: Array<IntArray>) = standardOutput.printGrid(values)
 fun printGrid(values: Array<LongArray>) = standardOutput.printGrid(values)
+
+/** Print a sequence on one line with spaces, no manual joins. */
+fun printValues(count: Int, value: (index: Int) -> Any?) =
+    standardOutput.printValues(count, value)
+fun printValues(values: IntArray) = standardOutput.printValues(values)
+fun printValues(values: LongArray) = standardOutput.printValues(values)
+fun <T> printValues(values: List<T>) = standardOutput.printValues(values)

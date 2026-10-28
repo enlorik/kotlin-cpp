@@ -305,6 +305,66 @@
       "kind": "function",
       "file": "io/FastIO.kt",
       "description": "Print an Int/Long grid or computed h-by-w values without joinToString"
+    },
+    {
+      "name": "GraphSelection",
+      "kind": "sealed interface",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Graph aggregation selection for adjacent, radius or closest sources"
+    },
+    {
+      "name": "GraphNeighbors",
+      "kind": "object",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Select each distinct outgoing adjacent vertex"
+    },
+    {
+      "name": "GraphRadius",
+      "kind": "data class",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Select distinct vertices at unweighted graph distances minDistance..radius"
+    },
+    {
+      "name": "GraphNearest",
+      "kind": "class",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Select equally nearest qualifying source vertices (distance along outgoing edges)"
+    },
+    {
+      "name": "GraphAggregateOp",
+      "kind": "class",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Aggregation identity, combine operation and idempotent safety flag"
+    },
+    {
+      "name": "IntAggregations",
+      "kind": "object",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Built-in OR AND MIN MAX SUM XOR reducers with correct identities and fast path flags"
+    },
+    {
+      "name": "GraphAggregateResult",
+      "kind": "class",
+      "file": "graph/GraphAggregate.kt",
+      "description": "Graph aggregate values and optionally nearest source distances"
+    },
+    {
+      "name": "aggregate",
+      "kind": "extension function",
+      "file": "graph/GraphAggregate.kt",
+      "description": "SparseGraph.aggregate(...) for one center or all vertices, radius, neighbors and nearest"
+    },
+    {
+      "name": "readGraph",
+      "kind": "function",
+      "file": "graph/GraphIO.kt",
+      "description": "Read unweighted/weighted, directed/undirected, 1-/0-indexed graph edges"
+    },
+    {
+      "name": "printValues",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Print a space-separated vertex sequence or IntArray/LongArray/List on one line"
     }
   ],
   "files": [
@@ -322,6 +382,8 @@
     "graph/DijkstraFlex.kt",
     "grid/GridDijkstra.kt",
     "grid/GridAggregate.kt",
-    "io/FastIO.kt"
+    "io/FastIO.kt",
+    "graph/GraphAggregate.kt",
+    "graph/GraphIO.kt"
   ]
 }

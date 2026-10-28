@@ -1,5 +1,7 @@
 # Graph Library Status
 
+Graph aggregation is documented in [Graph aggregate](graph_aggregate.md): `g.aggregate(...)` supports `GraphNeighbors`, `GraphRadius`, `GraphNearest`, built-in OR/SUM/MIN/MAX reducers, and safe handling of distinct nearest sources. Graph problems can use `readGraph(n, m)` and `printValues(...)` for concise I/O.
+
 **Unified grid aggregation:** [grid.aggregate()](grid_aggregate.md) handles relative positions (`Offsets(FOUR)` or custom offsets), Manhattan/Chebyshev radius and exact equally-nearest source selection, with any associative combine operation (sum, OR, min, max). The nearest mode uses multi-source BFS distances followed by distinct-source ring aggregation.
 
 Flexible Dijkstra is available for both graphs and grids. See [Flexible Dijkstra](grid_dijkstra.md): `g.dijkstraFlex(...)` uses edge weights or custom `cost(u,e)`; `grid.dijkstraFlex(...)` supports weighted cells, `moveCost` from two coordinates, custom directions, and `onRelax`/`onFinalize`. Ordinary `g.dijkstra()` and `g.multiDijkstra()` remain supported.

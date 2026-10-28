@@ -90,6 +90,23 @@ whole grid, not after each individual number.
 For a special output destination, use `FastOutput(writer).printGrid(...)`
 and `FastOutput.flush()`. The wrappers don't close `System.out`.
 
+## One-line graph and array output
+
+```kotlin
+val (n, m) = readInts()
+val values = readInts(n)
+val graph = readGraph(n, m) // 1-based edge list becomes 0-based vertices
+
+printValues(values) // IntArray, LongArray or List<T>
+printValues(n) { v -> values[v] }
+```
+
+`printValues` prints one space between values, followed by a newline.
+`readGraph` supports directed and weighted graphs:
+`readGraph(n, m, directed = true, oneIndexed = false, weighted = true)`.
+Weighted edge input is `u v w`; unweighted input is `u v`.
+See [Graph aggregation](graph_aggregate.md).
+
 ## Performance and tests
 
 The scanner reads 64-KiB byte buffers rather than splitting a large input
