@@ -137,6 +137,30 @@
       "kind": "inline function",
       "file": "grid/GridBfs.kt",
       "description": "Grid-native customizable BFS; extensions grid.bfsFlex also supplied for strings/chars/int grids"
+    },
+    {
+      "name": "DfsFlexResult",
+      "kind": "data class",
+      "file": "graph/DfsFlex.kt",
+      "description": "Iterative graph DFS result: depth, parent tree, enterOrder, exitOrder, path reconstruction"
+    },
+    {
+      "name": "dfsFlex",
+      "kind": "inline extension function",
+      "file": "graph/DfsFlex.kt",
+      "description": "SparseGraph customizable iterative DFS with canGo/onEnter/onExit/onStep and early target"
+    },
+    {
+      "name": "GridDfsResult",
+      "kind": "class",
+      "file": "grid/GridDfs.kt",
+      "description": "Grid DFS result: depth, parent tree, enter/exit orders, reachability and paths"
+    },
+    {
+      "name": "gridDfsFlex",
+      "kind": "inline function",
+      "file": "grid/GridDfs.kt",
+      "description": "Grid-native iterative customizable DFS; grid.dfsFlex overloads support common grid types"
     }
   ],
   "files": [
@@ -148,6 +172,8 @@
     "graph/BipartiteGraph.kt",
     "graph/TwoSAT.kt",
     "graph/BfsFlex.kt",
-    "grid/GridBfs.kt"
+    "grid/GridBfs.kt",
+    "graph/DfsFlex.kt",
+    "grid/GridDfs.kt"
   ]
 }
