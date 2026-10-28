@@ -1,5 +1,8 @@
 # Graph aggregation: one aggregate() API for neighbors, radius and nearest sources
 
+> **New shared API:** See [Unified aggregation](unified_aggregate.md) for the same `Nearest`, `Radius`, `Neighbors`, and `op = IntAggregations.*` names on both grids and graphs. Existing examples on this page remain valid.
+
+
 The **same extension name** used for grids now works on `SparseGraph`:
 `g.aggregate(...)`. You choose which vertices contribute, then what operation
 combines their values. Graph-specific selectors avoid collision with grid
