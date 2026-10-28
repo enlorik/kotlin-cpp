@@ -83,6 +83,18 @@
       "kind": "class",
       "file": "graph/TwoSAT.kt",
       "description": "2-SAT solver using Kosaraju SCC. Methods: addImplication, addOr, addXor, force, solve"
+    },
+    {
+      "name": "BfsFlexResult",
+      "kind": "data class",
+      "file": "graph/BfsFlex.kt",
+      "description": "BFS result with dist, prev, discovery pop order, path helpers"
+    },
+    {
+      "name": "bfsFlex",
+      "kind": "inline extension function",
+      "file": "graph/BfsFlex.kt",
+      "description": "SparseGraph custom BFS with canGo/onDiscover/onPop callbacks and optional target"
     }
   ],
   "files": [
@@ -92,6 +104,7 @@
     "graph/DenseGraph.kt",
     "graph/FlowGraph.kt",
     "graph/BipartiteGraph.kt",
-    "graph/TwoSAT.kt"
+    "graph/TwoSAT.kt",
+    "graph/BfsFlex.kt"
   ]
 }

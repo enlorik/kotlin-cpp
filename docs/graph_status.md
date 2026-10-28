@@ -1,5 +1,31 @@
 # Graph Library Status
 
+## Flexible BFS (hook-based)
+
+`graph/BfsFlex.kt` adds `g.bfsFlex(...)` alongside the existing `g.bfs(src)`.
+The basic BFS API remains unchanged. The flexible version uses the same
+unit-edge distance convention and returns `BfsFlexResult(dist, prev, order)`;
+`hasPath(v)` and `reconstructPath(v)` are available on the result.
+
+```kotlin
+val extra = LongArray(n)
+val r = g.bfsFlex(
+    src = 0,
+    canGo = { _, e -> e.w <= 10L },
+    onDiscover = { u, v, e -> extra[v] = extra[u] + e.w },
+    onPop = { u -> /* inspect popped vertex */ }
+)
+```
+
+Hooks are inline (no per-call lambda allocation for inlinable call sites).
+`canGo` runs only for an edge whose destination has **not** been discovered.
+`onDiscover` executes after that destination's `dist` and `prev` are set.
+`onPop` runs when a vertex leaves the queue. `target` stops when that
+vertex is popped; some already discovered vertices may keep finite distances,
+while remaining vertices are unexplored. `order` records popped vertices.
+
+Tests: `tests/BfsFlexTests.kt`, independent of `tests/GraphTests.kt`.
+
 ## Files
 
 | File | Description |
