@@ -1,5 +1,7 @@
 # Graph Library Status
 
+Grid-native BFS with FOUR/EIGHT/KNIGHT/CUSTOM movement and hooks is documented in [Grid BFS](grid_bfs.md) (`grid/GridBfs.kt`).
+
 ## Flexible BFS (hook-based)
 
 `graph/BfsFlex.kt` adds `g.bfsFlex(...)` alongside the existing `g.bfs(src)`.
