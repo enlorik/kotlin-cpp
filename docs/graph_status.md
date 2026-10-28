@@ -1,5 +1,7 @@
 # Graph Library Status
 
+Flexible Dijkstra is available for both graphs and grids. See [Flexible Dijkstra](grid_dijkstra.md): `g.dijkstraFlex(...)` uses edge weights or custom `cost(u,e)`; `grid.dijkstraFlex(...)` supports weighted cells, `moveCost` from two coordinates, custom directions, and `onRelax`/`onFinalize`. Ordinary `g.dijkstra()` and `g.multiDijkstra()` remain supported.
+
 Grid-native BFS with FOUR/EIGHT/KNIGHT/CUSTOM movement and hooks is documented in [Grid BFS](grid_bfs.md) (`grid/GridBfs.kt`).
 
 Flexible iterative **DFS** for both grids and graphs is documented in [DFS Flex](grid_dfs.md). Use `grid.dfsFlex(...)` or `g.dfsFlex(...)` with `canGo`, `onEnter`, `onExit`, and `onStep`. DFS tree depth is not shortest-path distance; traversal uses explicit stacks to avoid recursion limits.
@@ -37,8 +39,10 @@ Tests: `tests/BfsFlexTests.kt`, independent of `tests/GraphTests.kt`.
 | `graph/GraphTypes.kt` | Shared types: `GRAPH_INF`, `Edge`, `DSU` |
 | `graph/GraphResults.kt` | Result types: `ShortestPathResult`, `MSTResult`, `SCCResult`, `BridgeArtResult` |
 | `graph/SparseGraph.kt` | Adjacency-list graph (directed or undirected) |
-| `graph/DfsFlex.kt` | Hook-based iterative DFS of `SparseGraph` | 
+| `graph/DfsFlex.kt` | Hook-based iterative DFS of `SparseGraph` |
+| `graph/DijkstraFlex.kt` | Flexible nonnegative weighted graph shortest paths |
 | `grid/GridDfs.kt` | Hook-based iterative grid DFS (uses `GridBfs.kt` directions) |
+| `grid/GridDijkstra.kt` | Grid-native weighted shortest paths and movement-cost hooks |
 | `graph/DenseGraph.kt` | Adjacency-matrix graph |
 | `graph/FlowGraph.kt` | Network flow: `FlowGraph`, `MCFlowGraph` |
 | `graph/BipartiteGraph.kt` | Bipartite matching: `BipartiteGraph`, `hungarianMinCost` |
