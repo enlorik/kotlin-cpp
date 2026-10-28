@@ -3,6 +3,7 @@
 Reusable Kotlin competitive-programming algorithms and fast I/O.
 
 - **Advanced binary search:** [docs/advanced_binary_search.md](docs/advanced_binary_search.md) covers `firstTrueFrom`, `bisect`, `bisectRoot`, and `partitionPoint`.
+- **Segment tree prefix search:** [docs/segment_tree.md](docs/segment_tree.md) introduces `a.segmentTree()`, `tree.query`, `tree.set` and `tree.findPrefix` in O(log n).
 - **Binary search:** [docs/binary_search.md](docs/binary_search.md) explains `firstTrue`, `lastTrue`, `lowerBound`, and `upperBound` for Int/Long ranges and sorted arrays, with overflow-safe midpoints.
 
 - **Unified aggregation vocabulary:** [docs/unified_aggregate.md](docs/unified_aggregate.md) demonstrates matching `Nearest`, `Radius`, `Neighbors`, and `op` names for both grids and graphs.
