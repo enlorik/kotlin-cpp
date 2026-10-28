@@ -455,6 +455,30 @@
       "kind": "extension function",
       "file": "search/BinarySearch.kt",
       "description": "First sorted element > target in IntArray, LongArray, List<T> or Array<T>; subranges and custom List comparators"
+    },
+    {
+      "name": "firstTrueFrom",
+      "kind": "function",
+      "file": "search/AdvancedBinarySearch.kt",
+      "description": "Exponential boundary search without known upper bound, Int/Long"
+    },
+    {
+      "name": "bisect",
+      "kind": "function",
+      "file": "search/AdvancedBinarySearch.kt",
+      "description": "Monotone predicate bisection over finite Double interval"
+    },
+    {
+      "name": "bisectRoot",
+      "kind": "function",
+      "file": "search/AdvancedBinarySearch.kt",
+      "description": "Continuous scalar root bisection"
+    },
+    {
+      "name": "partitionPoint",
+      "kind": "function",
+      "file": "search/AdvancedBinarySearch.kt",
+      "description": "First qualifying element in IntArray LongArray List or Array"
     }
   ],
   "files": [
@@ -477,6 +501,7 @@
     "graph/GraphIO.kt",
     "shared/UnifiedAggregate.kt",
     "graph/GraphReadDsl.kt",
-    "search/BinarySearch.kt"
+    "search/BinarySearch.kt",
+    "search/AdvancedBinarySearch.kt"
   ]
 }
