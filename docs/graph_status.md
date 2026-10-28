@@ -1,5 +1,7 @@
 # Graph Library Status
 
+**Unified grid aggregation:** [grid.aggregate()](grid_aggregate.md) handles relative positions (`Offsets(FOUR)` or custom offsets), Manhattan/Chebyshev radius and exact equally-nearest source selection, with any associative combine operation (sum, OR, min, max). The nearest mode uses multi-source BFS distances followed by distinct-source ring aggregation.
+
 Flexible Dijkstra is available for both graphs and grids. See [Flexible Dijkstra](grid_dijkstra.md): `g.dijkstraFlex(...)` uses edge weights or custom `cost(u,e)`; `grid.dijkstraFlex(...)` supports weighted cells, `moveCost` from two coordinates, custom directions, and `onRelax`/`onFinalize`. Ordinary `g.dijkstra()` and `g.multiDijkstra()` remain supported.
 
 Grid-native BFS with FOUR/EIGHT/KNIGHT/CUSTOM movement and hooks is documented in [Grid BFS](grid_bfs.md) (`grid/GridBfs.kt`).
@@ -43,6 +45,7 @@ Tests: `tests/BfsFlexTests.kt`, independent of `tests/GraphTests.kt`.
 | `graph/DijkstraFlex.kt` | Flexible nonnegative weighted graph shortest paths |
 | `grid/GridDfs.kt` | Hook-based iterative grid DFS (uses `GridBfs.kt` directions) |
 | `grid/GridDijkstra.kt` | Grid-native weighted shortest paths and movement-cost hooks |
+| `grid/GridAggregate.kt` | Radius, custom-position and nearest-source aggregation with custom combines |
 | `graph/DenseGraph.kt` | Adjacency-matrix graph |
 | `graph/FlowGraph.kt` | Network flow: `FlowGraph`, `MCFlowGraph` |
 | `graph/BipartiteGraph.kt` | Bipartite matching: `BipartiteGraph`, `hungarianMinCost` |
