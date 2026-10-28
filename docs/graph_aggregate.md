@@ -1,5 +1,8 @@
 # Graph aggregation: one aggregate() API for neighbors, radius and nearest sources
 
+
+> **Graph input DSL:** [Describe your graph format](graph_input_dsl.md) using `readGraph { header(); values(); edges { from(); to(); weight() } }`, or reorder those calls to match the input. Parsed vertex values can also be aggregated without an explicit `value` lambda.
+
 > **New shared API:** See [Unified aggregation](unified_aggregate.md) for the same `Nearest`, `Radius`, `Neighbors`, and `op = IntAggregations.*` names on both grids and graphs. Existing examples on this page remain valid.
 
 
