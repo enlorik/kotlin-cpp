@@ -95,6 +95,48 @@
       "kind": "inline extension function",
       "file": "graph/BfsFlex.kt",
       "description": "SparseGraph custom BFS with canGo/onDiscover/onPop callbacks and optional target"
+    },
+    {
+      "name": "GridDirections",
+      "kind": "class",
+      "file": "grid/GridBfs.kt",
+      "description": "Grid movement offsets for FOUR, EIGHT, KNIGHT and CUSTOM patterns"
+    },
+    {
+      "name": "FOUR",
+      "kind": "value",
+      "file": "grid/GridBfs.kt",
+      "description": "Cardinal movement offsets (up/down/left/right)"
+    },
+    {
+      "name": "EIGHT",
+      "kind": "value",
+      "file": "grid/GridBfs.kt",
+      "description": "Cardinal and diagonal movement offsets"
+    },
+    {
+      "name": "KNIGHT",
+      "kind": "value",
+      "file": "grid/GridBfs.kt",
+      "description": "Chess knight movement offsets"
+    },
+    {
+      "name": "CUSTOM",
+      "kind": "function",
+      "file": "grid/GridBfs.kt",
+      "description": "Build custom grid directions from (dr, dc) pairs"
+    },
+    {
+      "name": "GridBfsResult",
+      "kind": "class",
+      "file": "grid/GridBfs.kt",
+      "description": "Grid BFS result with 2D distances, parent path reconstruction, and visit order"
+    },
+    {
+      "name": "gridBfsFlex",
+      "kind": "inline function",
+      "file": "grid/GridBfs.kt",
+      "description": "Grid-native customizable BFS; extensions grid.bfsFlex also supplied for strings/chars/int grids"
     }
   ],
   "files": [
@@ -105,6 +147,7 @@
     "graph/FlowGraph.kt",
     "graph/BipartiteGraph.kt",
     "graph/TwoSAT.kt",
-    "graph/BfsFlex.kt"
+    "graph/BfsFlex.kt",
+    "grid/GridBfs.kt"
   ]
 }
