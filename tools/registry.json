@@ -191,6 +191,60 @@
       "kind": "inline function",
       "file": "grid/GridDijkstra.kt",
       "description": "Grid-native customizable Dijkstra with direction presets, destination costs and optional moveCost"
+    },
+    {
+      "name": "GridMetric",
+      "kind": "enum",
+      "file": "grid/GridAggregate.kt",
+      "description": "Manhattan or Chebyshev distance for Radius neighborhoods"
+    },
+    {
+      "name": "GridSelection",
+      "kind": "sealed interface",
+      "file": "grid/GridAggregate.kt",
+      "description": "Selector for relative grid neighborhoods or closest qualifying sources"
+    },
+    {
+      "name": "Radius",
+      "kind": "class",
+      "file": "grid/GridAggregate.kt",
+      "description": "Manhattan diamond or Chebyshev square within minDistance..radius"
+    },
+    {
+      "name": "Offsets",
+      "kind": "class",
+      "file": "grid/GridAggregate.kt",
+      "description": "Unique relative grid cell positions, including direction presets such as FOUR"
+    },
+    {
+      "name": "Nearest",
+      "kind": "class",
+      "file": "grid/GridAggregate.kt",
+      "description": "Select only qualifying cells at the minimal Manhattan distance"
+    },
+    {
+      "name": "GridAggregateResult",
+      "kind": "class",
+      "file": "grid/GridAggregate.kt",
+      "description": "Aggregated values for every grid center and optional nearest-source distance"
+    },
+    {
+      "name": "aggregate",
+      "kind": "extension function",
+      "file": "grid/GridAggregate.kt",
+      "description": "Unified grid aggregation (single center or whole grid), with selection, value, include, initial and combine"
+    },
+    {
+      "name": "gridAggregate",
+      "kind": "function",
+      "file": "grid/GridAggregate.kt",
+      "description": "Shape-only generic whole-grid aggregator"
+    },
+    {
+      "name": "gridAggregateAt",
+      "kind": "function",
+      "file": "grid/GridAggregate.kt",
+      "description": "Shape-only generic single-center aggregator"
     }
   ],
   "files": [
@@ -206,6 +260,7 @@
     "graph/DfsFlex.kt",
     "grid/GridDfs.kt",
     "graph/DijkstraFlex.kt",
-    "grid/GridDijkstra.kt"
+    "grid/GridDijkstra.kt",
+    "grid/GridAggregate.kt"
   ]
 }
