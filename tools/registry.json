@@ -503,6 +503,18 @@
       "kind": "function",
       "file": "search/ParallelBinarySearch.kt",
       "description": "Grouped batched monotone query search with shared or per-query ranges, sorted per-round midpoints"
+    },
+    {
+      "name": "FractionalCascade",
+      "kind": "class or factory",
+      "file": "search/FractionalCascading.kt",
+      "description": "Preprocessed immutable sorted Int catalogs for O(log N + K) lower/upper-bound lookups"
+    },
+    {
+      "name": "fractionalCascade",
+      "kind": "class or factory",
+      "file": "search/FractionalCascading.kt",
+      "description": "Build a fractional-cascade index from sorted Int arrays"
     }
   ],
   "files": [
@@ -529,6 +541,7 @@
     "search/AdvancedBinarySearch.kt",
     "tree/SegmentTree.kt",
     "shared/SegmentTreeAggregations.kt",
-    "search/ParallelBinarySearch.kt"
+    "search/ParallelBinarySearch.kt",
+    "search/FractionalCascading.kt"
   ]
 }
