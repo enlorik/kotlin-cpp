@@ -1,11 +1,9 @@
 /**
  * Full solution for the nearest-nonzero, tied-minimum-Manhattan-distance
  * bitwise OR problem. Include:
- *   io/FastIO.kt
- *   grid/GridBfs.kt  (GridDirections dependency)
- *   grid/GridAggregate.kt
- *   graph/GraphAggregate.kt (operation definitions)
- *   shared/UnifiedAggregate.kt
+ *   io/FastIO.kt, grid/GridBfs.kt, grid/GridAggregate.kt
+ *   graph/GraphTypes.kt, graph/GraphResults.kt, graph/SparseGraph.kt
+ *   graph/GraphAggregate.kt, shared/UnifiedAggregate.kt
  *
  * Nonzero input cells print -1; zero cells OR only the nearest nonzero
  * values if that minimum distance is at most 5, otherwise print 0.
