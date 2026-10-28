@@ -373,10 +373,16 @@
       "description": "Common immediate neighbors selector; FOUR cardinal grid cells or distinct graph adjacent vertices via shared/UnifiedAggregate.kt"
     },
     {
-      "name": "UnifiedAggregateAdapter",
-      "kind": "module",
+      "name": "Nearest",
+      "kind": "factory overload",
       "file": "shared/UnifiedAggregate.kt",
-      "description": "Overloaded graph Nearest(sources={v->...}), graph Radius/Neighbors adapters and grid op=GraphAggregateOp, supporting identical selector names"
+      "description": "Graph Nearest(sources = { v -> ... }) factory sharing a name with grid Nearest(sources = { r, c -> ... })"
+    },
+    {
+      "name": "aggregate",
+      "kind": "extension overloads",
+      "file": "shared/UnifiedAggregate.kt",
+      "description": "Graph Radius/Neighbors dispatch and grid GraphAggregateOp-based reducers, keeping all grid/graph API names consistent"
     }
   ],
   "files": [
