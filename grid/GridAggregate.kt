@@ -5,6 +5,13 @@ enum class GridMetric { MANHATTAN, CHEBYSHEV }
 sealed interface GridSelection
 
 /**
+ * Immediate neighbors: FOUR cardinal cells (up, down, left, right), excluding
+ * the center. Use Offsets(EIGHT), Offsets(KNIGHT), or Offsets(CUSTOM(...)) for
+ * other grid movement patterns. Graphs use the same public Neighbors name.
+ */
+data object Neighbors : GridSelection
+
+/**
  * Select offsets at distances [minDistance] through [radius], inclusive.
  * Radius(2) is a Manhattan diamond; Radius(2, metric = CHEBYSHEV) is a square.
  * Radius(2, minDistance = 2) selects exactly the ring at distance 2.
@@ -95,6 +102,7 @@ fun <T> gridAggregate(
     val result = Array(rows) { MutableList(cols) { initial } }
     var nearestDistance: IntArray? = null
     when (selection) {
+        Neighbors -> return gridAggregate(rows, cols, Offsets(FOUR), initial, value, combine, include)
         is Radius -> {
             val k = selection.radius
             // Clamp the radius to the maximum possible offset in this grid,
@@ -283,6 +291,7 @@ fun <T> gridAggregateAt(
     require(r in 0 until rows && c in 0 until cols) { "Center outside grid" }
     var acc = initial
     when (selection) {
+        Neighbors -> return gridAggregateAt(rows, cols, center, Offsets(FOUR), initial, value, combine, include)
         is Radius -> {
             val k = selection.radius
             val rowReach = minOf(k, rows - 1)

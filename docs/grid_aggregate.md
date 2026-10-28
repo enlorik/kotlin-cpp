@@ -1,5 +1,8 @@
 # One grid aggregation API: radius, offsets, nearest
 
+> **New shared API:** See [Unified aggregation](unified_aggregate.md) for the same `Nearest`, `Radius`, `Neighbors`, and `op = IntAggregations.*` names on both grids and graphs. Existing examples on this page remain valid.
+
+
 This library introduces **one public extension name**: `grid.aggregate(...)`.
 The **selection** decides *which coordinates contribute*; the **combination**
 decides *how their values are merged*. Both are independent.
