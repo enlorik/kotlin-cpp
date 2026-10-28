@@ -229,3 +229,46 @@ fun <T> Array<CharArray>.aggregate(
     center = center, selection = selection, initial = op.initial,
     value = value, combine = op.combine, include = include
 )
+
+/**
+ * Graphs parsed with readGraph { values() } can now omit value={v->...}.
+ * These overloads map the shared Radius/Neighbors selectors onto the same
+ * graph routines, which use g.values when values were provided by the DSL.
+ */
+fun SparseGraph.aggregate(
+    selection: Radius,
+    op: GraphAggregateOp<Int>,
+    include: (v: Int) -> Boolean = { true },
+    canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
+): GraphAggregateResult<Int> =
+    aggregate(selection = selection.asGraphRadius(), op = op,
+        include = include, canTraverse = canTraverse)
+
+fun SparseGraph.aggregate(
+    selection: Neighbors,
+    op: GraphAggregateOp<Int>,
+    include: (v: Int) -> Boolean = { true },
+    canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
+): GraphAggregateResult<Int> =
+    aggregate(selection = GraphNeighbors, op = op,
+        include = include, canTraverse = canTraverse)
+
+fun SparseGraph.aggregate(
+    center: Int,
+    selection: Radius,
+    op: GraphAggregateOp<Int>,
+    include: (v: Int) -> Boolean = { true },
+    canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
+): Int =
+    aggregate(center = center, selection = selection.asGraphRadius(),
+        op = op, include = include, canTraverse = canTraverse)
+
+fun SparseGraph.aggregate(
+    center: Int,
+    selection: Neighbors,
+    op: GraphAggregateOp<Int>,
+    include: (v: Int) -> Boolean = { true },
+    canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
+): Int =
+    aggregate(center = center, selection = GraphNeighbors,
+        op = op, include = include, canTraverse = canTraverse)

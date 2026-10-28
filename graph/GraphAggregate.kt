@@ -261,3 +261,27 @@ fun <T> SparseGraph.aggregate(
     include: (v: Int) -> Boolean = { true },
     canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
 ): T = aggregate(center, selection, value, GraphAggregateOp(initial, combine), include, canTraverse)
+
+/**
+ * When readGraph { values() } supplied an Int array (or withValues(values)
+ * was called), use those vertex values automatically, just like Int grids.
+ * The explicit value={v->...} overloads still support custom computations.
+ */
+fun SparseGraph.aggregate(
+    selection: GraphSelection,
+    op: GraphAggregateOp<Int>,
+    include: (v: Int) -> Boolean = { true },
+    canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
+): GraphAggregateResult<Int> =
+    aggregate(selection = selection, value = { v -> values[v] },
+        op = op, include = include, canTraverse = canTraverse)
+
+fun SparseGraph.aggregate(
+    center: Int,
+    selection: GraphSelection,
+    op: GraphAggregateOp<Int>,
+    include: (v: Int) -> Boolean = { true },
+    canTraverse: (u: Int, edge: Edge) -> Boolean = { _, _ -> true }
+): Int =
+    aggregate(center = center, selection = selection, value = { v -> values[v] },
+        op = op, include = include, canTraverse = canTraverse)

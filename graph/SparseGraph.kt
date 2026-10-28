@@ -13,6 +13,45 @@ class SparseGraph(val n: Int, val directed: Boolean = false) {
 
     val g: Array<ArrayList<Edge>> = Array(n) { ArrayList() }
 
+    // Optional input attributes for graph DSL parsing. Ordinary graphs do not
+    // need these fields; algorithms continue using the original adjacency list.
+    private val inputVertexInts = LinkedHashMap<String, IntArray>()
+    private val inputVertexLongs = LinkedHashMap<String, LongArray>()
+    private val inputVertexTokens = LinkedHashMap<String, Array<String>>()
+    private val inputEdgeInts = LinkedHashMap<String, IntArray>()
+    private val inputEdgeLongs = LinkedHashMap<String, LongArray>()
+    private val inputEdgeTokens = LinkedHashMap<String, Array<String>>()
+
+    /** Values read by readGraph { values() }, in internal 0-based vertex order. */
+    val values: IntArray get() = vertexInts("values")
+
+    /** Attach vertex values to a manually constructed graph as well. */
+    fun withValues(values: IntArray): SparseGraph {
+        require(values.size == n) { "Expected $n vertex values, got ${values.size}" }
+        setVertexInts("values", values)
+        return this
+    }
+
+    fun vertexInts(name: String): IntArray = inputVertexInts[name]
+        ?: error("No Int vertex field '$name'. Add values() or vertexInts(\"$name\") to readGraph { ... }.")
+    fun vertexLongs(name: String): LongArray = inputVertexLongs[name]
+        ?: error("No Long vertex field '$name' was read")
+    fun vertexTokens(name: String): Array<String> = inputVertexTokens[name]
+        ?: error("No token vertex field '$name' was read")
+    fun edgeInts(name: String): IntArray = inputEdgeInts[name]
+        ?: error("No Int edge field '$name' was read")
+    fun edgeLongs(name: String): LongArray = inputEdgeLongs[name]
+        ?: error("No Long edge field '$name' was read")
+    fun edgeTokens(name: String): Array<String> = inputEdgeTokens[name]
+        ?: error("No token edge field '$name' was read")
+
+    internal fun setVertexInts(name: String, data: IntArray) { inputVertexInts[name] = data }
+    internal fun setVertexLongs(name: String, data: LongArray) { inputVertexLongs[name] = data }
+    internal fun setVertexTokens(name: String, data: Array<String>) { inputVertexTokens[name] = data }
+    internal fun setEdgeInts(name: String, data: IntArray) { inputEdgeInts[name] = data }
+    internal fun setEdgeLongs(name: String, data: LongArray) { inputEdgeLongs[name] = data }
+    internal fun setEdgeTokens(name: String, data: Array<String>) { inputEdgeTokens[name] = data }
+
     fun addEdge(u: Int, v: Int, w: Long = 1L) {
         g[u].add(Edge(v, w))
         if (!directed) g[v].add(Edge(u, w))

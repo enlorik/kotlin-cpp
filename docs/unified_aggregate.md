@@ -49,8 +49,28 @@ printValues(n) { v ->
 ```
 
 The grid defaults to the integer stored at each cell, so it can omit
-`value`. A graph has no built-in value array, so you supply a vertex
-`value` lambda.
+`value`. Graphs can also omit `value` when created with
+`readGraph { header(); values(); edges() }` or `g.withValues(values)`.
+For graphs without attached Int values, provide an explicit vertex `value`
+lambda as shown above. See [Graph input DSL](graph_input_dsl.md).
+
+## Shorter when graph values are attached
+
+```kotlin
+val g = readGraph {
+    header()
+    values()
+    edges()
+}
+val nearestGraph = g.aggregate(
+    selection = Nearest(sources = { v -> g.values[v] != 0 }),
+    op = IntAggregations.OR
+)
+```
+
+Both graph and grid can now use an `op` without an explicit `value`
+lambda in the common Int-valued case. You can still override `value`
+for counts, degrees and custom calculations.
 
 ## Other matching examples
 

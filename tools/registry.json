@@ -383,6 +383,54 @@
       "kind": "extension overloads",
       "file": "shared/UnifiedAggregate.kt",
       "description": "Graph Radius/Neighbors dispatch and grid GraphAggregateOp-based reducers, keeping all grid/graph API names consistent"
+    },
+    {
+      "name": "GraphInputDsl",
+      "kind": "annotation",
+      "file": "graph/GraphReadDsl.kt",
+      "description": "Marks graph input DSL receivers to prevent accidental mixing of scopes"
+    },
+    {
+      "name": "EdgeInputFormat",
+      "kind": "class",
+      "file": "graph/GraphReadDsl.kt",
+      "description": "Declares input edge fields in exact order: from, to, weight, int, long, token, skip"
+    },
+    {
+      "name": "GraphInputBuilder",
+      "kind": "class",
+      "file": "graph/GraphReadDsl.kt",
+      "description": "Order-aware graph input DSL with header, directed/indexing settings, vertex fields and custom edge columns"
+    },
+    {
+      "name": "readGraph",
+      "kind": "function overload",
+      "file": "graph/GraphReadDsl.kt",
+      "description": "Read and construct a SparseGraph by executing readGraph { ... }"
+    },
+    {
+      "name": "graph",
+      "kind": "function",
+      "file": "graph/GraphReadDsl.kt",
+      "description": "Short alias graph { ... } for declarative stdin graph input"
+    },
+    {
+      "name": "values",
+      "kind": "property",
+      "file": "graph/SparseGraph.kt",
+      "description": "IntArray of vertex values attached by readGraph { values() } or withValues()"
+    },
+    {
+      "name": "vertexInts",
+      "kind": "function",
+      "file": "graph/SparseGraph.kt",
+      "description": "Access named per-vertex Int arrays parsed from input"
+    },
+    {
+      "name": "edgeInts",
+      "kind": "function",
+      "file": "graph/SparseGraph.kt",
+      "description": "Access named Int edge attribute arrays in input-edge order"
     }
   ],
   "files": [
@@ -403,6 +451,7 @@
     "io/FastIO.kt",
     "graph/GraphAggregate.kt",
     "graph/GraphIO.kt",
-    "shared/UnifiedAggregate.kt"
+    "shared/UnifiedAggregate.kt",
+    "graph/GraphReadDsl.kt"
   ]
 }
