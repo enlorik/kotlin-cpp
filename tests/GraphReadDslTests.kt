@@ -146,5 +146,32 @@ fun main() {
     invalidInput { graphInput("-1 1").readGraph { header() } }
     invalidInput { graphInput("0").readGraph { tree() } }
 
+    // Attached vertex values now work with the same short op syntax as grids.
+    val attached = graphInput("4 3 0 2 4 8 1 2 1 3 2 4").readGraph {
+        header()
+        values()
+        edges()
+    }
+    val nearest = attached.aggregate(
+        selection = Nearest(sources = { v -> attached.values[v] != 0 }),
+        op = IntAggregations.OR
+    )
+    checkInput(nearest.values[0] == 6, "nearest using attached graph values")
+    val adjacent = attached.aggregate(
+        selection = Neighbors, op = IntAggregations.SUM
+    )
+    checkInput(adjacent.values[0] == 6, "neighbors using attached graph values")
+    val radius = attached.aggregate(
+        selection = Radius(2), op = IntAggregations.SUM
+    )
+    checkInput(radius.values[0] == 14, "radius using attached graph values")
+    checkInput(attached.aggregate(
+        center = 0, selection = Neighbors, op = IntAggregations.SUM
+    ) == 6, "single center with attached values")
+    checkInput(attached.aggregate(
+        center = 0, selection = GraphNeighbors,
+        value = { 1 }, op = IntAggregations.SUM
+    ) == 2, "explicit custom vertex values still supported")
+
     println("PASS: graph DSL layouts, metadata, indexing, trees, and invalid formats")
 }
