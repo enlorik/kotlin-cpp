@@ -2,6 +2,8 @@
 
 Grid-native BFS with FOUR/EIGHT/KNIGHT/CUSTOM movement and hooks is documented in [Grid BFS](grid_bfs.md) (`grid/GridBfs.kt`).
 
+Flexible iterative **DFS** for both grids and graphs is documented in [DFS Flex](grid_dfs.md). Use `grid.dfsFlex(...)` or `g.dfsFlex(...)` with `canGo`, `onEnter`, `onExit`, and `onStep`. DFS tree depth is not shortest-path distance; traversal uses explicit stacks to avoid recursion limits.
+
 ## Flexible BFS (hook-based)
 
 `graph/BfsFlex.kt` adds `g.bfsFlex(...)` alongside the existing `g.bfs(src)`.
@@ -35,6 +37,8 @@ Tests: `tests/BfsFlexTests.kt`, independent of `tests/GraphTests.kt`.
 | `graph/GraphTypes.kt` | Shared types: `GRAPH_INF`, `Edge`, `DSU` |
 | `graph/GraphResults.kt` | Result types: `ShortestPathResult`, `MSTResult`, `SCCResult`, `BridgeArtResult` |
 | `graph/SparseGraph.kt` | Adjacency-list graph (directed or undirected) |
+| `graph/DfsFlex.kt` | Hook-based iterative DFS of `SparseGraph` | 
+| `grid/GridDfs.kt` | Hook-based iterative grid DFS (uses `GridBfs.kt` directions) |
 | `graph/DenseGraph.kt` | Adjacency-matrix graph |
 | `graph/FlowGraph.kt` | Network flow: `FlowGraph`, `MCFlowGraph` |
 | `graph/BipartiteGraph.kt` | Bipartite matching: `BipartiteGraph`, `hungarianMinCost` |
