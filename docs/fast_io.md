@@ -1,5 +1,8 @@
 # Fast competitive-programming input and output
 
+
+> **Graph input DSL:** [Describe your graph format](graph_input_dsl.md) using `readGraph { header(); values(); edges { from(); to(); weight() } }`, or reorder those calls to match the input. Parsed vertex values can also be aggregated without an explicit `value` lambda.
+
 `io/FastIO.kt` provides compact **buffered, whitespace-tokenized**
 input/output helpers. The code works with ordinary Kotlin/JVM and needs only
 standard Java I/O, including on Codeforces.
