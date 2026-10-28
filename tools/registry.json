@@ -365,6 +365,18 @@
       "kind": "function",
       "file": "io/FastIO.kt",
       "description": "Print a space-separated vertex sequence or IntArray/LongArray/List on one line"
+    },
+    {
+      "name": "Neighbors",
+      "kind": "object",
+      "file": "grid/GridAggregate.kt",
+      "description": "Common immediate neighbors selector; FOUR cardinal grid cells or distinct graph adjacent vertices via shared/UnifiedAggregate.kt"
+    },
+    {
+      "name": "UnifiedAggregateAdapter",
+      "kind": "module",
+      "file": "shared/UnifiedAggregate.kt",
+      "description": "Overloaded graph Nearest(sources={v->...}), graph Radius/Neighbors adapters and grid op=GraphAggregateOp, supporting identical selector names"
     }
   ],
   "files": [
@@ -384,6 +396,7 @@
     "grid/GridAggregate.kt",
     "io/FastIO.kt",
     "graph/GraphAggregate.kt",
-    "graph/GraphIO.kt"
+    "graph/GraphIO.kt",
+    "shared/UnifiedAggregate.kt"
   ]
 }
