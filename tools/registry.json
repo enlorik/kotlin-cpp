@@ -245,6 +245,66 @@
       "kind": "function",
       "file": "grid/GridAggregate.kt",
       "description": "Shape-only generic single-center aggregator"
+    },
+    {
+      "name": "FastInput",
+      "kind": "class",
+      "file": "io/FastIO.kt",
+      "description": "64KiB buffered contest scanner for ints, longs, tokens and grids"
+    },
+    {
+      "name": "FastOutput",
+      "kind": "class",
+      "file": "io/FastIO.kt",
+      "description": "Buffered contest grid output; handles row separators and spaces"
+    },
+    {
+      "name": "readInt",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read one integer from standard input"
+    },
+    {
+      "name": "readLong",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read one Long from standard input"
+    },
+    {
+      "name": "readToken",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read a whitespace-delimited string"
+    },
+    {
+      "name": "readInts",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read count integers; default count=2 for destructuring (h,w)"
+    },
+    {
+      "name": "readLongs",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read a given number of Long values"
+    },
+    {
+      "name": "readIntGrid",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read an Array<IntArray> using row and column counts"
+    },
+    {
+      "name": "readCharGrid",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Read a grid of character rows"
+    },
+    {
+      "name": "printGrid",
+      "kind": "function",
+      "file": "io/FastIO.kt",
+      "description": "Print an Int/Long grid or computed h-by-w values without joinToString"
     }
   ],
   "files": [
@@ -261,6 +321,7 @@
     "grid/GridDfs.kt",
     "graph/DijkstraFlex.kt",
     "grid/GridDijkstra.kt",
-    "grid/GridAggregate.kt"
+    "grid/GridAggregate.kt",
+    "io/FastIO.kt"
   ]
 }
