@@ -479,6 +479,24 @@
       "kind": "function",
       "file": "search/AdvancedBinarySearch.kt",
       "description": "First qualifying element in IntArray LongArray List or Array"
+    },
+    {
+      "name": "SegmentTree",
+      "kind": "class or function",
+      "file": "tree/SegmentTree.kt",
+      "description": "Generic associative range aggregation with point update and O(log n) prefix search"
+    },
+    {
+      "name": "segmentTree",
+      "kind": "class or function",
+      "file": "tree/SegmentTree.kt",
+      "description": "Build segment tree from IntArray LongArray List or GraphAggregateOp"
+    },
+    {
+      "name": "findPrefix",
+      "kind": "class or function",
+      "file": "tree/SegmentTree.kt",
+      "description": "Find first monotone true prefix directly in O(log n)"
     }
   ],
   "files": [
@@ -502,6 +520,8 @@
     "shared/UnifiedAggregate.kt",
     "graph/GraphReadDsl.kt",
     "search/BinarySearch.kt",
-    "search/AdvancedBinarySearch.kt"
+    "search/AdvancedBinarySearch.kt",
+    "tree/SegmentTree.kt",
+    "shared/SegmentTreeAggregations.kt"
   ]
 }
