@@ -1,4 +1,4 @@
-/** Compile together with graph/*.kt grid/*.kt shared/*.kt and io/FastIO.kt. */
+// Compile alongside the graph, grid, shared and fast-I/O library sources.
 private fun assertUnified(ok: Boolean, label: String) {
     check(ok) { "Unified aggregate API failed: $label" }
 }
