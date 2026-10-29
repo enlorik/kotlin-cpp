@@ -9,6 +9,14 @@ mapfile -t sources < <(find graph grid io search shared tree -type f -name '*.kt
 echo "Compiling all ${#sources[@]} library source files together..."
 kotlinc -J-Xmx2g "${sources[@]}" -d "$build_dir/library.jar"
 
+# Confirm the standalone search/tree API does NOT require any graph source.
+echo "Checking lightweight aggregation + segment tree independently..."
+kotlinc -J-Xmx2g \
+    shared/AggregationOp.kt tree/SegmentTree.kt \
+    shared/SegmentTreeAggregations.kt tests/SearchApiPolishTests.kt \
+    -include-runtime -d "$build_dir/standalone.jar"
+java -jar "$build_dir/standalone.jar"
+
 passed=0
 for test in tests/*.kt; do
     # Each test is an independent Kotlin main() to avoid conflicting entry points.
