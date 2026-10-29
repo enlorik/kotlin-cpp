@@ -5,6 +5,7 @@ Reusable Kotlin competitive-programming algorithms and fast I/O.
 - **Advanced binary search:** [docs/advanced_binary_search.md](docs/advanced_binary_search.md) covers `firstTrueFrom`, `bisect`, `bisectRoot`, and `partitionPoint`.
 - **Fractional cascading:** [docs/fractional_cascading.md](docs/fractional_cascading.md) preprocesses sorted Int catalogs for all lower/upper bounds in O(log N + K) per query.
 - **Parallel binary search:** [docs/parallel_binary_search.md](docs/parallel_binary_search.md) groups multiple monotone queries by midpoint for efficient offline sweeps.
+- **Shared aggregation ops:** `shared/AggregationOp.kt` defines `AggregateOp`, `IntAggregations` and `LongAggregations` once for grids, graphs and trees. No graph source needed for a segment tree.
 - **Segment tree prefix search:** [docs/segment_tree.md](docs/segment_tree.md) introduces `a.segmentTree()`, `tree.query`, `tree.set` and `tree.findPrefix` in O(log n).
 - **Binary search:** [docs/binary_search.md](docs/binary_search.md) explains `firstTrue`, `lastTrue`, `lowerBound`, and `upperBound` for Int/Long ranges and sorted arrays, with overflow-safe midpoints.
 
@@ -67,3 +68,15 @@ val bigAnswer = firstTrue(0L, 1_000_000_000_000_000_000L) { x -> feasible(x) }
 ```
 
 For standalone submissions, add only `search/BinarySearch.kt` to your solution. It does not require the graph/grid modules.
+
+### Friendlier segment-tree syntax
+
+```kotlin
+val tree = intArrayOf(2, 4, 6, 8, 10).segmentTree(IntAggregations.SUM)
+val before = tree[1..3]       // 4 + 6 + 8 = 18 (inclusive Kotlin range)
+tree[2] = 100                // point update
+val after = tree[1..3]        // 4 + 100 + 8 = 112
+val index = tree.findPrefix { it >= 110 } // 3, when prefix values are monotone
+```
+
+For these calls, include `shared/AggregationOp.kt`, `tree/SegmentTree.kt`, and `shared/SegmentTreeAggregations.kt`. No graph/grid dependency. All traditional `tree.query(from, until)` calls retain half-open bounds.
