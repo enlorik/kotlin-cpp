@@ -159,3 +159,20 @@ java -jar unified-test.jar
 
 This test exercises both receivers in the same compilation, including
 the distinct-source SUM guarantee and compatibility with old selectors.
+
+## Reusing aggregation operations in segment trees
+
+`IntAggregations` and `LongAggregations` now live in
+`shared/AggregationOp.kt`, independent of graph implementations.
+The public type `AggregateOp<T>` holds the operation, its identity, and
+an optional idempotence property. `GraphAggregateOp<T>` remains a
+source-compatible type alias.
+
+```kotlin
+val t = intArrayOf(2, 4, 6).segmentTree(IntAggregations.SUM)
+val first = t[0..1] // 6
+t[1] = 100
+val second = t.query(0, 3) // 108; half-open range
+```
+
+Only the shared aggregation and segment-tree modules are needed here.
