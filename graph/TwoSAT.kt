@@ -1,3 +1,4 @@
+import java.util.ArrayDeque
 /**
  * 2-SAT solver using Kosaraju's SCC.
  *

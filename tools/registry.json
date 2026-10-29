@@ -332,15 +332,15 @@
     },
     {
       "name": "GraphAggregateOp",
-      "kind": "class",
-      "file": "graph/GraphAggregate.kt",
-      "description": "Aggregation identity, combine operation and idempotent safety flag"
+      "kind": "typealias",
+      "file": "shared/AggregationOp.kt",
+      "description": "Backward compatible typealias for shared AggregateOp<T> reducer"
     },
     {
       "name": "IntAggregations",
       "kind": "object",
-      "file": "graph/GraphAggregate.kt",
-      "description": "Built-in OR AND MIN MAX SUM XOR reducers with correct identities and fast path flags"
+      "file": "shared/AggregationOp.kt",
+      "description": "Shared OR AND MIN MAX SUM XOR reducers usable by grid, graph and segment tree"
     },
     {
       "name": "GraphAggregateResult",
@@ -490,7 +490,7 @@
       "name": "segmentTree",
       "kind": "class or function",
       "file": "tree/SegmentTree.kt",
-      "description": "Build segment tree from IntArray LongArray List or GraphAggregateOp"
+      "description": "Build a segment tree from primitive arrays, Array, List and optionally shared AggregateOp"
     },
     {
       "name": "findPrefix",
@@ -515,9 +515,22 @@
       "kind": "class or factory",
       "file": "search/FractionalCascading.kt",
       "description": "Build a fractional-cascade index from sorted Int arrays"
+    },
+    {
+      "name": "AggregateOp",
+      "kind": "class",
+      "file": "shared/AggregationOp.kt",
+      "description": "Shared associative operation with identity and idempotent flag"
+    },
+    {
+      "name": "LongAggregations",
+      "kind": "object",
+      "file": "shared/AggregationOp.kt",
+      "description": "Built-in Long OR AND MIN MAX SUM XOR operations"
     }
   ],
   "files": [
+    "shared/AggregationOp.kt",
     "graph/GraphTypes.kt",
     "graph/GraphResults.kt",
     "graph/SparseGraph.kt",

@@ -30,7 +30,7 @@ class SegmentTree<T>(values: List<T>, val initial: T, val combine: (T, T) -> T) 
     }
 
     /** Replace one value and recompute ancestors in O(log n). */
-    fun set(index: Int, value: T) {
+    operator fun set(index: Int, value: T) {
         require(index in 0 until size) { "Index $index out of bounds for size $size" }
         var node = base + index
         tree[node] = value
@@ -58,6 +58,16 @@ class SegmentTree<T>(values: List<T>, val initial: T, val combine: (T, T) -> T) 
         }
         return combine(leftAcc, rightAcc)
     }
+
+    /** Inclusive Kotlin ranges: query(1..3) is equivalent to query(1, 4). */
+    fun query(indices: IntRange): T {
+        val until = indices.last.toLong() + 1L
+        require(until <= size.toLong()) { "Range end out of bounds" }
+        return query(indices.first, until.toInt())
+    }
+
+    /** Shorthand for an inclusive range query: tree[1..3]. */
+    operator fun get(indices: IntRange): T = query(indices)
 
     /** Aggregate the whole array, or return identity when empty. */
     fun all(): T = item(1)

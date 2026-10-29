@@ -1,3 +1,4 @@
+import java.util.ArrayDeque
 /**
  * Network flow graph supporting Dinic's max-flow algorithm.
  * Complexity: O(V² · E) in general; O(E · √V) for unit-capacity graphs.
