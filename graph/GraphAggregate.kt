@@ -22,29 +22,6 @@ class GraphNearest(
     init { require(maxDistance >= 0) { "maxDistance must be nonnegative" } }
 }
 
-/**
- * Aggregation operation, including its identity. Set idempotent = true ONLY when
- * combine(x, x) == x, for example OR, AND, MIN or MAX. Then nearest-source
- * aggregation can safely merge contributions along multiple shortest paths in O(V+E).
- * For SUM, XOR, products or custom non-idempotent operations, leave it false:
- * the library visits each distinct nearest source exactly once per center.
- */
-class GraphAggregateOp<T>(
-    val initial: T,
-    val combine: (T, T) -> T,
-    val idempotent: Boolean = false
-)
-
-/** Useful integer operations, with their correct fast-path properties. */
-object IntAggregations {
-    val OR = GraphAggregateOp(0, { a: Int, b: Int -> a or b }, idempotent = true)
-    val AND = GraphAggregateOp(-1, { a: Int, b: Int -> a and b }, idempotent = true)
-    val MIN = GraphAggregateOp(Int.MAX_VALUE, { a: Int, b: Int -> minOf(a, b) }, idempotent = true)
-    val MAX = GraphAggregateOp(Int.MIN_VALUE, { a: Int, b: Int -> maxOf(a, b) }, idempotent = true)
-    val SUM = GraphAggregateOp(0, { a: Int, b: Int -> a + b })
-    val XOR = GraphAggregateOp(0, { a: Int, b: Int -> a xor b })
-}
-
 /** Values for every vertex; distance(v) is populated only for GraphNearest. */
 class GraphAggregateResult<T>(
     val values: List<T>,
