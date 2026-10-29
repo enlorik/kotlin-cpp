@@ -17,17 +17,17 @@ kotlinc -J-Xmx2g \
     -include-runtime -d "$build_dir/standalone.jar"
 java -jar "$build_dir/standalone.jar"
 
+# Compile ALL test entry points into one module against the actual library.
+# Their generated JVM classes have distinct names, so run each main separately.
+mapfile -t tests < <(grep -lE '^[[:space:]]*fun main[[:space:]]*\\(' tests/*.kt | sort)
+echo "Compiling ${#tests[@]} tests together..."
+kotlinc -J-Xmx2g -cp "$build_dir/library.jar" "${tests[@]}" -include-runtime -d "$build_dir/tests.jar"
+
 passed=0
-for test in tests/*.kt; do
-    # Each test is an independent Kotlin main() to avoid conflicting entry points.
-    if ! grep -qE '^[[:space:]]*fun main[[:space:]]*\(' "$test"; then
-        echo "Skipping test without top-level main: $test"
-        continue
-    fi
+for test in "${tests[@]}"; do
     class="$(basename "$test" .kt)Kt"
-    echo "Compiling + running $test..."
-    kotlinc -J-Xmx2g -cp "$build_dir/library.jar" "$test" -include-runtime -d "$build_dir/test.jar"
-    java -cp "$build_dir/library.jar:$build_dir/test.jar" "$class"
+    echo "Running $test..."
+    java -cp "$build_dir/library.jar:$build_dir/tests.jar" "$class"
     ((passed+=1))
 done
-echo "PASS: all library sources compiled together; $passed standalone test entry points passed."
+echo "PASS: all library sources + all ${#tests[@]} tests compiled together; $passed test entry points passed."
