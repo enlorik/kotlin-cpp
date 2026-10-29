@@ -19,7 +19,7 @@ java -jar "$build_dir/standalone.jar"
 
 # Compile ALL test entry points into one module against the actual library.
 # Their generated JVM classes have distinct names, so run each main separately.
-mapfile -t tests < <(grep -lE '^[[:space:]]*fun main[[:space:]]*\\(' tests/*.kt | sort)
+mapfile -t tests < <(grep -lE '^[[:space:]]*fun main[[:space:]]*[(]' tests/*.kt | sort)
 echo "Compiling ${#tests[@]} tests together..."
 kotlinc -J-Xmx2g -cp "$build_dir/library.jar" "${tests[@]}" -include-runtime -d "$build_dir/tests.jar"
 
