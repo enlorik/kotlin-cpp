@@ -27,7 +27,7 @@ fun main() {
     longs[1] = 6L
     check(longs.all() == 2L)
 
-    val items = arrayOf("aa", "b", "ccc").segmentTree(AggregateOp("") { a: String, b: String -> a + b })
+    val items = arrayOf("aa", "b", "ccc").segmentTree(AggregateOp("", { a: String, b: String -> a + b }))
     check(items[0..1] == "aab")
     items[1] = "zzz"
     check(items.query(1..2) == "zzzccc")
