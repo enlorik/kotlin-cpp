@@ -599,6 +599,36 @@
       "file": "range/SparseTables.kt",
       "kind": "function",
       "description": "Build disjoint sparse table with order-preserving aggregations"
+    },
+    {
+      "name": "MoQuery",
+      "file": "range/MoAlgorithm.kt",
+      "kind": "data class",
+      "description": "Half-open offline range request for Mo's algorithm"
+    },
+    {
+      "name": "moQueries",
+      "file": "range/MoAlgorithm.kt",
+      "kind": "function",
+      "description": "Offline block-ordered interval processing with add/remove/snapshot callbacks"
+    },
+    {
+      "name": "moDistinctCounts",
+      "file": "range/MoAlgorithm.kt",
+      "kind": "extension",
+      "description": "Distinct value counts per interval using Mo's algorithm"
+    },
+    {
+      "name": "PersistentSegmentTree",
+      "file": "tree/PersistentSegmentTree.kt",
+      "kind": "class",
+      "description": "Immutable point-update historical range sum versions"
+    },
+    {
+      "name": "persistentSegmentTree",
+      "file": "tree/PersistentSegmentTree.kt",
+      "kind": "function",
+      "description": "Construct persistent Long-valued sum tree from IntArray, LongArray or size"
     }
   ],
   "files": [
@@ -630,6 +660,8 @@
     "search/FractionalCascading.kt",
     "range/RangeBasics.kt",
     "tree/LazySegmentTree.kt",
-    "range/SparseTables.kt"
+    "range/SparseTables.kt",
+    "range/MoAlgorithm.kt",
+    "tree/PersistentSegmentTree.kt"
   ]
 }
