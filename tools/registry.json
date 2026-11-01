@@ -563,6 +563,42 @@
       "kind": "function",
       "file": "range/RangeBasics.kt",
       "description": "Construct zero or initial-value Fenwick trees"
+    },
+    {
+      "name": "LazySegmentTree",
+      "file": "tree/LazySegmentTree.kt",
+      "kind": "class",
+      "description": "O(log n) range addition/assignment/sum with deferred changes"
+    },
+    {
+      "name": "lazySegmentTree",
+      "file": "tree/LazySegmentTree.kt",
+      "kind": "function",
+      "description": "Construct range-add/set/sum tree from Int/Long arrays"
+    },
+    {
+      "name": "SparseTable",
+      "file": "range/SparseTables.kt",
+      "kind": "class",
+      "description": "Static O(1) range queries for idempotent AggregateOp"
+    },
+    {
+      "name": "sparseTable",
+      "file": "range/SparseTables.kt",
+      "kind": "function",
+      "description": "Build idempotent overlapping sparse table"
+    },
+    {
+      "name": "DisjointSparseTable",
+      "file": "range/SparseTables.kt",
+      "kind": "class",
+      "description": "Static O(1) range queries for arbitrary associative AggregateOp"
+    },
+    {
+      "name": "disjointSparseTable",
+      "file": "range/SparseTables.kt",
+      "kind": "function",
+      "description": "Build disjoint sparse table with order-preserving aggregations"
     }
   ],
   "files": [
@@ -592,6 +628,8 @@
     "shared/SegmentTreeAggregations.kt",
     "search/ParallelBinarySearch.kt",
     "search/FractionalCascading.kt",
-    "range/RangeBasics.kt"
+    "range/RangeBasics.kt",
+    "tree/LazySegmentTree.kt",
+    "range/SparseTables.kt"
   ]
 }
