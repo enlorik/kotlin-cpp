@@ -527,6 +527,42 @@
       "kind": "object",
       "file": "shared/AggregationOp.kt",
       "description": "Built-in Long OR AND MIN MAX SUM XOR operations"
+    },
+    {
+      "name": "PrefixSums",
+      "kind": "class",
+      "file": "range/RangeBasics.kt",
+      "description": "O(1) static range sums with Long accumulation"
+    },
+    {
+      "name": "prefixSums",
+      "kind": "extension",
+      "file": "range/RangeBasics.kt",
+      "description": "Build a PrefixSums index from IntArray or LongArray"
+    },
+    {
+      "name": "DifferenceArray",
+      "kind": "class",
+      "file": "range/RangeBasics.kt",
+      "description": "Deferred O(1) range additions and O(n) materialization"
+    },
+    {
+      "name": "differenceArray",
+      "kind": "function",
+      "file": "range/RangeBasics.kt",
+      "description": "Construct zero or initial-value difference arrays"
+    },
+    {
+      "name": "FenwickTree",
+      "kind": "class",
+      "file": "range/RangeBasics.kt",
+      "description": "O(log n) dynamic prefix/range sums and threshold search"
+    },
+    {
+      "name": "fenwickTree",
+      "kind": "function",
+      "file": "range/RangeBasics.kt",
+      "description": "Construct zero or initial-value Fenwick trees"
     }
   ],
   "files": [
@@ -555,6 +591,7 @@
     "tree/SegmentTree.kt",
     "shared/SegmentTreeAggregations.kt",
     "search/ParallelBinarySearch.kt",
-    "search/FractionalCascading.kt"
+    "search/FractionalCascading.kt",
+    "range/RangeBasics.kt"
   ]
 }
