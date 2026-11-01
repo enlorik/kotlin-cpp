@@ -2,6 +2,7 @@
 
 Reusable Kotlin competitive-programming algorithms and fast I/O.
 
+- **Lazy and static range structures:** [docs/range_advanced.md](docs/range_advanced.md) covers `lazySegmentTree()`, idempotent `sparseTable()`, and general `disjointSparseTable()`.
 - **Range basics:** [docs/range_basics.md](docs/range_basics.md) provides `prefixSums()`, `differenceArray()`, and `fenwickTree()` for fast range operations.
 - **Advanced binary search:** [docs/advanced_binary_search.md](docs/advanced_binary_search.md) covers `firstTrueFrom`, `bisect`, `bisectRoot`, and `partitionPoint`.
 - **Fractional cascading:** [docs/fractional_cascading.md](docs/fractional_cascading.md) preprocesses sorted Int catalogs for all lower/upper bounds in O(log N + K) per query.
