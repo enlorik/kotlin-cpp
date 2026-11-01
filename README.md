@@ -83,3 +83,14 @@ val index = tree.findPrefix { it >= 110 } // 3, when prefix values are monotone
 ```
 
 For these calls, include `shared/AggregationOp.kt`, `tree/SegmentTree.kt`, and `shared/SegmentTreeAggregations.kt`. No graph/grid dependency. All traditional `tree.query(from, until)` calls retain half-open bounds.
+
+### Run every range-query regression suite
+
+From the repository root, with `kotlinc` (Kotlin 1.9+) and Java available:
+
+```bash
+bash tools/test_range_queries.sh
+```
+
+This runs the five standalone test programs and compiles the new modules
+together, without requiring the graph/grid code.
