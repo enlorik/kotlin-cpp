@@ -83,7 +83,7 @@ val total = a.lazySegmentTree {
 }
 total.add(0, 2, 10)
 total.set(2, 4, 3)
-total.query(0, 4) // 35
+total.query(0, 4) // 32
 ```
 
 Choose `RangeUpdates.ADD`, `RangeUpdates.ASSIGN`, or
