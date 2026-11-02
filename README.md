@@ -8,6 +8,7 @@ Reusable Kotlin competitive-programming algorithms and fast I/O.
 - **Advanced binary search:** [docs/advanced_binary_search.md](docs/advanced_binary_search.md) covers `firstTrueFrom`, `bisect`, `bisectRoot`, and `partitionPoint`.
 - **Fractional cascading:** [docs/fractional_cascading.md](docs/fractional_cascading.md) preprocesses sorted Int catalogs for all lower/upper bounds in O(log N + K) per query.
 - **Parallel binary search:** [docs/parallel_binary_search.md](docs/parallel_binary_search.md) groups multiple monotone queries by midpoint for efficient offline sweeps.
+- **Operation-driven range APIs:** [docs/operation_driven_range_apis.md](docs/operation_driven_range_apis.md) lets Fenwick SUM/XOR, persistent SUM/MIN/MAX/XOR and configurable lazy ADD/ASSIGN use shared operations safely.
 - **Shared aggregation ops:** `shared/AggregationOp.kt` defines `AggregateOp`, `IntAggregations` and `LongAggregations` once for grids, graphs and trees. No graph source needed for a segment tree.
 - **Segment tree prefix search:** [docs/segment_tree.md](docs/segment_tree.md) introduces `a.segmentTree()`, `tree.query`, `tree.set` and `tree.findPrefix` in O(log n).
 - **Binary search:** [docs/binary_search.md](docs/binary_search.md) explains `firstTrue`, `lastTrue`, `lowerBound`, and `upperBound` for Int/Long ranges and sorted arrays, with overflow-safe midpoints.
@@ -94,3 +95,25 @@ bash tools/test_range_queries.sh
 
 This runs the five standalone test programs and compiles the new modules
 together, without requiring the graph/grid code.
+
+### Match each range algorithm to its mathematics
+
+```kotlin
+val a = intArrayOf(2, 4, 6, 8)
+
+val minimum = a.segmentTree(IntAggregations.MIN)
+val fenwick = a.fenwickTree(IntAggregations.XOR)
+val history = a.persistentSegmentTree(IntAggregations.MAX)
+val lazy = a.lazySegmentTree {
+    aggregate = IntAggregations.MIN
+    updates = RangeUpdates.ADD
+}
+lazy.add(1, 4, 5)
+println(lazy.query(0, 4)) // 2
+```
+
+`a.fenwickTree()`, `a.lazySegmentTree()`, and
+`a.persistentSegmentTree()` continue to use the legacy Long-sum APIs.
+For supported combinations and explicit custom algebra see the
+[operation-driven API guide](docs/operation_driven_range_apis.md).
+Validate with `bash tools/test_operation_apis.sh`.
