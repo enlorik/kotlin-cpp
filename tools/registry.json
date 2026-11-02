@@ -629,6 +629,78 @@
       "file": "tree/PersistentSegmentTree.kt",
       "kind": "function",
       "description": "Construct persistent Long-valued sum tree from IntArray, LongArray or size"
+    },
+    {
+      "name": "AbelianGroup",
+      "kind": "class",
+      "file": "range/GroupFenwickTree.kt",
+      "description": "Explicit associative commutative invertible AggregateOp and inverse contract"
+    },
+    {
+      "name": "GroupFenwickTree",
+      "kind": "class",
+      "file": "range/GroupFenwickTree.kt",
+      "description": "Generic point update/set and O(log n) range queries for abelian groups"
+    },
+    {
+      "name": "fenwickTree",
+      "kind": "function overload",
+      "file": "range/GroupFenwickTree.kt",
+      "description": "Operation-driven Int/Long Fenwick SUM or XOR, or custom abelian group"
+    },
+    {
+      "name": "RangeAction",
+      "kind": "class",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "Segment-wide update and old-then-new composition laws"
+    },
+    {
+      "name": "LazyAggregateTree",
+      "kind": "class",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "Generic lazy segment tree parameterized by monoid and action"
+    },
+    {
+      "name": "NumericLazySegmentTree",
+      "kind": "class",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "Validated Int/Long configurable lazy SUM/MIN/MAX add/assign and bitwise assign"
+    },
+    {
+      "name": "RangeUpdates",
+      "kind": "enum",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "ADD, ASSIGN, or ADD_ASSIGN modes for lazy trees"
+    },
+    {
+      "name": "IntLazyTreeConfig",
+      "kind": "class",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "DSL aggregate/updates for IntArray.lazySegmentTree block"
+    },
+    {
+      "name": "LongLazyTreeConfig",
+      "kind": "class",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "DSL aggregate/updates for LongArray.lazySegmentTree block"
+    },
+    {
+      "name": "lazySegmentTree",
+      "kind": "function overload",
+      "file": "tree/ConfigurableLazySegmentTree.kt",
+      "description": "Configurable operation/update lazy tree DSL or user-defined monoid actions"
+    },
+    {
+      "name": "PersistentAggregateTree",
+      "kind": "class",
+      "file": "tree/PersistentAggregateTree.kt",
+      "description": "General associative persistent range aggregation preserving historical versions"
+    },
+    {
+      "name": "persistentSegmentTree",
+      "kind": "function overload",
+      "file": "tree/PersistentAggregateTree.kt",
+      "description": "Operation-driven Int/Long/List/Array persistent trees retaining old sums API"
     }
   ],
   "files": [
@@ -662,6 +734,9 @@
     "tree/LazySegmentTree.kt",
     "range/SparseTables.kt",
     "range/MoAlgorithm.kt",
-    "tree/PersistentSegmentTree.kt"
+    "tree/PersistentSegmentTree.kt",
+    "range/GroupFenwickTree.kt",
+    "tree/ConfigurableLazySegmentTree.kt",
+    "tree/PersistentAggregateTree.kt"
   ]
 }
