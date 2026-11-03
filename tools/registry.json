@@ -827,6 +827,12 @@
       "kind": "function",
       "file": "shared/TypedAlgebraBridge.kt",
       "description": "Typed wrapper around a legacy explicitly flagged idempotent aggregation"
+    },
+    {
+      "name": "validated",
+      "kind": "function overload",
+      "file": "shared/ValidatedAlgebra.kt",
+      "description": "Validate sampled mathematical laws immediately on creation, preserving Monoid, IdempotentMonoid, AbelianGroupSpec or MonoidAction capability type"
     }
   ],
   "files": [
@@ -871,6 +877,7 @@
     "shared/TypedAlgebra.kt",
     "shared/TypedAlgebraBridge.kt",
     "range/TypedAlgebraRanges.kt",
-    "tree/TypedAlgebraTrees.kt"
+    "tree/TypedAlgebraTrees.kt",
+    "shared/ValidatedAlgebra.kt"
   ]
 }
