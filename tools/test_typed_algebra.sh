@@ -9,7 +9,7 @@ trap 'rm -rf "$TMP"' EXIT
 # Compile directly against the real implementations and run property tests.
 kotlinc -J-Xmx2g \
     shared/AggregationOp.kt shared/CustomAlgebra.kt \
-    shared/TypedAlgebra.kt shared/TypedAlgebraBridge.kt \
+    shared/TypedAlgebra.kt shared/ValidatedAlgebra.kt shared/TypedAlgebraBridge.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/CustomGroupRange.kt \
     range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt \
     range/TypedAlgebraRanges.kt \
@@ -23,7 +23,7 @@ java -jar "$TMP/typed-algebra.jar"
 
 # Compile the same real library without main() for negative-type tests.
 kotlinc -J-Xmx2g \
-    shared/AggregationOp.kt shared/TypedAlgebra.kt shared/TypedAlgebraBridge.kt \
+    shared/AggregationOp.kt shared/TypedAlgebra.kt shared/ValidatedAlgebra.kt shared/TypedAlgebraBridge.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/CustomGroupRange.kt \
     range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/TypedAlgebraRanges.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
