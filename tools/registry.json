@@ -711,38 +711,44 @@
     {
       "name": "withInverse",
       "kind": "function",
-      "file": "shared/CustomAlgebra.kt",
+      "file": "range/CustomGroupRange.kt",
       "description": "Turn user-defined commutative invertible operation into an AbelianGroup"
     },
     {
       "name": "abelianGroup",
       "kind": "function",
-      "file": "shared/CustomAlgebra.kt",
+      "file": "range/CustomGroupRange.kt",
       "description": "Build a custom abelian group from operation and inverse"
     },
     {
       "name": "GroupPrefixTable",
       "kind": "class",
-      "file": "shared/CustomAlgebra.kt",
+      "file": "range/CustomGroupRange.kt",
       "description": "O(n) static group prefixes with O(1) interval queries"
     },
     {
       "name": "prefixAggregates",
       "kind": "function",
-      "file": "shared/CustomAlgebra.kt",
+      "file": "range/CustomGroupRange.kt",
       "description": "Group-based prefix aggregation from arrays or lists"
     },
     {
       "name": "GroupDifferenceArray",
       "kind": "class",
-      "file": "shared/CustomAlgebra.kt",
+      "file": "range/CustomGroupRange.kt",
       "description": "O(1) deferred group range updates with O(n) materialization"
     },
     {
       "name": "moAggregate",
       "kind": "function",
-      "file": "shared/CustomAlgebra.kt",
+      "file": "range/MoGroup.kt",
       "description": "Mo queries with constant-time add/remove using abelian group inverse"
+    },
+    {
+      "name": "lazySegmentTree",
+      "kind": "function overload",
+      "file": "tree/CustomLazyAdapters.kt",
+      "description": "Forward custom RangeAction<T,U> directly from IntArray, LongArray and object arrays"
     }
   ],
   "files": [
@@ -780,6 +786,9 @@
     "range/GroupFenwickTree.kt",
     "tree/ConfigurableLazySegmentTree.kt",
     "tree/PersistentAggregateTree.kt",
-    "shared/CustomAlgebra.kt"
+    "shared/CustomAlgebra.kt",
+    "range/CustomGroupRange.kt",
+    "range/MoGroup.kt",
+    "tree/CustomLazyAdapters.kt"
   ]
 }
