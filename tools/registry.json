@@ -833,6 +833,36 @@
       "kind": "function overload",
       "file": "shared/ValidatedAlgebra.kt",
       "description": "Validate sampled mathematical laws immediately on creation, preserving Monoid, IdempotentMonoid, AbelianGroupSpec or MonoidAction capability type"
+    },
+    {
+      "name": "aggregateOp",
+      "kind": "factory",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "IDE-friendly identity/combine alias for custom AggregateOp"
+    },
+    {
+      "name": "MonoidPrefixTable",
+      "kind": "class",
+      "file": "range/MonoidPrefixTable.kt",
+      "description": "Static O(1) prefix queries for any associative monoid (no inverse)"
+    },
+    {
+      "name": "prefixAggregates",
+      "kind": "overload",
+      "file": "range/MonoidPrefixTable.kt",
+      "description": "Construct prefix-only monoid table for IntArray LongArray List or Array"
+    },
+    {
+      "name": "AssignmentLazyTree",
+      "kind": "class",
+      "file": "tree/AssignmentLazyTree.kt",
+      "description": "Generic range ASSIGN lazy tree; O(log² n) default update or O(log n) with O(1) repetition"
+    },
+    {
+      "name": "lazySegmentTree",
+      "kind": "overload",
+      "file": "tree/AssignmentLazyTree.kt",
+      "description": "Custom AggregateOp lazy range assignment without explicit RangeAction"
     }
   ],
   "files": [
@@ -878,6 +908,8 @@
     "shared/TypedAlgebraBridge.kt",
     "range/TypedAlgebraRanges.kt",
     "tree/TypedAlgebraTrees.kt",
-    "shared/ValidatedAlgebra.kt"
+    "shared/ValidatedAlgebra.kt",
+    "range/MonoidPrefixTable.kt",
+    "tree/AssignmentLazyTree.kt"
   ]
 }
