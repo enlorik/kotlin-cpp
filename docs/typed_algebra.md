@@ -86,7 +86,20 @@ may differ. The compiler requires both functions and matching types.
 Kotlin can check a method exists; it cannot prove arbitrary
 associativity, inverses, commutativity, idempotence, or action laws.
 
-Use the built-in **seeded randomized law tests**:
+You can even request checking **immediately when defining** the operation,
+without losing its IDE-visible type:
+
+```kotlin
+val xor = group(
+    identity = 0,
+    combine = { a: Int, b: Int -> a xor b },
+    inverse = { x: Int -> x }
+).validated(samples = listOf(0, 1, 2, 7, -1))
+// If a sampled law fails, declaration throws AlgebraLawViolation.
+// The resulting variable remains AbelianGroupSpec<Int>.
+```
+
+Or use the built-in **seeded randomized law tests** separately:
 
 ```kotlin
 product.checkLaws(samples = listOf(-2, -1, 0, 1, 2, 3))
