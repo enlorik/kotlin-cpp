@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 build_dir="$(mktemp -d)"
 trap 'rm -rf "$build_dir"' EXIT
 
-mapfile -t sources < <(find graph grid io search shared tree -type f -name '*.kt' | sort)
+mapfile -t sources < <(find graph grid io range search shared tree -type f -name '*.kt' | sort)
 echo "Compiling all ${#sources[@]} library source files together..."
 kotlinc -J-Xmx2g "${sources[@]}" -d "$build_dir/library.jar"
 
