@@ -50,3 +50,17 @@ fun LongArray.moAggregate(queries: List<MoQuery>, group: AbelianGroupSpec<Long>)
     moAggregate(queries, AbelianGroup(group.asAggregateOp(), group::inverse))
 fun <T> List<T>.moAggregate(queries: List<MoQuery>, group: AbelianGroupSpec<T>): List<T> =
     moAggregate(queries, AbelianGroup(group.asAggregateOp(), group::inverse))
+
+/**
+ * Any typed monoid has prefix aggregates, even without inverse.
+ * A typed abelian group additionally offers `query(from, until)`
+ * via the more specific prefixAggregates(group) overload.
+ */
+fun <T> List<T>.prefixAggregates(op: Monoid<T>): MonoidPrefixTable<T> =
+    prefixAggregates(op.asAggregateOp())
+fun IntArray.prefixAggregates(op: Monoid<Int>): MonoidPrefixTable<Int> =
+    prefixAggregates(op.asAggregateOp())
+fun LongArray.prefixAggregates(op: Monoid<Long>): MonoidPrefixTable<Long> =
+    prefixAggregates(op.asAggregateOp())
+fun <T> Array<out T>.prefixAggregates(op: Monoid<T>): MonoidPrefixTable<T> =
+    prefixAggregates(op.asAggregateOp())

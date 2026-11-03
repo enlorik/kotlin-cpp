@@ -62,6 +62,35 @@ a Kotlin language server or IntelliJ can offer completion/diagnostics
 from those typed signatures; editor support quality depends on the
 installed Kotlin tooling.
 
+## Prefixes and assignment need only a Monoid
+
+The new typed overloads preserve your mathematical capability in Kotlin:
+
+```kotlin
+val product = monoid(1) { a: Int, b: Int -> a * b }
+val a = intArrayOf(2, 3, 4)
+
+val prefix = a.prefixAggregates(product)
+prefix.prefix(2) // 6 (no inverse needed)
+
+val assigned = a.lazySegmentTree(product)
+assigned.set(1, 3, 5)
+assigned.query(0, 3) // 50
+```
+
+For an arbitrary `Monoid<T>`, the prefix table intentionally provides
+only `prefix(until)`, **not** arbitrary interval queries. A typed
+`AbelianGroupSpec<T>` chooses the more specific `prefixAggregates(group)`
+overload, which supports `query(from, until)`.
+
+Every monoid can combine repeated equal values, so range **ASSIGN**
+updates need no custom action. The default lazy assignment takes
+O(log² n) because repeated aggregation takes O(log n) per affected
+node. If you can compute `x` combined with itself `length` times
+in O(1), provide `repeatValue = { x, length -> ... }` for O(log n)
+updates. Arbitrary range ADD, affine updates and other transformations
+still require a correctly defined `MonoidAction<T,U>`.
+
 ## 3. Lazy range updates have their own laws
 
 ```kotlin

@@ -11,12 +11,12 @@ kotlinc -J-Xmx2g \
     shared/AggregationOp.kt shared/CustomAlgebra.kt \
     shared/TypedAlgebra.kt shared/ValidatedAlgebra.kt shared/TypedAlgebraBridge.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/CustomGroupRange.kt \
-    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt \
+    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/MonoidPrefixTable.kt \
     range/TypedAlgebraRanges.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     tree/PersistentAggregateTree.kt \
     tree/ConfigurableLazySegmentTree.kt tree/CustomLazyAdapters.kt \
-    tree/TypedAlgebraTrees.kt \
+    tree/AssignmentLazyTree.kt tree/TypedAlgebraTrees.kt \
     tests/TypedAlgebraTests.kt \
     -include-runtime -d "$TMP/typed-algebra.jar"
 java -jar "$TMP/typed-algebra.jar"
@@ -25,10 +25,10 @@ java -jar "$TMP/typed-algebra.jar"
 kotlinc -J-Xmx2g \
     shared/AggregationOp.kt shared/TypedAlgebra.kt shared/ValidatedAlgebra.kt shared/TypedAlgebraBridge.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/CustomGroupRange.kt \
-    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/TypedAlgebraRanges.kt \
+    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/MonoidPrefixTable.kt range/TypedAlgebraRanges.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     tree/PersistentAggregateTree.kt tree/ConfigurableLazySegmentTree.kt \
-    tree/TypedAlgebraTrees.kt \
+    tree/AssignmentLazyTree.kt tree/TypedAlgebraTrees.kt \
     -d "$TMP/library.jar"
 
 reject() {
@@ -60,10 +60,11 @@ reject "Group declaration without inverse" \
     group(identity = 0, combine = { a: Int, b: Int -> a + b })
 }'
 
-reject "Lazy tree declared without a compatible update action" \
+reject "Custom lazy action missing required composition function" \
 'fun test() {
-    val sum = monoid(0) { a: Int, b: Int -> a + b }
-    intArrayOf(1, 2).lazySegmentTree(sum)
+    val add = action<Int, Int>(
+        apply = { total, delta, length -> total + delta * length }
+    )
 }'
 
 echo "PASS: typed capabilities, law checks, and compile-time rejection tests"

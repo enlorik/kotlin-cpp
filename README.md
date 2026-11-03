@@ -9,6 +9,7 @@ Reusable Kotlin competitive-programming algorithms and fast I/O.
 - **Fractional cascading:** [docs/fractional_cascading.md](docs/fractional_cascading.md) preprocesses sorted Int catalogs for all lower/upper bounds in O(log N + K) per query.
 - **Parallel binary search:** [docs/parallel_binary_search.md](docs/parallel_binary_search.md) groups multiple monotone queries by midpoint for efficient offline sweeps.
 - **Type-safe algebra:** [docs/typed_algebra.md](docs/typed_algebra.md) introduces `monoid`, `idempotentMonoid`, `group`, `action`, compile-time capability requirements and seeded `checkLaws` with counterexamples.
+- **Any monoid: prefixes and range assignment:** [docs/custom_algebra.md](docs/custom_algebra.md) adds `prefixAggregates(op).prefix(until)` and `lazySegmentTree(op).set(from, until, value)` without assuming an inverse.
 - **Custom algebra:** [docs/custom_algebra.md](docs/custom_algebra.md) introduces `aggregation(identity) { ... }` and `withInverse { ... }` to reuse invented operations across segment trees, sparse tables, Fenwick, prefix/difference arrays, Mo, and lazy/persistent trees when mathematically valid.
 - **Operation-driven range APIs:** [docs/operation_driven_range_apis.md](docs/operation_driven_range_apis.md) lets Fenwick SUM/XOR, persistent SUM/MIN/MAX/XOR and configurable lazy ADD/ASSIGN use shared operations safely.
 - **Shared aggregation ops:** `shared/AggregationOp.kt` defines `AggregateOp`, `IntAggregations` and `LongAggregations` once for grids, graphs and trees. No graph source needed for a segment tree.
