@@ -701,6 +701,48 @@
       "kind": "function overload",
       "file": "tree/PersistentAggregateTree.kt",
       "description": "Operation-driven Int/Long/List/Array persistent trees retaining old sums API"
+    },
+    {
+      "name": "aggregation",
+      "kind": "function",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "Declare reusable associative operation with identity and optional idempotence"
+    },
+    {
+      "name": "withInverse",
+      "kind": "function",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "Turn user-defined commutative invertible operation into an AbelianGroup"
+    },
+    {
+      "name": "abelianGroup",
+      "kind": "function",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "Build a custom abelian group from operation and inverse"
+    },
+    {
+      "name": "GroupPrefixTable",
+      "kind": "class",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "O(n) static group prefixes with O(1) interval queries"
+    },
+    {
+      "name": "prefixAggregates",
+      "kind": "function",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "Group-based prefix aggregation from arrays or lists"
+    },
+    {
+      "name": "GroupDifferenceArray",
+      "kind": "class",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "O(1) deferred group range updates with O(n) materialization"
+    },
+    {
+      "name": "moAggregate",
+      "kind": "function",
+      "file": "shared/CustomAlgebra.kt",
+      "description": "Mo queries with constant-time add/remove using abelian group inverse"
     }
   ],
   "files": [
@@ -737,6 +779,7 @@
     "tree/PersistentSegmentTree.kt",
     "range/GroupFenwickTree.kt",
     "tree/ConfigurableLazySegmentTree.kt",
-    "tree/PersistentAggregateTree.kt"
+    "tree/PersistentAggregateTree.kt",
+    "shared/CustomAlgebra.kt"
   ]
 }
