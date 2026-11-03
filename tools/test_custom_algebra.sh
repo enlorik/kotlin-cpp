@@ -18,3 +18,15 @@ kotlinc \
     -include-runtime -d "$TMP/custom-algebra.jar"
 
 java -jar "$TMP/custom-algebra.jar"
+
+# Exercise the additional generic prefix / assignment overloads against the
+# previous module classes. Keep test mains separate to avoid an ambiguous
+# manifest when generating executable Kotlin jars.
+kotlinc -J-Xmx2g -cp "$TMP/custom-algebra.jar" \
+    shared/TypedAlgebra.kt shared/TypedAlgebraBridge.kt \
+    range/MonoidPrefixTable.kt range/TypedAlgebraRanges.kt \
+    tree/AssignmentLazyTree.kt tree/TypedAlgebraTrees.kt \
+    tests/CustomMonoidExtensionsTests.kt \
+    -include-runtime -d "$TMP/monoid-extensions.jar"
+
+java -cp "$TMP/custom-algebra.jar:$TMP/monoid-extensions.jar" CustomMonoidExtensionsTestsKt
