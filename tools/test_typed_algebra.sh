@@ -11,12 +11,12 @@ kotlinc -J-Xmx2g \
     shared/AggregationOp.kt shared/CustomAlgebra.kt \
     shared/TypedAlgebra.kt shared/ValidatedAlgebra.kt shared/TypedAlgebraBridge.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/CustomGroupRange.kt \
-    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt \
+    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/MonoidPrefixTable.kt \
     range/TypedAlgebraRanges.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     tree/PersistentAggregateTree.kt \
     tree/ConfigurableLazySegmentTree.kt tree/CustomLazyAdapters.kt \
-    tree/TypedAlgebraTrees.kt \
+    tree/AssignmentLazyTree.kt tree/TypedAlgebraTrees.kt \
     tests/TypedAlgebraTests.kt \
     -include-runtime -d "$TMP/typed-algebra.jar"
 java -jar "$TMP/typed-algebra.jar"
@@ -25,10 +25,10 @@ java -jar "$TMP/typed-algebra.jar"
 kotlinc -J-Xmx2g \
     shared/AggregationOp.kt shared/TypedAlgebra.kt shared/ValidatedAlgebra.kt shared/TypedAlgebraBridge.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/CustomGroupRange.kt \
-    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/TypedAlgebraRanges.kt \
+    range/MoAlgorithm.kt range/MoGroup.kt range/SparseTables.kt range/MonoidPrefixTable.kt range/TypedAlgebraRanges.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     tree/PersistentAggregateTree.kt tree/ConfigurableLazySegmentTree.kt \
-    tree/TypedAlgebraTrees.kt \
+    tree/AssignmentLazyTree.kt tree/TypedAlgebraTrees.kt \
     -d "$TMP/library.jar"
 
 reject() {
