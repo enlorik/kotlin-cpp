@@ -749,6 +749,90 @@
       "kind": "function overload",
       "file": "tree/CustomLazyAdapters.kt",
       "description": "Forward custom RangeAction<T,U> directly from IntArray, LongArray and object arrays"
+    },
+    {
+      "name": "Monoid",
+      "kind": "interface",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Associative binary operation with identity, enforced in Kotlin API type"
+    },
+    {
+      "name": "IdempotentMonoid",
+      "kind": "interface",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Monoid with declared idempotence, for overlapping sparse tables"
+    },
+    {
+      "name": "AbelianGroupSpec",
+      "kind": "interface",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Commutative invertible monoid, for Fenwick/prefix/difference/Mo"
+    },
+    {
+      "name": "MonoidAction",
+      "kind": "interface",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Laws for lazy interval updates and old-before-new composition"
+    },
+    {
+      "name": "monoid",
+      "kind": "function",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "IDE-friendly monoid factory requiring identity and combine"
+    },
+    {
+      "name": "idempotentMonoid",
+      "kind": "function",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Factory for idempotence-capable monoid"
+    },
+    {
+      "name": "group",
+      "kind": "function",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Factory for abelian group requiring inverse parameter"
+    },
+    {
+      "name": "action",
+      "kind": "function",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Factory for lazy monoid action requiring apply and compose"
+    },
+    {
+      "name": "checkLaws",
+      "kind": "function",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Seeded algebra property tests with counterexample on failure"
+    },
+    {
+      "name": "checkActionLaws",
+      "kind": "function",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Seeded lazy-action distribution/composition property tests"
+    },
+    {
+      "name": "AlgebraLawViolation",
+      "kind": "class",
+      "file": "shared/TypedAlgebra.kt",
+      "description": "Exception with failed mathematical property and counterexample"
+    },
+    {
+      "name": "asAggregateOp",
+      "kind": "function",
+      "file": "shared/TypedAlgebraBridge.kt",
+      "description": "Adapter from typed monoid to existing AggregateOp"
+    },
+    {
+      "name": "asIdempotentMonoid",
+      "kind": "function",
+      "file": "shared/TypedAlgebraBridge.kt",
+      "description": "Typed wrapper around a legacy explicitly flagged idempotent aggregation"
+    },
+    {
+      "name": "validated",
+      "kind": "function overload",
+      "file": "shared/ValidatedAlgebra.kt",
+      "description": "Validate sampled mathematical laws immediately on creation, preserving Monoid, IdempotentMonoid, AbelianGroupSpec or MonoidAction capability type"
     }
   ],
   "files": [
@@ -789,6 +873,11 @@
     "shared/CustomAlgebra.kt",
     "range/CustomGroupRange.kt",
     "range/MoGroup.kt",
-    "tree/CustomLazyAdapters.kt"
+    "tree/CustomLazyAdapters.kt",
+    "shared/TypedAlgebra.kt",
+    "shared/TypedAlgebraBridge.kt",
+    "range/TypedAlgebraRanges.kt",
+    "tree/TypedAlgebraTrees.kt",
+    "shared/ValidatedAlgebra.kt"
   ]
 }
