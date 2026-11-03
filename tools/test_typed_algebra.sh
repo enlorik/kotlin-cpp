@@ -60,10 +60,11 @@ reject "Group declaration without inverse" \
     group(identity = 0, combine = { a: Int, b: Int -> a + b })
 }'
 
-reject "Lazy tree declared without a compatible update action" \
+reject "Custom lazy action missing required composition function" \
 'fun test() {
-    val sum = monoid(0) { a: Int, b: Int -> a + b }
-    intArrayOf(1, 2).lazySegmentTree(sum)
+    val add = action<Int, Int>(
+        apply = { total, delta, length -> total + delta * length }
+    )
 }'
 
 echo "PASS: typed capabilities, law checks, and compile-time rejection tests"
