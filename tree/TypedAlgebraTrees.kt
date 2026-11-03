@@ -50,3 +50,27 @@ fun <T, U> Array<out T>.lazySegmentTree(
     op: Monoid<T>,
     action: MonoidAction<T, U>
 ): LazyAggregateTree<T, U> = asList().lazySegmentTree(op, action)
+
+/**
+ * All typed monoids support range assignments, because x repeated n times
+ * has a well-defined aggregate. The default repeat uses O(log n) combines.
+ */
+fun <T> List<T>.lazySegmentTree(
+    op: Monoid<T>,
+    repeatValue: ((value: T, count: Int) -> T)? = null
+): AssignmentLazyTree<T> = lazySegmentTree(op.asAggregateOp(), repeatValue)
+
+fun IntArray.lazySegmentTree(
+    op: Monoid<Int>,
+    repeatValue: ((value: Int, count: Int) -> Int)? = null
+): AssignmentLazyTree<Int> = asList().lazySegmentTree(op, repeatValue)
+
+fun LongArray.lazySegmentTree(
+    op: Monoid<Long>,
+    repeatValue: ((value: Long, count: Int) -> Long)? = null
+): AssignmentLazyTree<Long> = asList().lazySegmentTree(op, repeatValue)
+
+fun <T> Array<out T>.lazySegmentTree(
+    op: Monoid<T>,
+    repeatValue: ((value: T, count: Int) -> T)? = null
+): AssignmentLazyTree<T> = asList().lazySegmentTree(op, repeatValue)
