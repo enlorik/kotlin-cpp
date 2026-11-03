@@ -9,9 +9,11 @@ trap 'rm -rf "$TMP"' EXIT
 kotlinc \
     shared/AggregationOp.kt \
     range/RangeBasics.kt range/GroupFenwickTree.kt range/MoAlgorithm.kt \
+    range/CustomGroupRange.kt range/MoGroup.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     range/SparseTables.kt tree/PersistentAggregateTree.kt \
-    tree/ConfigurableLazySegmentTree.kt shared/CustomAlgebra.kt \
+    tree/ConfigurableLazySegmentTree.kt tree/CustomLazyAdapters.kt \
+    shared/CustomAlgebra.kt \
     tests/CustomAlgebraTests.kt \
     -include-runtime -d "$TMP/custom-algebra.jar"
 
