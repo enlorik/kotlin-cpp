@@ -12,7 +12,7 @@ kotlinc \
     range/CustomGroupRange.kt range/MoGroup.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     range/SparseTables.kt tree/PersistentAggregateTree.kt \
-    tree/ConfigurableLazySegmentTree.kt tree/CustomLazyAdapters.kt \
+    tree/LazySegmentTree.kt tree/ConfigurableLazySegmentTree.kt tree/CustomLazyAdapters.kt \
     shared/CustomAlgebra.kt \
     tests/CustomAlgebraTests.kt \
     -include-runtime -d "$TMP/custom-algebra.jar"
