@@ -13,7 +13,9 @@ private fun expectLaw(expected: String, block: () -> Unit) {
 fun main() {
     val product = monoid(identity = 1) { a: Int, b: Int -> a * b }
     product.checkLaws(listOf(-2, -1, 0, 1, 2, 3), iterations = 400)
+    val validatedProduct = product.validated(listOf(-1, 0, 1, 2, 3))
     val values = intArrayOf(2, 3, 4)
+    check(values.segmentTree(validatedProduct).query(0, 3) == 24)
     check(values.segmentTree(product).query(0, 3) == 24)
     check(values.disjointSparseTable(product).query(0, 3) == 24)
     val history = values.persistentSegmentTree(product)
@@ -23,6 +25,7 @@ fun main() {
 
     val minimum = idempotentMonoid(Int.MAX_VALUE) { a: Int, b: Int -> minOf(a, b) }
     minimum.checkLaws(listOf(-3, -1, 0, 1, 7))
+    check(values.sparseTable(minimum.validated(listOf(-3, 0, 2))).query(0, 3) == 2)
     check(values.sparseTable(minimum).query(0, 3) == 2)
 
     val concatenation = monoid("") { a: String, b: String -> a + b }
@@ -33,7 +36,8 @@ fun main() {
         compose = { _, newer -> newer }
     )
     replace.checkActionLaws(concatenation, listOf("a", "b", "xy"), listOf("*", "!", ""))
-    val lazy = arrayOf("a", "b", "c").lazySegmentTree(concatenation, replace)
+    val testedReplace = replace.validated(concatenation, listOf("a", "b"), listOf("*", "!"))
+    val lazy = arrayOf("a", "b", "c").lazySegmentTree(concatenation, testedReplace)
     lazy.update(0, 2, "x")
     lazy.update(1, 3, "!")
     check(lazy.query(0, 3) == "x!!")
@@ -44,6 +48,7 @@ fun main() {
         inverse = { x: Int -> x }
     )
     xor.checkLaws(listOf(-1, 0, 1, 2, 3, 4, Int.MIN_VALUE, Int.MAX_VALUE))
+    check(intArrayOf(2, 4, 6).fenwickTree(xor.validated(listOf(0, 1, 2))).query(0, 3) == (2 xor 4 xor 6))
     val addition = group(
         identity = 0,
         combine = { a: Int, b: Int -> a + b },
@@ -104,6 +109,9 @@ fun main() {
     expectLaw("inverse") {
         group(0, { a: Int, b: Int -> a + b }, { _: Int -> 0 })
             .checkLaws(listOf(1, 2))
+    }
+    expectLaw("inverse") {
+        group(0, { a: Int, b: Int -> a + b }, { _: Int -> 0 }).validated(listOf(1, 2))
     }
     val sumMonoid = monoid(0) { a: Int, b: Int -> a + b }
     val incorrectAction = action<Int, Int>(
