@@ -2,6 +2,7 @@
 
 Reusable Kotlin competitive-programming algorithms and fast I/O.
 
+- **Kotlin/C++ performance baseline:** [docs/segment_tree_benchmark.md](docs/segment_tree_benchmark.md) gives a deterministic, checksum-verified point-update/range-sum segment tree comparison using the real Kotlin library and optimized C++.
 - **Automatic shortest paths:** [docs/automatic_shortest_paths.md](docs/automatic_shortest_paths.md) explains graph.shortestPaths(source), which selects BFS, 0-1 BFS, Dijkstra or Bellman-Ford by edge weights.
 - **Standalone contest submissions:** [docs/standalone_submissions.md](docs/standalone_submissions.md) explains how to generate one Kotlin `.kt` file from selected, tested library modules using `python3 tools/build_submission.py --list`.
 - **Automatic custom-operation range index:** [docs/range_index.md](docs/range_index.md) introduces `a.rangeIndex(op)` (static sparse/disjoint), `a.rangeIndex(op, mutable=true)` (point updates), and `a.rangeIndex(op, action)` (lazy range updates). Run `bash tools/test_range_index.sh` and optional `bash tools/benchmark_range_index.sh`.
