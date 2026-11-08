@@ -47,6 +47,7 @@ deterministic, has a single imports section, and contains no package directive.
 | grid-bfs | Grid BFS, directions, and path reconstruction |
 | graph | Sparse graph algorithms, automatic shortest paths and result types |
 | range-index | Typed/legacy aggregation operations and automatic static/mutable/lazy range indexes |
+| range-program | Declarative ordered point updates and range queries (includes range-index) |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
 only once, even when several modules require them.
