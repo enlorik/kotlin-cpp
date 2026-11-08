@@ -44,7 +44,7 @@ deterministic, has a single imports section, and contains no package directive.
 | advanced-binary-search | Advanced searches plus regular binary search |
 | segment-tree | Segment tree, aggregation types and adapters |
 | grid-bfs | Grid BFS, directions, and path reconstruction |
-| graph | Sparse graph algorithms and result types |
+| graph | Sparse graph algorithms, automatic shortest paths and result types |
 | range-index | Typed/legacy aggregation operations and automatic static/mutable/lazy range indexes |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
