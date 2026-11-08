@@ -863,6 +863,24 @@
       "kind": "overload",
       "file": "tree/AssignmentLazyTree.kt",
       "description": "Custom AggregateOp lazy range assignment without explicit RangeAction"
+    },
+    {
+      "name": "RangeIndex",
+      "kind": "class",
+      "file": "range/RangeIndex.kt",
+      "description": "Selects idempotent sparse, general disjoint sparse or point-update segment tree based on declared operation and mutability"
+    },
+    {
+      "name": "RangeIndexStrategy",
+      "kind": "enum",
+      "file": "range/RangeIndex.kt",
+      "description": "Exposes selected static-idempotent, static-general or point-update strategy"
+    },
+    {
+      "name": "rangeIndex",
+      "kind": "function overload",
+      "file": "range/RangeIndex.kt",
+      "description": "Custom AggregateOp or typed Monoid automatic static/point range-index facade and optional lawful lazy range action"
     }
   ],
   "files": [
@@ -910,6 +928,7 @@
     "tree/TypedAlgebraTrees.kt",
     "shared/ValidatedAlgebra.kt",
     "range/MonoidPrefixTable.kt",
-    "tree/AssignmentLazyTree.kt"
+    "tree/AssignmentLazyTree.kt",
+    "range/RangeIndex.kt"
   ]
 }
