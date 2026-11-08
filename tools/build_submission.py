@@ -36,6 +36,7 @@ MODULES: dict[str, tuple[str, ...]] = {
         "graph/GraphTypes.kt",
         "graph/GraphResults.kt",
         "graph/SparseGraph.kt",
+        "graph/AutoShortestPaths.kt",
     ),
     "range-index": (
         "shared/AggregationOp.kt",

@@ -881,6 +881,24 @@
       "kind": "function overload",
       "file": "range/RangeIndex.kt",
       "description": "Custom AggregateOp or typed Monoid automatic static/point range-index facade and optional lawful lazy range action"
+    },
+    {
+      "name": "ShortestPathAlgorithm",
+      "kind": "enum",
+      "file": "graph/AutoShortestPaths.kt",
+      "description": "Algorithm selected for automatic shortest paths: BFS, ZERO_ONE_BFS, DIJKSTRA or BELLMAN_FORD"
+    },
+    {
+      "name": "AutoShortestPaths",
+      "kind": "data class",
+      "file": "graph/AutoShortestPaths.kt",
+      "description": "ShortestPathResult adapter exposing chosen algorithm, distances, parents and path reconstruction"
+    },
+    {
+      "name": "shortestPaths",
+      "kind": "extension function",
+      "file": "graph/AutoShortestPaths.kt",
+      "description": "SparseGraph automatic single-source shortest-path selection based on current edge weights"
     }
   ],
   "files": [
@@ -929,6 +947,7 @@
     "shared/ValidatedAlgebra.kt",
     "range/MonoidPrefixTable.kt",
     "tree/AssignmentLazyTree.kt",
-    "range/RangeIndex.kt"
+    "range/RangeIndex.kt",
+    "graph/AutoShortestPaths.kt"
   ]
 }
