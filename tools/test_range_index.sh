@@ -14,7 +14,9 @@ kotlinc -J-Xmx2g \
     tree/ConfigurableLazySegmentTree.kt tree/PersistentAggregateTree.kt \
     tree/TypedAlgebraTrees.kt \
     tree/AssignmentLazyTree.kt \
-    range/RangeIndex.kt tests/RangeIndexTests.kt \
+    range/RangeIndex.kt range/RangeProgram.kt \
+    tests/RangeIndexTests.kt tests/RangeProgramTests.kt \
     -include-runtime -d "$TMP/range-index-tests.jar"
-java -jar "$TMP/range-index-tests.jar"
+java -cp "$TMP/range-index-tests.jar" RangeIndexTestsKt
+java -cp "$TMP/range-index-tests.jar" RangeProgramTestsKt
 echo "PASS: auto range index custom/typed operation regressions"
