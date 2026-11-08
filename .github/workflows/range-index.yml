@@ -1,0 +1,48 @@
+name: Kotlin automatic range-index regression
+
+on:
+  pull_request:
+    paths:
+      - 'shared/**'
+      - 'range/**'
+      - 'tree/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'benchmarks/**'
+      - '.github/workflows/range-index.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'shared/**'
+      - 'range/**'
+      - 'tree/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'benchmarks/**'
+      - '.github/workflows/range-index.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  range-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install Kotlin 1.9.25
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 \
+            --output "$RUNNER_TEMP/kotlin-compiler.zip" \
+            https://github.com/JetBrains/kotlin/releases/download/v1.9.25/kotlin-compiler-1.9.25.zip
+          unzip -q "$RUNNER_TEMP/kotlin-compiler.zip" -d "$RUNNER_TEMP/kotlin"
+          echo "$RUNNER_TEMP/kotlin/kotlinc/bin" >> "$GITHUB_PATH"
+      - name: Validate custom-operation range selection against real modules
+        run: bash tools/test_range_index.sh
+      - name: Run reproducible non-gating performance observations
+        run: bash tools/benchmark_range_index.sh
