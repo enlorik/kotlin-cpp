@@ -55,6 +55,9 @@ MODULES: dict[str, tuple[str, ...]] = {
     ),
 }
 
+# Range programs reuse the same vetted dependencies as rangeIndex itself.
+MODULES["range-program"] = (*MODULES["range-index"], "range/RangeProgram.kt")
+
 IMPORT_RE = re.compile(r"^import\s+.+$", re.MULTILINE)
 PACKAGE_RE = re.compile(r"^\s*package\s+\S+", re.MULTILINE)
 FILE_ANNOTATION_RE = re.compile(r"^\s*@file:", re.MULTILINE)
