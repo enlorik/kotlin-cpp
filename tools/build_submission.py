@@ -31,6 +31,7 @@ MODULES: dict[str, tuple[str, ...]] = {
         "tree/SegmentTree.kt",
         "shared/SegmentTreeAggregations.kt",
     ),
+    "sum-segment-tree": ("tree/LongSumSegmentTree.kt",),
     "grid-bfs": ("grid/GridBfs.kt",),
     "graph": (
         "graph/GraphTypes.kt",
