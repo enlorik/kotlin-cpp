@@ -899,6 +899,18 @@
       "kind": "extension function",
       "file": "graph/AutoShortestPaths.kt",
       "description": "SparseGraph automatic single-source shortest-path selection based on current edge weights"
+    },
+    {
+      "name": "LongSumSegmentTree",
+      "kind": "class",
+      "file": "tree/LongSumSegmentTree.kt",
+      "description": "Unboxed Long sum segment tree with point updates, range queries, inclusive indexing and prefix search"
+    },
+    {
+      "name": "sumSegmentTree",
+      "kind": "extension function",
+      "file": "tree/LongSumSegmentTree.kt",
+      "description": "Opt-in sum-only LongArray / IntArray tree backed by primitive LongArray nodes"
     }
   ],
   "files": [
@@ -948,6 +960,7 @@
     "range/MonoidPrefixTable.kt",
     "tree/AssignmentLazyTree.kt",
     "range/RangeIndex.kt",
-    "graph/AutoShortestPaths.kt"
+    "graph/AutoShortestPaths.kt",
+    "tree/LongSumSegmentTree.kt"
   ]
 }
