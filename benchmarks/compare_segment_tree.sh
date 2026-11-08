@@ -6,8 +6,8 @@ trap 'rm -rf "$tmp"' EXIT
 
 size=4096
 queries=40000
-if [[ -n "$BENCH_SIZE" ]]; then size="$BENCH_SIZE"; fi
-if [[ -n "$BENCH_QUERIES" ]]; then queries="$BENCH_QUERIES"; fi
+if [[ -v BENCH_SIZE ]]; then size="$BENCH_SIZE"; fi
+if [[ -v BENCH_QUERIES ]]; then queries="$BENCH_QUERIES"; fi
 python3 benchmarks/generate_segment_tree_workload.py \
   --size "$size" --queries "$queries" > "$tmp/input.txt"
 
