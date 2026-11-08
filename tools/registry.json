@@ -911,6 +911,24 @@
       "kind": "extension function",
       "file": "tree/LongSumSegmentTree.kt",
       "description": "Opt-in sum-only LongArray / IntArray tree backed by primitive LongArray nodes"
+    },
+    {
+      "name": "RangeProgramScope",
+      "kind": "class",
+      "file": "range/RangeProgram.kt",
+      "description": "Type-safe deferred DSL that records ordered query and point-set commands with validated bounds"
+    },
+    {
+      "name": "RangeProgramResult",
+      "kind": "data class",
+      "file": "range/RangeProgram.kt",
+      "description": "Ordered range query answers and automatically selected index strategy"
+    },
+    {
+      "name": "rangeProgram",
+      "kind": "extension function",
+      "file": "range/RangeProgram.kt",
+      "description": "Run an ordered query/set DSL with static or mutable index selected from recorded commands"
     }
   ],
   "files": [
@@ -961,6 +979,7 @@
     "tree/AssignmentLazyTree.kt",
     "range/RangeIndex.kt",
     "graph/AutoShortestPaths.kt",
-    "tree/LongSumSegmentTree.kt"
+    "tree/LongSumSegmentTree.kt",
+    "range/RangeProgram.kt"
   ]
 }
