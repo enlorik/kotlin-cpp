@@ -11,7 +11,7 @@ if [[ -v BENCH_QUERIES ]]; then queries="$BENCH_QUERIES"; fi
 python3 benchmarks/generate_segment_tree_workload.py \
   --size "$size" --queries "$queries" > "$tmp/input.txt"
 
-kotlinc -J-Xmx2g tree/SegmentTree.kt benchmarks/SegmentTreeKotlin.kt \
+kotlinc -J-Xmx2g tree/SegmentTree.kt tree/LongSumSegmentTree.kt benchmarks/SegmentTreeKotlin.kt \
   -include-runtime -d "$tmp/kotlin.jar"
 g++ -std=c++17 -O2 -Wall -Wextra -pedantic benchmarks/SegmentTreeCpp.cpp \
   -o "$tmp/cpp"
@@ -20,7 +20,8 @@ kotlin_result="$(java -jar "$tmp/kotlin.jar" < "$tmp/input.txt")"
 cpp_result="$("$tmp/cpp" < "$tmp/input.txt")"
 kotlin_checksum="$(printf '%s\n' "$kotlin_result" | sed -n 's/^checksum=//p')"
 cpp_checksum="$(printf '%s\n' "$cpp_result" | sed -n 's/^checksum=//p')"
-if [[ -z "$kotlin_checksum" || "$kotlin_checksum" != "$cpp_checksum" ]]; then
+primitive_checksum="$(printf '%s\n' "$kotlin_result" | sed -n 's/^primitive_checksum=//p')"
+if [[ -z "$kotlin_checksum" || -z "$primitive_checksum" || "$kotlin_checksum" != "$primitive_checksum" || "$kotlin_checksum" != "$cpp_checksum" ]]; then
   printf 'Kotlin result:\n%s\nC++ result:\n%s\n' "$kotlin_result" "$cpp_result" >&2
   echo "FAIL: implementations disagree" >&2
   exit 1

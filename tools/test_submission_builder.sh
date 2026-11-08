@@ -19,11 +19,12 @@ check_submission() {
 check_submission basics 'fast-io,binary-search,segment-tree' tools/fixtures/SubmissionBasics.kt
 check_submission ranges 'range-index' tools/fixtures/SubmissionRanges.kt
 check_submission graph 'graph,grid-bfs' tools/fixtures/SubmissionGraph.kt
+check_submission primitive 'sum-segment-tree' tools/fixtures/SubmissionSumSegmentTree.kt
 check_submission advanced 'advanced-binary-search' tools/fixtures/SubmissionAdvancedSearch.kt
 
 # Every supported bundle must coexist when combined into one Kotlin file.
 check_submission combined \
-    'fast-io,advanced-binary-search,segment-tree,grid-bfs,graph,range-index' \
+    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,grid-bfs,graph,range-index' \
     tools/fixtures/SubmissionBasics.kt
 
 echo "PASS: generated standalone Kotlin files compiled and ran successfully"

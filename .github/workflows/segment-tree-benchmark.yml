@@ -8,6 +8,7 @@ on:
       - 'benchmarks/generate_segment_tree_workload.py'
       - 'benchmarks/compare_segment_tree.sh'
       - 'tree/SegmentTree.kt'
+      - 'tree/LongSumSegmentTree.kt'
       - '.github/workflows/segment-tree-benchmark.yml'
   push:
     branches: [main]
