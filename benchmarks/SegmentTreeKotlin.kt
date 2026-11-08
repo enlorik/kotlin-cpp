@@ -42,20 +42,40 @@ fun main() {
         left[i] = input.nextInt()
         right[i] = input.nextInt()
     }
-    val durations = LongArray(7)
-    var checksum = 0L
+    val genericDurations = LongArray(7)
+    val primitiveDurations = LongArray(7)
+    var genericChecksum = 0L
+    var primitiveChecksum = 0L
+
     repeat(7) { run ->
-        val start = System.nanoTime()
-        val tree = values.segmentTree()
-        var total = 0L
+        val genericStart = System.nanoTime()
+        val generic = values.segmentTree()
+        var totalGeneric = 0L
         for (i in 0 until q) {
-            if (types[i] == 0) tree[left[i]] = right[i].toLong()
-            else total += tree.query(left[i], right[i])
+            if (types[i] == 0) generic[left[i]] = right[i].toLong()
+            else totalGeneric += generic.query(left[i], right[i])
         }
-        durations[run] = System.nanoTime() - start
-        checksum = total
+        genericDurations[run] = System.nanoTime() - genericStart
+        genericChecksum = totalGeneric
+
+        val primitiveStart = System.nanoTime()
+        val primitive = values.sumSegmentTree()
+        var totalPrimitive = 0L
+        for (i in 0 until q) {
+            if (types[i] == 0) primitive[left[i]] = right[i].toLong()
+            else totalPrimitive += primitive.query(left[i], right[i])
+        }
+        primitiveDurations[run] = System.nanoTime() - primitiveStart
+        primitiveChecksum = totalPrimitive
+        check(totalGeneric == totalPrimitive) { "Generic and primitive implementations disagree" }
     }
-    val measured = durations.drop(2).sorted()
-    println("checksum=" + checksum)
-    println("median_ms=" + measured[measured.size / 2] / 1_000_000.0)
+
+    fun medianMs(samples: LongArray): Double =
+        samples.drop(2).sorted()[2] / 1_000_000.0
+
+    // Retain original output field names for existing C++ comparison tooling.
+    println("checksum=" + genericChecksum)
+    println("median_ms=" + medianMs(genericDurations))
+    println("primitive_checksum=" + primitiveChecksum)
+    println("primitive_median_ms=" + medianMs(primitiveDurations))
 }
