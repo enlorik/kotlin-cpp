@@ -2,6 +2,7 @@
 
 Reusable Kotlin competitive-programming algorithms and fast I/O.
 
+- **Automatic custom-operation range index:** [docs/range_index.md](docs/range_index.md) introduces `a.rangeIndex(op)` (static sparse/disjoint), `a.rangeIndex(op, mutable=true)` (point updates), and `a.rangeIndex(op, action)` (lazy range updates). Run `bash tools/test_range_index.sh` and optional `bash tools/benchmark_range_index.sh`.
 - **Offline/persistent ranges:** [docs/range_offline_persistent.md](docs/range_offline_persistent.md) introduces `moQueries()`, `moDistinctCounts()`, and persistent historical segment trees.
 - **Lazy and static range structures:** [docs/range_advanced.md](docs/range_advanced.md) covers `lazySegmentTree()`, idempotent `sparseTable()`, and general `disjointSparseTable()`.
 - **Range basics:** [docs/range_basics.md](docs/range_basics.md) provides `prefixSums()`, `differenceArray()`, and `fenwickTree()` for fast range operations.
