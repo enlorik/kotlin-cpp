@@ -43,6 +43,7 @@ deterministic, has a single imports section, and contains no package directive.
 | binary-search | Monotone predicate and sorted-array binary searches |
 | advanced-binary-search | Advanced searches plus regular binary search |
 | segment-tree | Segment tree, aggregation types and adapters |
+| sum-segment-tree | Unboxed Long sum segment tree (standalone; no dependencies) |
 | grid-bfs | Grid BFS, directions, and path reconstruction |
 | graph | Sparse graph algorithms, automatic shortest paths and result types |
 | range-index | Typed/legacy aggregation operations and automatic static/mutable/lazy range indexes |
