@@ -2,7 +2,8 @@
  * Named mathematical capabilities permit safe overload resolution to an
  * unboxed Long backend. Arbitrary monoid lambdas are never pattern-matched.
  */
-object LongSumMonoid : Monoid<Long> {
+object LongSumMonoid : LongBuiltInMonoid {
+    override val reduction: LongReduction = LongReduction.SUM
     override val identity: Long = 0L
     override fun combine(left: Long, right: Long): Long = left + right
 }
