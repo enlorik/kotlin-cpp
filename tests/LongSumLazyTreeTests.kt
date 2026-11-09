@@ -39,13 +39,13 @@ fun main() {
     typedAssign.update(0, 2, 10L)
     check(typedAssign.query(0, 3) == 26L)
 
-    val result = longArrayOf(2, 4, 6).onlineRangeProgram(LongSumMonoid, LongAddAction) {
+    val result = longArrayOf(2, 4, 6).onlineLongSum(LongAddAction) {
         val before = query(0, 3)
         update(0, 2, before)
         all()
     }
     check(result == 36L)
-    val repaint = longArrayOf(2, 4, 6).onlineRangeProgram(LongSumMonoid, LongAssignAction) {
+    val repaint = longArrayOf(2, 4, 6).onlineLongSum(LongAssignAction) {
         update(0, 2, query(0, 3))
         query(0, 3)
     }
