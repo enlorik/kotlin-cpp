@@ -19,8 +19,8 @@ each backend without changing its promises.
 ## Next priorities
 
 - [x] Explicitly named `LongSumMonoid`, `LongAddAction` and `LongAssignAction`
-      select an unboxed Long-sum lazy tree for safe `rangeIndex`/`onlineRangeProgram`
-      overloads without guessing the behavior of arbitrary lambdas.
+      select an unboxed Long-sum lazy tree for `rangeIndex` and
+      `onlineLongSum` without guessing arbitrary lambda behavior.
 - [ ] Extend capability-driven **primitive backend selection** to additional
       lawful built-in operations such as min/max and bitwise aggregates;
       never infer algebraic properties from arbitrary lambda bodies.
