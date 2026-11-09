@@ -8,13 +8,13 @@ trap 'rm -rf "$TMP"' EXIT
 # Compile against the repository's REAL Kotlin source files, not mocks.
 kotlinc -J-Xmx2g \
     shared/AggregationOp.kt shared/CustomAlgebra.kt \
-    shared/TypedAlgebra.kt shared/TypedAlgebraBridge.kt \
+    shared/TypedAlgebra.kt shared/TypedAlgebraBridge.kt shared/LongSumCapabilities.kt \
     tree/SegmentTree.kt shared/SegmentTreeAggregations.kt \
     range/SparseTables.kt \
     tree/ConfigurableLazySegmentTree.kt tree/PersistentAggregateTree.kt \
-    tree/TypedAlgebraTrees.kt \
+    tree/TypedAlgebraTrees.kt tree/LongSumLazyTree.kt \
     tree/AssignmentLazyTree.kt \
-    range/RangeIndex.kt range/RangeProgram.kt range/OnlineRangeProgram.kt \
+    range/RangeIndex.kt range/RangeProgram.kt range/OnlineRangeProgram.kt range/LongSumOptimized.kt \
     tests/RangeIndexTests.kt tests/RangeProgramTests.kt tests/OnlineRangeProgramTests.kt \
     -include-runtime -d "$TMP/range-index-tests.jar"
 java -cp "$TMP/range-index-tests.jar" RangeIndexTestsKt

@@ -49,6 +49,7 @@ deterministic, has a single imports section, and contains no package directive.
 | range-index | Typed/legacy aggregation operations and automatic static/mutable/lazy range indexes |
 | range-program | Declarative ordered point updates and range queries (includes range-index) |
 | online-range-program | Immediately executing range queries, point assignments and lawful lazy updates |
+| primitive-long-lazy | Named Long sum/add/assign algebra with an unboxed lazy tree and online DSL |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear

@@ -72,6 +72,31 @@ fun main() {
     mustReject { intArrayOf().onlineRangeProgram(sum) { set(0, 2) } }
     mustReject { intArrayOf(3).onlineRangeProgram(sum, addition) { update(1, 0, 1) } }
 
+    // Named concrete capabilities choose an unboxed backend at compile time.
+    val fastBackend: LongSumActionIndex =
+        longArrayOf(1L, 2L, 3L).rangeIndex(LongSumMonoid, LongAddAction)
+    fastBackend.update(0, 3, 5L)
+    check(fastBackend.query(0, 3) == 21L)
+
+    val fastOnline = longArrayOf(1L, 2L, 3L)
+        .onlineLongSum(LongAssignAction) {
+            update(0, 2, query(0, 3))
+            all()
+        }
+    check(fastOnline == 15L)
+
+    // Erasing to the general algebraic interfaces keeps the generic backend.
+    val generalMonoid: Monoid<Long> = LongSumMonoid
+    val generalAction: MonoidAction<Long, Long> = LongAddAction
+    val genericBackend: LazyAggregateTree<Long, Long> =
+        longArrayOf(1L, 2L, 3L).rangeIndex(generalMonoid, generalAction)
+    genericBackend.update(0, 3, 5L)
+    check(genericBackend.query(0, 3) == 21L)
+    check(longArrayOf(1L, 2L).onlineRangeProgram(generalMonoid, generalAction) {
+        update(0, 2, 10L)
+        query(0, 2)
+    } == 23L)
+
     val rand = Random(20261109)
     var comparisons = 0
     repeat(260) { round ->

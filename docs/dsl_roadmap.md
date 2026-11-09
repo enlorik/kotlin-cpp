@@ -18,14 +18,18 @@ each backend without changing its promises.
 
 ## Next priorities
 
-- [ ] Capability-driven **primitive backend selection** for typed
-      `monoid()` + `action()` where operations are explicitly named and lawful;
-      no unsafe guessing from arbitrary lambdas.
+- [x] Explicitly named `LongSumMonoid`, `LongAddAction` and `LongAssignAction`
+      select an unboxed Long-sum lazy tree for `rangeIndex` and
+      `onlineLongSum` without guessing arbitrary lambda behavior.
+- [ ] Extend capability-driven **primitive backend selection** to additional
+      lawful built-in operations such as min/max and bitwise aggregates;
+      never infer algebraic properties from arbitrary lambda bodies.
 - [x] **Online range-program DSL** returning query answers immediately with
       ordinary Kotlin control flow, point assignments and lawful lazy updates;
       the existing deferred `rangeProgram` remains unchanged.
-- [ ] Primitive Long range-add and range-assign, batched localized recompute
-      APIs, and benchmarks against the generic lazy tree.
+- [x] Primitive Long range-add and range-assign using an unboxed lazy tree.
+- [ ] Batched localized recomputation and reproducible comparisons against
+      the generic lazy tree.
 - [ ] Generalize bounded **local contributions** only when another genuinely
       different contest problem demonstrates the same abstraction; otherwise
       it is overfitting disguised as an API.
