@@ -79,7 +79,7 @@ fun main() {
     check(fastBackend.query(0, 3) == 21L)
 
     val fastOnline = longArrayOf(1L, 2L, 3L)
-        .onlineRangeProgram(LongSumMonoid, LongAssignAction) {
+        .onlineLongSum(LongAssignAction) {
             update(0, 2, query(0, 3))
             all()
         }
