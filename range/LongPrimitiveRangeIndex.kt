@@ -172,7 +172,7 @@ annotation class PrimitiveLongPointDsl
 class OnlineLongPointScope internal constructor(private val index: LongPrimitiveRangeIndex) {
     val size: Int get() = index.size
     fun query(from: Int, until: Int): Long = index.query(from, until)
-    fun set(index: Int, value: Long) = index.set(index, value)
+    fun set(index: Int, value: Long) = this.index.set(index, value)
     fun all(): Long = index.all()
 }
 
