@@ -51,9 +51,9 @@ fun main() {
                         "Sum mismatch round=$round [$l,$r)"
                     }
                     check(tree.min(l, r) ==
-                        (l until r).minOfOrNull { naive[it] } ?: Long.MAX_VALUE)
+                        ((l until r).minOfOrNull { naive[it] } ?: Long.MAX_VALUE))
                     check(tree.max(l, r) ==
-                        (l until r).maxOfOrNull { naive[it] } ?: Long.MIN_VALUE)
+                        ((l until r).maxOfOrNull { naive[it] } ?: Long.MIN_VALUE))
                     checks++
                 }
             }
