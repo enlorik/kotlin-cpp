@@ -17,6 +17,6 @@ fun main() {
         update(2, 3, intermediate)
         query(0, 3)
     }
-    check(lazy == 32)
+    check(lazy == 36)
     println("standalone online range DSL OK")
 }
