@@ -1025,6 +1025,12 @@
       "kind": "class",
       "file": "range/LongSumOptimized.kt",
       "description": "Immediate online range DSL using optimized unboxed Long sum lazy tree"
+    },
+    {
+      "name": "onlineLongSum",
+      "kind": "extension function",
+      "file": "range/LongSumOptimized.kt",
+      "description": "Run an immediately executing primitive Long-sum online DSL with named range add or assign action"
     }
   ],
   "files": [
