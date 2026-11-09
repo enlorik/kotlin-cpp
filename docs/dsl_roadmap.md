@@ -30,7 +30,12 @@ each backend without changing its promises.
 - [x] Primitive Long range-add and range-assign using an unboxed lazy tree.
 - [x] `BlockAssignSum.recompute` and `setMany`: rebuild only touched blocks
       once, instead of per-position tree operations.
-- [ ] Reproducible primitive-vs-generic benchmarks on actual contest workloads.
+- [x] Query planner `LongArray.optimize { aggregate(...); support {...} }`
+      selects lawful backend from declared operations.
+- [x] Persistent range add/assign via path copying, version branching and rollback.
+- [x] Segment Tree Beats range chmin/chmax/add and sum/min/max, with oracle tests.
+- [x] Seeded planner-vs-generic point/lazy benchmarks with correctness checks and
+      CI severe-slowdown alarm (not an absolute Timus TLE guarantee).
 - [ ] Generalize bounded **local contributions** only when another genuinely
       different contest problem demonstrates the same abstraction; otherwise
       it is overfitting disguised as an API.
