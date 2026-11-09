@@ -12,22 +12,24 @@
 class BoundedPalindromeIndex(source: String, val maxLength: Int, blockSize: Int = maxOf(1, kotlin.math.sqrt(source.length.toDouble()).toInt())) {
     val size: Int = source.length
     private val chars = source.paintedString(blockSize)
-    private val window = BoundedPalindromeWindows(maxLength)
+    // A bound longer than the entire string cannot add any palindromes.
+    private val k = minOf(maxLength, maxOf(1, size))
+    private val window = BoundedPalindromeWindows(k)
     private val contributions = window.initialCounts(source).blockAssignSum(blockSize)
-    private val scratch = IntArray(maxOf(1, 2 * maxLength))
+    private val scratch = IntArray(2 * k)
 
     init { require(maxLength >= 1) { "maxLength must be positive" } }
 
     fun assign(from: Int, until: Int, char: Char) {
         require(from in 0..size && until in from..size) { "Invalid range [$from, $until)" }
-        if (from == until || maxLength == 1) return
+        if (from == until || k == 1) return
         chars.assign(from, until, char)
 
-        val interiorEnd = until - maxLength + 1
-        if (interiorEnd > from) contributions.assign(from, interiorEnd, maxLength)
+        val interiorEnd = until - k + 1
+        if (interiorEnd > from) contributions.assign(from, interiorEnd, k)
 
-        val affectedStart = maxOf(0, from - maxLength + 1)
-        if (until - from < maxLength) {
+        val affectedStart = maxOf(0, from - k + 1)
+        if (until - from < k) {
             refresh(affectedStart, until)
         } else {
             refresh(affectedStart, from)
@@ -37,8 +39,8 @@ class BoundedPalindromeIndex(source: String, val maxLength: Int, blockSize: Int 
 
     fun count(from: Int, until: Int): Long {
         require(from in 0..size && until in from..size) { "Invalid range [$from, $until)" }
-        if (maxLength == 1) return (until - from).toLong()
-        val boundary = maxOf(from, until - maxLength + 1)
+        if (k == 1) return (until - from).toLong()
+        val boundary = maxOf(from, until - k + 1)
         return contributions.sum(from, boundary) + window.countWithin(chars, boundary, until)
     }
 
