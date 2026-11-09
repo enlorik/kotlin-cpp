@@ -55,6 +55,8 @@ private fun blockBasics() {
 
 fun main() {
     blockBasics()
+    check("ab".boundedPalindromes(1_000_000).count(0, 2) == 2L)
+    check("".boundedPalindromes(1_000_000).count(0, 0) == 0L)
     check("".boundedPalindromes(5).count(0, 0) == 0L)
     check("a".boundedPalindromes(1).count(0, 1) == 1L)
     check("abacaba".boundedPalindromes(4).count(0, 3) == 4L)
