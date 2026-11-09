@@ -19,7 +19,9 @@ println(result.strategy) // POINT_UPDATES
 **Key idea:** the block is *declarative*. `query(...)` records a command and
 returns `Unit`; answers become available after the block finishes, in query
 order. This means one query's answer cannot control the next command in the
-same block. For interactive/online problems, use `a.rangeIndex(op)` directly.
+same block. For interactive/online problems, use `a.onlineRangeProgram(op) { ... }`,
+which returns query answers immediately, or `a.rangeIndex(op, mutable=true)`
+directly. See [online range programs](online_range_program.md).
 
 ## Automatic selection
 
