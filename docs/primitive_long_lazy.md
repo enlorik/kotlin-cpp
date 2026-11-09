@@ -9,7 +9,7 @@ backend without changing generic APIs:
 
 ```kotlin
 val answer = longArrayOf(2, 4, 6)
-    .onlineRangeProgram(LongSumMonoid, LongAddAction) {
+    .onlineLongSum(LongAddAction) {
         val previous = query(0, 3) // 12
         update(0, 2, previous)      // [14, 16, 6]
         query(0, 3)                 // 36
@@ -41,6 +41,9 @@ arithmetic, with normal signed overflow behavior.
 
 - A named `LongSumMonoid` + `LongAddAction` or `LongAssignAction`
   uses the unboxed `LongSumLazyTree` through exact static overloads.
+- Kotlin receiver-lambda overloads are ambiguous here, so the unboxed online
+  shortcut is intentionally called `onlineLongSum(action)`, not another
+  `onlineRangeProgram` overload.
 - An arbitrary `Monoid<Long>` + `MonoidAction<Long, U>` keeps the existing
   generic `LazyAggregateTree`, even when a lambda happens to add.
 - The optimized version uses primitive arrays for sums and lazy tags,
