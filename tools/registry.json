@@ -965,6 +965,24 @@
       "kind": "extension function",
       "file": "string/BoundedPalindromeIndex.kt",
       "description": "Create an optimized index supporting assign(from, until, char) and count(from, until)"
+    },
+    {
+      "name": "OnlineRangeScope",
+      "kind": "class",
+      "file": "range/OnlineRangeProgram.kt",
+      "description": "Online immediate monoid range queries, point assignments and ordinary Kotlin control flow"
+    },
+    {
+      "name": "OnlineLazyRangeScope",
+      "kind": "class",
+      "file": "range/OnlineRangeProgram.kt",
+      "description": "Online immediate lazy range updates using mathematically lawful MonoidAction"
+    },
+    {
+      "name": "onlineRangeProgram",
+      "kind": "extension function",
+      "file": "range/OnlineRangeProgram.kt",
+      "description": "Execute point or lazy range operations immediately; query answers can control subsequent updates"
     }
   ],
   "files": [
@@ -1019,6 +1037,7 @@
     "range/RangeProgram.kt",
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
-    "string/BoundedPalindromeIndex.kt"
+    "string/BoundedPalindromeIndex.kt",
+    "range/OnlineRangeProgram.kt"
   ]
 }

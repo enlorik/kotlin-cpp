@@ -21,8 +21,9 @@ each backend without changing its promises.
 - [ ] Capability-driven **primitive backend selection** for typed
       `monoid()` + `action()` where operations are explicitly named and lawful;
       no unsafe guessing from arbitrary lambdas.
-- [ ] **Online range-program DSL** returning query answers immediately;
-      the existing deferred `rangeProgram` records commands and returns Unit.
+- [x] **Online range-program DSL** returning query answers immediately with
+      ordinary Kotlin control flow, point assignments and lawful lazy updates;
+      the existing deferred `rangeProgram` remains unchanged.
 - [ ] Primitive Long range-add and range-assign, batched localized recompute
       APIs, and benchmarks against the generic lazy tree.
 - [ ] Generalize bounded **local contributions** only when another genuinely

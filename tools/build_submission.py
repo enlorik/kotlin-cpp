@@ -57,6 +57,7 @@ MODULES: dict[str, tuple[str, ...]] = {
 
 # Range programs reuse the same vetted dependencies as rangeIndex itself.
 MODULES["range-program"] = (*MODULES["range-index"], "range/RangeProgram.kt")
+MODULES["online-range-program"] = (*MODULES["range-program"], "range/OnlineRangeProgram.kt")
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
