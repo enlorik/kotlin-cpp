@@ -47,17 +47,15 @@ class OnlineLongSumScope internal constructor(private val index: LongSumActionIn
 }
 
 /**
- * Explicit overload wins when both arguments have the named capability types.
- * The generic onlineRangeProgram remains selected for arbitrary operations.
+ * Named online shortcut avoids Kotlin lambda-receiver overload ambiguity with
+ * general onlineRangeProgram. The monoid capability is fixed to LongSumMonoid.
  */
-fun <R> LongArray.onlineRangeProgram(
-    op: LongSumMonoid,
+fun <R> LongArray.onlineLongSum(
     action: LongAddAction,
     block: OnlineLongSumScope.() -> R
-): R = OnlineLongSumScope(rangeIndex(op, action)).block()
+): R = OnlineLongSumScope(rangeIndex(LongSumMonoid, action)).block()
 
-fun <R> LongArray.onlineRangeProgram(
-    op: LongSumMonoid,
+fun <R> LongArray.onlineLongSum(
     action: LongAssignAction,
     block: OnlineLongSumScope.() -> R
-): R = OnlineLongSumScope(rangeIndex(op, action)).block()
+): R = OnlineLongSumScope(rangeIndex(LongSumMonoid, action)).block()
