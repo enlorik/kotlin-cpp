@@ -14,6 +14,7 @@ on:
       - 'search/**'
       - 'shared/**'
       - 'tree/**'
+      - 'scripts/ensure-kotlin.sh'
       - '.github/workflows/submission-builder.yml'
   push:
     branches: [main]
@@ -29,6 +30,7 @@ on:
       - 'search/**'
       - 'shared/**'
       - 'tree/**'
+      - 'scripts/ensure-kotlin.sh'
       - '.github/workflows/submission-builder.yml'
 
 permissions:
@@ -44,12 +46,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - name: Install Kotlin 1.9.25
-        run: |
-          curl --fail --location --retry 3 --silent --show-error \
-            --output "$RUNNER_TEMP/kotlin-compiler.zip" \
-            https://github.com/JetBrains/kotlin/releases/download/v1.9.25/kotlin-compiler-1.9.25.zip
-          unzip -q "$RUNNER_TEMP/kotlin-compiler.zip" -d "$RUNNER_TEMP/kotlin"
-          echo "$RUNNER_TEMP/kotlin/kotlinc/bin" >> "$GITHUB_PATH"
+      - name: Select preinstalled Kotlin (or fallback)
+        run: bash scripts/ensure-kotlin.sh
       - name: Generate, compile, and execute standalone submissions
         run: bash tools/test_submission_builder.sh
