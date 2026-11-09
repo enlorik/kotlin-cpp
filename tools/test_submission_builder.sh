@@ -22,10 +22,23 @@ check_submission program 'range-program' tools/fixtures/SubmissionRangeProgram.k
 check_submission graph 'graph,grid-bfs' tools/fixtures/SubmissionGraph.kt
 check_submission primitive 'sum-segment-tree' tools/fixtures/SubmissionSumSegmentTree.kt
 check_submission advanced 'advanced-binary-search' tools/fixtures/SubmissionAdvancedSearch.kt
+check_submission palindrome 'fast-io,bounded-palindromes' tools/fixtures/SubmissionBoundedPalindromes.kt
 
 # Every supported bundle must coexist when combined into one Kotlin file.
 check_submission combined \
-    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,grid-bfs,graph,range-index,range-program' \
+    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,grid-bfs,graph,range-index,range-program,bounded-palindromes' \
     tools/fixtures/SubmissionBasics.kt
+
+
+# The actual Timus 2042 example must also compile as a one-file contest entry.
+python3 tools/build_submission.py \
+    --modules fast-io,bounded-palindromes \
+    --solution examples/Timus2042.kt \
+    --output "$tmp/timus2042.kt"
+kotlinc -J-Xmx2g "$tmp/timus2042.kt" -include-runtime -d "$tmp/timus2042.jar"
+printf 'abacaba 4\n3\n2 1 3\n1 1 3 c\n2 1 4\n' |
+    java -Xmx64m -jar "$tmp/timus2042.jar" > "$tmp/timus2042.actual"
+printf '4\n10\n' > "$tmp/timus2042.expected"
+diff -u "$tmp/timus2042.expected" "$tmp/timus2042.actual"
 
 echo "PASS: generated standalone Kotlin files compiled and ran successfully"

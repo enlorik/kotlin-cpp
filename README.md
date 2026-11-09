@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Fast bounded palindrome DSL:** [docs/bounded_palindromes.md](docs/bounded_palindromes.md) adds `s.boundedPalindromes(k)` with online `assign`/`count`, backed by primitive block sums and lazy painted strings; [DSL roadmap](docs/dsl_roadmap.md) tracks the remaining gaps.
+
 Reusable Kotlin competitive-programming algorithms and fast I/O.
 
 - **Declarative range programs:** [docs/range_program.md](docs/range_program.md) lets you write ordered `query`/`set` blocks and automatically selects static or mutable indexes.

@@ -8,6 +8,7 @@ on:
       - 'tree/**'
       - 'tests/**'
       - 'tools/**'
+      - 'scripts/ensure-kotlin.sh'
       - '.github/workflows/typed-algebra.yml'
   push:
     branches: [main]
@@ -17,6 +18,7 @@ on:
       - 'tree/**'
       - 'tests/**'
       - 'tools/**'
+      - 'scripts/ensure-kotlin.sh'
       - '.github/workflows/typed-algebra.yml'
 
 permissions:
@@ -32,13 +34,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - name: Install Kotlin 1.9.25
-        shell: bash
-        run: |
-          curl --fail --location --retry 3 \
-            --output "$RUNNER_TEMP/kotlin-compiler.zip" \
-            https://github.com/JetBrains/kotlin/releases/download/v1.9.25/kotlin-compiler-1.9.25.zip
-          unzip -q "$RUNNER_TEMP/kotlin-compiler.zip" -d "$RUNNER_TEMP/kotlin"
-          echo "$RUNNER_TEMP/kotlin/kotlinc/bin" >> "$GITHUB_PATH"
+      - name: Select preinstalled Kotlin (or fallback)
+        run: bash scripts/ensure-kotlin.sh
       - name: Check algebra laws and compiler rejections
         run: bash tools/test_typed_algebra.sh
