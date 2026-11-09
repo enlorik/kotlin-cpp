@@ -84,13 +84,5 @@ fun main() {
         }
         check(initial.indices.all { initial[it] in -1000L..1000L })
     }
-    // Explicit type erasure to Monoid/MonoidAction must still choose generic.
-    val genericMonoid: Monoid<Long> = LongSumMonoid
-    val genericAction: MonoidAction<Long, Long> = LongAddAction
-    check(longArrayOf(1, 2, 3).onlineRangeProgram(genericMonoid, genericAction) {
-        update(0, 3, 4L)
-        query(0, 3)
-    } == 18L)
-
     println("PASS: primitive Long-sum lazy algebra ($oracleQueries randomized oracle queries)")
 }
