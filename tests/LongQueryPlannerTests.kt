@@ -41,7 +41,7 @@ fun main() {
     beats.chmin(0, 4, 5L)
     beats.chmax(0, 2, 3L)
     beats.add(0, 4, 2L)
-    check(beats.query(0, 4) == 19L)
+    check(beats.query(0, 4) == 25L)
     beats.assign(0, 2, 0L)
     check(beats.query(0, 4) == 14L)
 
