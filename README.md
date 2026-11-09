@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Online range DSL:** [docs/online_range_program.md](docs/online_range_program.md) adds `onlineRangeProgram()` for immediate queries that control later point or lazy range updates.
+
 - **Fast bounded palindrome DSL:** [docs/bounded_palindromes.md](docs/bounded_palindromes.md) adds `s.boundedPalindromes(k)` with online `assign`/`count`, backed by primitive block sums and lazy painted strings; [DSL roadmap](docs/dsl_roadmap.md) tracks the remaining gaps.
 
 Reusable Kotlin competitive-programming algorithms and fast I/O.
