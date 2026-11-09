@@ -48,6 +48,7 @@ deterministic, has a single imports section, and contains no package directive.
 | graph | Sparse graph algorithms, automatic shortest paths and result types |
 | range-index | Typed/legacy aggregation operations and automatic static/mutable/lazy range indexes |
 | range-program | Declarative ordered point updates and range queries (includes range-index) |
+| online-range-program | Immediately executing range queries, point assignments and lawful lazy updates |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
