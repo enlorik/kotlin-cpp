@@ -1,5 +1,9 @@
 # kotlin-cpp
 
+- **Declarative query planner:** [docs/query_planner.md](docs/query_planner.md) chooses the data structure from required operations and named algebra.
+- **Persistent history and Segment Tree Beats:** [docs/advanced_range_structures.md](docs/advanced_range_structures.md) supports rollback, branching and conditional range clamps.
+- **Performance guardrails:** [docs/query_planner.md](docs/query_planner.md#performance-regression-detection) checks identical deterministic workloads against generic backends.
+
 - **Builtin Long algebra:** [docs/primitive_long_reductions.md](docs/primitive_long_reductions.md) selects unboxed static or point-update backends for named SUM/MIN/MAX/GCD/XOR operations.
 - **Batched local recomputation:** [docs/primitive_long_reductions.md](docs/primitive_long_reductions.md#batched-local-recomputation) explains `BlockAssignSum.recompute` and `setMany`, avoiding per-position tree traversal.
 

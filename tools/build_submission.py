@@ -71,6 +71,16 @@ MODULES["primitive-long-index"] = (
     "shared/LongSumCapabilities.kt",
     "range/LongPrimitiveRangeIndex.kt",
 )
+MODULES["persistent-long-range"] = ("tree/VersionedLongSum.kt",)
+MODULES["segment-tree-beats"] = ("tree/LongBeatsTree.kt",)
+MODULES["query-planner"] = (
+    *MODULES["range-index"],
+    *MODULES["primitive-long-index"],
+    "tree/LongSumLazyTree.kt",
+    "tree/VersionedLongSum.kt",
+    "tree/LongBeatsTree.kt",
+    "range/LongQueryPlanner.kt",
+)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",

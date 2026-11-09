@@ -51,6 +51,9 @@ deterministic, has a single imports section, and contains no package directive.
 | online-range-program | Immediately executing range queries, point assignments and lawful lazy updates |
 | primitive-long-lazy | Named Long sum/add/assign algebra with an unboxed lazy tree and online DSL |
 | primitive-long-index | Unboxed, capability-selected Long SUM/MIN/MAX/GCD/XOR static/point indexes |
+| query-planner | Declarative operation planner selecting static, mutable, lazy, Beats or persistent backends |
+| persistent-long-range | Versioned lazy Long sum range add/assign with branch and rollback |
+| segment-tree-beats | Unboxed Long Segment Tree Beats with chmin/chmax/add and sum/min/max queries |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear

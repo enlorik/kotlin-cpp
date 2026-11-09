@@ -42,5 +42,7 @@ jobs:
         run: bash tools/test_range_index.sh
       - name: Validate primitive typed Long sum actions
         run: bash tools/test_primitive_long_lazy.sh
+      - name: Verify query planning, persistent branches, Beats and performance
+        run: bash tools/test_query_planner.sh
       - name: Run reproducible non-gating performance observations
         run: bash tools/benchmark_range_index.sh

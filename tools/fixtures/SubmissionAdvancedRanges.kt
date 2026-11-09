@@ -1,0 +1,16 @@
+fun main() {
+    val versions = longArrayOf(1, 2).versionedLongSum()
+    val first = versions.add(0, 2, 3)
+    versions.rollback(0)
+    val second = versions.assign(0, 1, 10)
+    check(first == 1 && second == 2)
+    check(versions.query(first, 0, 2) == 9L)
+    check(versions.query(second, 0, 2) == 12L)
+    val beats = longArrayOf(1, 10, 5).beatsTree()
+    beats.chmin(0, 3, 7)
+    beats.chmax(0, 2, 4)
+    beats.add(0, 3, 1)
+    check(beats.sum(0, 3) == 19L)
+    check(beats.min(0, 3) == 5L && beats.max(0, 3) == 8L)
+    println("standalone Beats/history OK")
+}
