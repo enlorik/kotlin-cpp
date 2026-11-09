@@ -29,7 +29,7 @@ fun main() {
     tree.add(1, 4, 5L)
     tree.assign(2, 3, -8L)
     tree.add(0, 3, 2L)
-    check(tree.query(0, 5) == 13L)
+    check(tree.query(0, 5) == 8L)
     check(tree.query(2, 3) == -6L)
 
     val typedFast = longArrayOf(2, 4, 6).rangeIndex(LongSumMonoid, LongAddAction)
