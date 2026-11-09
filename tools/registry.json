@@ -929,6 +929,42 @@
       "kind": "extension function",
       "file": "range/RangeProgram.kt",
       "description": "Run an ordered query/set DSL with static or mutable index selected from recorded commands"
+    },
+    {
+      "name": "BlockAssignSum",
+      "kind": "class",
+      "file": "range/BlockAssignSum.kt",
+      "description": "Unboxed Int interval assignment and Long range-sum blocks with batched replace"
+    },
+    {
+      "name": "blockAssignSum",
+      "kind": "extension function",
+      "file": "range/BlockAssignSum.kt",
+      "description": "Create a primitive sqrt-decomposed mutable assignment/sum index from IntArray"
+    },
+    {
+      "name": "PaintedString",
+      "kind": "class",
+      "file": "string/PaintedString.kt",
+      "description": "Block-wise lazy interval character assignment and O(1) character access"
+    },
+    {
+      "name": "paintedString",
+      "kind": "extension function",
+      "file": "string/PaintedString.kt",
+      "description": "Turn a String into a mutable lazy-painted character index"
+    },
+    {
+      "name": "BoundedPalindromeIndex",
+      "kind": "class",
+      "file": "string/BoundedPalindromeIndex.kt",
+      "description": "Online bounded palindrome counts with interval repainting in O(k + sqrt n)"
+    },
+    {
+      "name": "boundedPalindromes",
+      "kind": "extension function",
+      "file": "string/BoundedPalindromeIndex.kt",
+      "description": "Create an optimized index supporting assign(from, until, char) and count(from, until)"
     }
   ],
   "files": [
@@ -980,6 +1016,9 @@
     "range/RangeIndex.kt",
     "graph/AutoShortestPaths.kt",
     "tree/LongSumSegmentTree.kt",
-    "range/RangeProgram.kt"
+    "range/RangeProgram.kt",
+    "range/BlockAssignSum.kt",
+    "string/PaintedString.kt",
+    "string/BoundedPalindromeIndex.kt"
   ]
 }
