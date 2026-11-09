@@ -40,5 +40,7 @@ jobs:
         run: bash scripts/ensure-kotlin.sh
       - name: Validate custom-operation range selection against real modules
         run: bash tools/test_range_index.sh
+      - name: Validate primitive typed Long sum actions
+        run: bash tools/test_primitive_long_lazy.sh
       - name: Run reproducible non-gating performance observations
         run: bash tools/benchmark_range_index.sh
