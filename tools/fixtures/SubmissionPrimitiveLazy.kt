@@ -1,5 +1,5 @@
 fun main() {
-    val program = longArrayOf(1, 2, 3).onlineRangeProgram(LongSumMonoid, LongAddAction) {
+    val program = longArrayOf(1, 2, 3).onlineLongSum(LongAddAction) {
         val initial = query(0, 3)
         update(1, 3, initial)
         query(0, 3)
