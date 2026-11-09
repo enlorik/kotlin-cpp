@@ -60,9 +60,16 @@ MODULES["range-program"] = (*MODULES["range-index"], "range/RangeProgram.kt")
 MODULES["online-range-program"] = (*MODULES["range-program"], "range/OnlineRangeProgram.kt")
 MODULES["primitive-long-lazy"] = (
     "shared/TypedAlgebra.kt",
+    "shared/LongPrimitiveMonoids.kt",
     "shared/LongSumCapabilities.kt",
     "tree/LongSumLazyTree.kt",
     "range/LongSumOptimized.kt",
+)
+MODULES["primitive-long-index"] = (
+    "shared/TypedAlgebra.kt",
+    "shared/LongPrimitiveMonoids.kt",
+    "shared/LongSumCapabilities.kt",
+    "range/LongPrimitiveRangeIndex.kt",
 )
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",

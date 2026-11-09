@@ -21,15 +21,16 @@ each backend without changing its promises.
 - [x] Explicitly named `LongSumMonoid`, `LongAddAction` and `LongAssignAction`
       select an unboxed Long-sum lazy tree for `rangeIndex` and
       `onlineLongSum` without guessing arbitrary lambda behavior.
-- [ ] Extend capability-driven **primitive backend selection** to additional
-      lawful built-in operations such as min/max and bitwise aggregates;
-      never infer algebraic properties from arbitrary lambda bodies.
+- [x] Capability-selected unboxed static and mutable indexes for named
+      SUM, MIN, MAX, GCD, XOR Long monoids, while arbitrary lambdas retain the
+      generic fallback; noncommutative user monoids preserve order.
 - [x] **Online range-program DSL** returning query answers immediately with
       ordinary Kotlin control flow, point assignments and lawful lazy updates;
       the existing deferred `rangeProgram` remains unchanged.
 - [x] Primitive Long range-add and range-assign using an unboxed lazy tree.
-- [ ] Batched localized recomputation and reproducible comparisons against
-      the generic lazy tree.
+- [x] `BlockAssignSum.recompute` and `setMany`: rebuild only touched blocks
+      once, instead of per-position tree operations.
+- [ ] Reproducible primitive-vs-generic benchmarks on actual contest workloads.
 - [ ] Generalize bounded **local contributions** only when another genuinely
       different contest problem demonstrates the same abstraction; otherwise
       it is overfitting disguised as an API.

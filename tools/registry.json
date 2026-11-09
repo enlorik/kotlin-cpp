@@ -1031,6 +1031,60 @@
       "kind": "extension function",
       "file": "range/LongSumOptimized.kt",
       "description": "Run an immediately executing primitive Long-sum online DSL with named range add or assign action"
+    },
+    {
+      "name": "LongBuiltInMonoid",
+      "kind": "sealed interface",
+      "file": "shared/LongPrimitiveMonoids.kt",
+      "description": "Typed, explicitly named Long reductions that enable safe unboxed backend selection"
+    },
+    {
+      "name": "LongMinMonoid",
+      "kind": "object",
+      "file": "shared/LongPrimitiveMonoids.kt",
+      "description": "Idempotent minimum on Long values"
+    },
+    {
+      "name": "LongMaxMonoid",
+      "kind": "object",
+      "file": "shared/LongPrimitiveMonoids.kt",
+      "description": "Idempotent maximum on Long values"
+    },
+    {
+      "name": "LongGcdMonoid",
+      "kind": "object",
+      "file": "shared/LongPrimitiveMonoids.kt",
+      "description": "GCD monoid on nonnegative Long values only"
+    },
+    {
+      "name": "LongXorMonoid",
+      "kind": "object",
+      "file": "shared/LongPrimitiveMonoids.kt",
+      "description": "Long XOR Abelian group with inverse"
+    },
+    {
+      "name": "LongPrimitiveRangeIndex",
+      "kind": "class",
+      "file": "range/LongPrimitiveRangeIndex.kt",
+      "description": "Unboxed capability-driven static prefix/sparse and dynamic point segment indexes"
+    },
+    {
+      "name": "onlineLongPoints",
+      "kind": "extension function",
+      "file": "range/LongPrimitiveRangeIndex.kt",
+      "description": "Online unboxed point-update DSL for built-in Long monoid capabilities"
+    },
+    {
+      "name": "recompute",
+      "kind": "method",
+      "file": "range/BlockAssignSum.kt",
+      "description": "Batched local recomputation rebuilding each touched block only once"
+    },
+    {
+      "name": "setMany",
+      "kind": "method",
+      "file": "range/BlockAssignSum.kt",
+      "description": "Batched sorted point assignments rebuilding each touched block once"
     }
   ],
   "files": [
@@ -1089,6 +1143,8 @@
     "range/OnlineRangeProgram.kt",
     "tree/LongSumLazyTree.kt",
     "shared/LongSumCapabilities.kt",
-    "range/LongSumOptimized.kt"
+    "range/LongSumOptimized.kt",
+    "shared/LongPrimitiveMonoids.kt",
+    "range/LongPrimitiveRangeIndex.kt"
   ]
 }

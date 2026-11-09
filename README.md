@@ -1,5 +1,8 @@
 # kotlin-cpp
 
+- **Builtin Long algebra:** [docs/primitive_long_reductions.md](docs/primitive_long_reductions.md) selects unboxed static or point-update backends for named SUM/MIN/MAX/GCD/XOR operations.
+- **Batched local recomputation:** [docs/primitive_long_reductions.md](docs/primitive_long_reductions.md#batched-local-recomputation) explains `BlockAssignSum.recompute` and `setMany`, avoiding per-position tree traversal.
+
 - **Primitive Long lazy sums:** [docs/primitive_long_lazy.md](docs/primitive_long_lazy.md) lets named `LongSumMonoid` + `LongAddAction`/`LongAssignAction` select an unboxed O(log n) range-update tree.
 
 - **Online range DSL:** [docs/online_range_program.md](docs/online_range_program.md) adds `onlineRangeProgram()` for immediate queries that control later point or lazy range updates.

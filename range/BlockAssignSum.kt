@@ -82,6 +82,54 @@ class BlockAssignSum(values: IntArray, blockSize: Int = defaultBlockSize(values.
         }
     }
 
+
+    /**
+     * Recompute an entire local window while materializing and rebuilding
+     * each touched block only once. The callback receives (index, oldValue).
+     * O(length + touchedBlocks * blockSize), no per-element tree traversal.
+     */
+    fun recompute(from: Int, until: Int, compute: (index: Int, previous: Int) -> Int) {
+        require(from in 0..size && until in from..size) { "Invalid range [$from, $until)" }
+        var position = from
+        while (position < until) {
+            val block = position / width
+            val stop = minOf(until, end(block))
+            materialize(block)
+            while (position < stop) {
+                values[position] = compute(position, values[position])
+                position++
+            }
+            recalculate(block)
+        }
+    }
+
+    /**
+     * Apply strictly increasing point indices, rebuilding any touched block
+     * once rather than once per point. Validation precedes all mutations.
+     * O(count + touchedBlocks * blockSize).
+     */
+    fun setMany(indices: IntArray, replacements: IntArray) {
+        require(indices.size == replacements.size) { "Indices and values size mismatch" }
+        for (i in indices.indices) {
+            require(indices[i] in 0 until size) { "Index ${indices[i]} out of bounds" }
+            require(i == 0 || indices[i] > indices[i - 1]) {
+                "Indices must be strictly increasing"
+            }
+        }
+        var lastBlock = -1
+        for (i in indices.indices) {
+            val index = indices[i]
+            val block = index / width
+            if (block != lastBlock) {
+                if (lastBlock >= 0) recalculate(lastBlock)
+                materialize(block)
+                lastBlock = block
+            }
+            values[index] = replacements[i]
+        }
+        if (lastBlock >= 0) recalculate(lastBlock)
+    }
+
     fun sum(from: Int, until: Int): Long {
         require(from in 0..size && until in from..size) { "Invalid range [$from, $until)" }
         if (from == until) return 0L

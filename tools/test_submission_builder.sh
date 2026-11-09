@@ -21,6 +21,7 @@ check_submission ranges 'range-index' tools/fixtures/SubmissionRanges.kt
 check_submission program 'range-program' tools/fixtures/SubmissionRangeProgram.kt
 check_submission online 'online-range-program' tools/fixtures/SubmissionOnlineRangeProgram.kt
 check_submission primitive_lazy 'primitive-long-lazy' tools/fixtures/SubmissionPrimitiveLazy.kt
+check_submission primitive_monoids 'primitive-long-index,bounded-palindromes' tools/fixtures/SubmissionPrimitiveMonoids.kt
 check_submission graph 'graph,grid-bfs' tools/fixtures/SubmissionGraph.kt
 check_submission primitive 'sum-segment-tree' tools/fixtures/SubmissionSumSegmentTree.kt
 check_submission advanced 'advanced-binary-search' tools/fixtures/SubmissionAdvancedSearch.kt
@@ -28,7 +29,7 @@ check_submission palindrome 'fast-io,bounded-palindromes' tools/fixtures/Submiss
 
 # Every supported bundle must coexist when combined into one Kotlin file.
 check_submission combined \
-    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,primitive-long-lazy,grid-bfs,graph,range-index,range-program,online-range-program,bounded-palindromes' \
+    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,primitive-long-lazy,primitive-long-index,grid-bfs,graph,range-index,range-program,online-range-program,bounded-palindromes' \
     tools/fixtures/SubmissionBasics.kt
 
 
