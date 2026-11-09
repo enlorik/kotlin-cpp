@@ -983,6 +983,48 @@
       "kind": "extension function",
       "file": "range/OnlineRangeProgram.kt",
       "description": "Execute point or lazy range operations immediately; query answers can control subsequent updates"
+    },
+    {
+      "name": "LongSumLazyTree",
+      "kind": "class",
+      "file": "tree/LongSumLazyTree.kt",
+      "description": "Unboxed Long array-backed O(log n) range add/assign and range sums"
+    },
+    {
+      "name": "longSumLazyTree",
+      "kind": "extension function",
+      "file": "tree/LongSumLazyTree.kt",
+      "description": "Construct primitive Long sum lazy tree from LongArray or IntArray"
+    },
+    {
+      "name": "LongSumMonoid",
+      "kind": "object",
+      "file": "shared/LongSumCapabilities.kt",
+      "description": "Named Long-sum monoid capability selecting optimized overloads"
+    },
+    {
+      "name": "LongAddAction",
+      "kind": "object",
+      "file": "shared/LongSumCapabilities.kt",
+      "description": "Named Long range-add action, lawfully distributed over sum monoid"
+    },
+    {
+      "name": "LongAssignAction",
+      "kind": "object",
+      "file": "shared/LongSumCapabilities.kt",
+      "description": "Named Long range-assign action, lawfully distributed over sum monoid"
+    },
+    {
+      "name": "LongSumActionIndex",
+      "kind": "class",
+      "file": "range/LongSumOptimized.kt",
+      "description": "Primitive range-index backend for named Long sum and add/assign action"
+    },
+    {
+      "name": "OnlineLongSumScope",
+      "kind": "class",
+      "file": "range/LongSumOptimized.kt",
+      "description": "Immediate online range DSL using optimized unboxed Long sum lazy tree"
     }
   ],
   "files": [
@@ -1038,6 +1080,9 @@
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
     "string/BoundedPalindromeIndex.kt",
-    "range/OnlineRangeProgram.kt"
+    "range/OnlineRangeProgram.kt",
+    "tree/LongSumLazyTree.kt",
+    "shared/LongSumCapabilities.kt",
+    "range/LongSumOptimized.kt"
   ]
 }
