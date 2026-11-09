@@ -57,6 +57,11 @@ MODULES: dict[str, tuple[str, ...]] = {
 
 # Range programs reuse the same vetted dependencies as rangeIndex itself.
 MODULES["range-program"] = (*MODULES["range-index"], "range/RangeProgram.kt")
+MODULES["bounded-palindromes"] = (
+    "range/BlockAssignSum.kt",
+    "string/PaintedString.kt",
+    "string/BoundedPalindromeIndex.kt",
+)
 
 IMPORT_RE = re.compile(r"^import\s+.+$", re.MULTILINE)
 PACKAGE_RE = re.compile(r"^\s*package\s+\S+", re.MULTILINE)
