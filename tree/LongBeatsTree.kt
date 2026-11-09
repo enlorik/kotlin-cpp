@@ -150,6 +150,7 @@ class LongBeatsTree(values: LongArray) {
 
     fun chmin(from: Int, until: Int, ceiling: Long) {
         validate(from, until)
+        require(ceiling != Long.MIN_VALUE) { "Long.MIN_VALUE is a reserved sentinel" }
         if (from < until) chminRec(1, 0, size, from, until, ceiling)
     }
 
@@ -168,6 +169,7 @@ class LongBeatsTree(values: LongArray) {
 
     fun chmax(from: Int, until: Int, floor: Long) {
         validate(from, until)
+        require(floor != Long.MAX_VALUE) { "Long.MAX_VALUE is a reserved sentinel" }
         if (from < until) chmaxRec(1, 0, size, from, until, floor)
     }
 
