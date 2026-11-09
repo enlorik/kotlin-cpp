@@ -1085,6 +1085,54 @@
       "kind": "method",
       "file": "range/BlockAssignSum.kt",
       "description": "Batched sorted point assignments rebuilding each touched block once"
+    },
+    {
+      "name": "VersionedLongSum",
+      "kind": "class",
+      "file": "tree/VersionedLongSum.kt",
+      "description": "Persistent lazy range add/assign and sum with immutable historical branching, checkout and rollback"
+    },
+    {
+      "name": "versionedLongSum",
+      "kind": "extension function",
+      "file": "tree/VersionedLongSum.kt",
+      "description": "Create an O(log n) path-copying Long sum history index"
+    },
+    {
+      "name": "LongBeatsTree",
+      "kind": "class",
+      "file": "tree/LongBeatsTree.kt",
+      "description": "Segment Tree Beats for range chmin/chmax/add/assign and sum/min/max"
+    },
+    {
+      "name": "beatsTree",
+      "kind": "extension function",
+      "file": "tree/LongBeatsTree.kt",
+      "description": "Construct unboxed Segment Tree Beats from LongArray or IntArray"
+    },
+    {
+      "name": "LongQueryRequirements",
+      "kind": "class",
+      "file": "range/LongQueryPlanner.kt",
+      "description": "DSL capabilities rangeQuery/pointSet/rangeAdd/rangeAssign/rangeChmin/rangeChmax/historicalVersions"
+    },
+    {
+      "name": "LongQueryPlanner",
+      "kind": "class",
+      "file": "range/LongQueryPlanner.kt",
+      "description": "Select lawful range query algorithm based on monoid and declared operations"
+    },
+    {
+      "name": "PlannedLongIndex",
+      "kind": "class",
+      "file": "range/LongQueryPlanner.kt",
+      "description": "Uniform facade for static, point, lazy, beats, persistent and generic range queries"
+    },
+    {
+      "name": "optimize",
+      "kind": "extension function",
+      "file": "range/LongQueryPlanner.kt",
+      "description": "Compile LongArray.optimize { aggregate(monoid); support { ... } } into chosen data structure"
     }
   ],
   "files": [
@@ -1145,6 +1193,9 @@
     "shared/LongSumCapabilities.kt",
     "range/LongSumOptimized.kt",
     "shared/LongPrimitiveMonoids.kt",
-    "range/LongPrimitiveRangeIndex.kt"
+    "range/LongPrimitiveRangeIndex.kt",
+    "range/LongQueryPlanner.kt",
+    "tree/VersionedLongSum.kt",
+    "tree/LongBeatsTree.kt"
   ]
 }
