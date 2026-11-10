@@ -103,6 +103,7 @@ MODULES["suffix-automaton"] = ("string/SuffixAutomaton.kt",)
 MODULES["palindromic-tree"] = ("string/PalindromicTree.kt",)
 MODULES["dp-optimization"] = ("dp/Optimization.kt",)
 MODULES["game-theory"] = ("game/GameTheory.kt",)
+MODULES["exact-geometry"] = ("geometry/ExactGeometry.kt",)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
