@@ -1319,6 +1319,90 @@
       "kind": "function",
       "file": "game/GameTheory.kt",
       "description": "Generic depth-limited alpha-beta minimax"
+    },
+    {
+      "name": "LongPoint",
+      "kind": "data class",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Signed Long coordinate pair with exact BigInteger geometry predicates"
+    },
+    {
+      "name": "orientation",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Overflow-safe signed orientation of three integer points"
+    },
+    {
+      "name": "segmentsIntersect",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Closed-segment intersection with endpoints and collinearity"
+    },
+    {
+      "name": "convexHull",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "O(nlogn) strict convex hull in CCW order"
+    },
+    {
+      "name": "closestPairSquared",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Exact O(nlogn) closest pair"
+    },
+    {
+      "name": "diameterSquared",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Rotating-calipers farthest squared distance"
+    },
+    {
+      "name": "isPrime64",
+      "kind": "function",
+      "file": "math/NumberTheory.kt",
+      "description": "Deterministic signed Long Miller-Rabin primality"
+    },
+    {
+      "name": "factorize64",
+      "kind": "function",
+      "file": "math/NumberTheory.kt",
+      "description": "Signed 64-bit positive prime factorization by Pollard-Brent rho"
+    },
+    {
+      "name": "powerMod",
+      "kind": "function",
+      "file": "math/NumberTheory.kt",
+      "description": "Overflow-safe modular exponentiation"
+    },
+    {
+      "name": "inverseMod",
+      "kind": "function",
+      "file": "math/NumberTheory.kt",
+      "description": "Modular inverse with coprimality precondition"
+    },
+    {
+      "name": "Ntt998244353",
+      "kind": "object",
+      "file": "math/Ntt998244353.kt",
+      "description": "Exact NTT mod 998244353 with primitive root 3"
+    },
+    {
+      "name": "convolutionNtt",
+      "kind": "function",
+      "file": "math/Ntt998244353.kt",
+      "description": "Exact modular polynomial convolution"
+    },
+    {
+      "name": "FftConvolution",
+      "kind": "object",
+      "file": "math/FftConvolution.kt",
+      "description": "Approximate double radix-2 FFT convolution"
+    },
+    {
+      "name": "convolutionFft",
+      "kind": "function",
+      "file": "math/FftConvolution.kt",
+      "description": "Floating-point polynomial convolution"
     }
   ],
   "files": [
@@ -1392,6 +1476,10 @@
     "string/SuffixAutomaton.kt",
     "string/PalindromicTree.kt",
     "dp/Optimization.kt",
-    "game/GameTheory.kt"
+    "game/GameTheory.kt",
+    "geometry/ExactGeometry.kt",
+    "math/NumberTheory.kt",
+    "math/Ntt998244353.kt",
+    "math/FftConvolution.kt"
   ]
 }
