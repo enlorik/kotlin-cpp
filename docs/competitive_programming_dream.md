@@ -88,13 +88,13 @@ and palindrome enumeration.
 
 ## 7. Number theory and polynomial algebra
 
-- [ ] **Modular arithmetic**: normalization, multiplication that avoids
+- [x] **Modular arithmetic**: normalization, multiplication that avoids
   overflow, powers, extended GCD, modular inverses
-- [ ] **Primality**: deterministic Miller–Rabin for signed 64-bit inputs
-- [ ] **Factorization**: Pollard Rho, multiplicities, divisor/totient helpers
-- [ ] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
+- [x] **Primality**: deterministic Miller–Rabin for signed 64-bit inputs
+- [x] **Factorization**: Pollard Rho, multiplicities, divisor/totient helpers
+- [x] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
 - [ ] **FFT** for real/complex polynomials with explicit precision limits
-- [ ] CRT/Garner, formal power-series inverse/log/exp, combinatorics modulo
+- [ ] Garner, formal power-series inverse/log/exp, combinatorics modulo
   primes and Lucas theorem
 
 **Prove it:** small exact polynomial multiplication and trial-division

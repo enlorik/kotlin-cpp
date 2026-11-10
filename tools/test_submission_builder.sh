@@ -29,6 +29,7 @@ check_submission dynamic_trees 'rerooting-dp,offline-connectivity' tools/fixture
 check_submission strings 'suffix-automaton,palindromic-tree' tools/fixtures/SubmissionStrings.kt
 check_submission dp_games 'dp-optimization,game-theory' tools/fixtures/SubmissionDpGames.kt
 check_submission geometry 'exact-geometry' tools/fixtures/SubmissionGeometry.kt
+check_submission number_theory 'number-theory,ntt' tools/fixtures/SubmissionNumberTheory.kt
 check_submission heavy_light_graph 'heavy-light-graph' tools/fixtures/SubmissionHeavyLightGraph.kt
 check_submission graph 'graph,grid-bfs' tools/fixtures/SubmissionGraph.kt
 check_submission primitive 'sum-segment-tree' tools/fixtures/SubmissionSumSegmentTree.kt
@@ -37,7 +38,7 @@ check_submission palindrome 'fast-io,bounded-palindromes' tools/fixtures/Submiss
 
 # Every supported bundle must coexist when combined into one Kotlin file.
 check_submission combined \
-    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,primitive-long-lazy,primitive-long-index,query-planner,persistent-long-range,segment-tree-beats,grid-bfs,graph,range-index,range-program,online-range-program,bounded-palindromes,wavelet-matrix,li-chao,heavy-light-graph,rerooting-dp,offline-connectivity,suffix-automaton,palindromic-tree,dp-optimization,game-theory,exact-geometry' \
+    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,primitive-long-lazy,primitive-long-index,query-planner,persistent-long-range,segment-tree-beats,grid-bfs,graph,range-index,range-program,online-range-program,bounded-palindromes,wavelet-matrix,li-chao,heavy-light-graph,rerooting-dp,offline-connectivity,suffix-automaton,palindromic-tree,dp-optimization,game-theory,exact-geometry,number-theory,ntt' \
     tools/fixtures/SubmissionBasics.kt
 
 

@@ -57,6 +57,8 @@ each backend without changing its promises.
 
 - [x] Exact integer geometry: convex hull, polygon and segment predicates, rotating calipers and O(n log n) closest pair.
 
+- [x] Exact modular arithmetic, deterministic 64-bit primality, Pollard–Rho factoring, CRT and NTT modular convolution.
+
 ## Architecture rule
 
 `monoid()` describes a lawful way to combine values; `action()` describes

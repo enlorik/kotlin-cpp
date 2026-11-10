@@ -104,6 +104,8 @@ MODULES["palindromic-tree"] = ("string/PalindromicTree.kt",)
 MODULES["dp-optimization"] = ("dp/Optimization.kt",)
 MODULES["game-theory"] = ("game/GameTheory.kt",)
 MODULES["exact-geometry"] = ("geometry/ExactGeometry.kt",)
+MODULES["number-theory"] = ("math/ModularArithmetic.kt", "math/PrimeFactorization.kt")
+MODULES["ntt"] = ("math/NTT.kt",)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
