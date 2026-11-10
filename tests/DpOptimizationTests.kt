@@ -2,7 +2,7 @@ import kotlin.random.Random
 
 fun main() {
     val infinity = Long.MAX_VALUE / 4
-    check(divideConquerPartitionRow(longArrayOf(0L)).values.contentEquals(
+    check(divideConquerPartitionRow(longArrayOf(0L)) { _, _ -> 0L }.values.contentEquals(
         longArrayOf(infinity)))
     check(runCatching { divideConquerPartitionRow(longArrayOf()) { _, _ -> 0L } }
         .exceptionOrNull() is IllegalArgumentException)
