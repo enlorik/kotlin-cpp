@@ -51,7 +51,7 @@ each backend without changing its promises.
 - [x] Randomized brute-force oracles, large-chain stack test and standalone bundling.
 - [x] Generic order-preserving rerooting DP and primitive tree distance sums.
 - [x] Rollback DSU with multiset-aware offline dynamic connectivity.
-- [ ] Suffix automaton and palindromic tree (eertree).
+- [x] Online suffix automaton and palindromic tree (eertree).
 
 ## Architecture rule
 
