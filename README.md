@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Rerooting tree DP and rollback connectivity:** [docs/tree_dp_connectivity.md](docs/tree_dp_connectivity.md) adds generic all-roots DP, rollback DSU, and offline add/remove connectivity.
+
 - **Full competitive-programming dream roadmap:** [seven territories, complete checklist and verification standards](docs/competitive_programming_dream.md).
 
 - **Advanced algorithm DSL:** [docs/advanced_algorithms.md](docs/advanced_algorithms.md) introduces signed Wavelet Matrix, Li Chao line optimization and iterative Heavy-Light Decomposition with order-preserving monoids.
