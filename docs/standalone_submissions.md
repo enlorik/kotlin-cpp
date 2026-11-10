@@ -65,6 +65,8 @@ deterministic, has a single imports section, and contains no package directive.
 | dp-optimization | Monotone divide/conquer DP and convex hull trick |
 | game-theory | Grundy numbers, retrograde outcomes and alpha-beta minimax |
 | exact-geometry | Exact integer hull, intersections, polygon predicates, diameter, closest pair |
+| number-theory | BigInteger-safe modular arithmetic, deterministic Miller-Rabin, Pollard-Rho factorization |
+| ntt | Exact modular polynomial convolution under 998244353 |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
