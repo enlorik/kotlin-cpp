@@ -58,8 +58,9 @@ and palindrome enumeration.
   documented monotonicity precondition and caller-provided cost
 - [x] **Convex hull trick** for monotone line slopes/queries; Li Chao is
   already available for arbitrary insertion order
-- [ ] Knuth optimization with quadrangle inequality preconditions
-- [ ] SOS DP, subset/zeta transforms, bitset optimizations
+- [x] Knuth optimization with quadrangle inequality preconditions
+- [x] SOS DP and subset/superset zeta/Mobius transforms
+- [ ] Bitset DP optimizations
 - [ ] SMAWK/totally-monotone matrix search where applicable
 
 **Prove it:** check optimized DP against O(n²) or O(n³) transitions.
