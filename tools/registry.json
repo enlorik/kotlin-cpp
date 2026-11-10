@@ -1319,6 +1319,72 @@
       "kind": "function",
       "file": "game/GameTheory.kt",
       "description": "Generic depth-limited alpha-beta minimax"
+    },
+    {
+      "name": "ExactPoint",
+      "kind": "data class",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Exact integer point with Long coordinates"
+    },
+    {
+      "name": "orientationExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Overflow-safe BigInteger cross product"
+    },
+    {
+      "name": "distanceSquaredExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Exact squared Euclidean distance between integer points"
+    },
+    {
+      "name": "pointOnSegmentExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Boundary-inclusive integer point segment membership"
+    },
+    {
+      "name": "segmentsIntersectExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Exact segment intersection including collinear/touching"
+    },
+    {
+      "name": "convexHullExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Counterclockwise monotone-chain convex hull"
+    },
+    {
+      "name": "polygonTwiceAreaExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Exact signed twice polygon area"
+    },
+    {
+      "name": "PointInPolygon",
+      "kind": "enum class",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Inside/outside/boundary classification"
+    },
+    {
+      "name": "locateInPolygonExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Exact point containment in a simple polygon"
+    },
+    {
+      "name": "convexDiameterSquaredExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Rotating-calipers farthest pair distance squared"
+    },
+    {
+      "name": "closestPairSquaredExact",
+      "kind": "function",
+      "file": "geometry/ExactGeometry.kt",
+      "description": "Divide-and-conquer closest pair distance squared"
     }
   ],
   "files": [
@@ -1392,6 +1458,7 @@
     "string/SuffixAutomaton.kt",
     "string/PalindromicTree.kt",
     "dp/Optimization.kt",
-    "game/GameTheory.kt"
+    "game/GameTheory.kt",
+    "geometry/ExactGeometry.kt"
   ]
 }
