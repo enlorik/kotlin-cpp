@@ -18,7 +18,7 @@ a working one-file submission-builder module.
 
 ## 1. Tree dynamic programming
 
-- [ ] Generic **rerooting DP**: merge child contributions; remove one
+- [x] Generic **rerooting DP**: merge child contributions; remove one
   contribution with prefix/suffix products; calculate results for *every* root
 - [ ] Tree knapsack/convolution DP and diameter/centroid templates
 - [ ] Virtual trees and LCA-assisted queries
@@ -29,8 +29,8 @@ contributions; random trees against O(n²) all-roots brute force.
 
 ## 2. Fully dynamic/offline graph connectivity
 
-- [ ] **Rollback DSU**: snapshots, union-by-size, component sizes, undo
-- [ ] **Offline dynamic connectivity**: add/remove edges, connectivity and
+- [x] **Rollback DSU**: snapshots, union-by-size, component sizes, undo
+- [x] **Offline dynamic connectivity**: add/remove edges, connectivity and
   component-count queries using a segment tree over time
 - [ ] Bipartiteness with parity rollback; divide-and-conquer on time
 - [ ] Online dynamic connectivity only with an appropriate dynamic-tree

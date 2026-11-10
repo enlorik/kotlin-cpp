@@ -94,6 +94,11 @@ MODULES["heavy-light-graph"] = (
     *MODULES["heavy-light"],
     "graph/HeavyLightGraphBridge.kt",
 )
+MODULES["rerooting-dp"] = (
+    "shared/TypedAlgebra.kt",
+    "tree/RerootingDp.kt",
+)
+MODULES["offline-connectivity"] = ("graph/RollbackConnectivity.kt",)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
