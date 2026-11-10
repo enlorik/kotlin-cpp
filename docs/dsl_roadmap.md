@@ -42,6 +42,17 @@ each backend without changing its promises.
 - [ ] Verify actual Timus acceptance and investigate remaining JVM/judge costs;
       time estimates from a local machine are not a verdict.
 
+## Advanced algorithm expansion
+
+- [x] Signed Int Wavelet Matrix: range kth, frequencies and predecessor/successor.
+- [x] Dynamic Li Chao min/max line envelopes, including segment insertion.
+- [x] Iterative Heavy-Light path/subtree aggregation with noncommutative ordering
+      and primitive Long-sum specialization, plus SparseGraph integration.
+- [x] Randomized brute-force oracles, large-chain stack test and standalone bundling.
+- [ ] Rerooting/tree DP as a separate reusable abstraction.
+- [ ] Rollback DSU with offline dynamic connectivity.
+- [ ] Suffix automaton and palindromic tree (eertree).
+
 ## Architecture rule
 
 `monoid()` describes a lawful way to combine values; `action()` describes
