@@ -49,8 +49,8 @@ each backend without changing its promises.
 - [x] Iterative Heavy-Light path/subtree aggregation with noncommutative ordering
       and primitive Long-sum specialization, plus SparseGraph integration.
 - [x] Randomized brute-force oracles, large-chain stack test and standalone bundling.
-- [ ] Rerooting/tree DP as a separate reusable abstraction.
-- [ ] Rollback DSU with offline dynamic connectivity.
+- [x] Generic order-preserving rerooting DP and primitive tree distance sums.
+- [x] Rollback DSU with multiset-aware offline dynamic connectivity.
 - [ ] Suffix automaton and palindromic tree (eertree).
 
 ## Architecture rule
