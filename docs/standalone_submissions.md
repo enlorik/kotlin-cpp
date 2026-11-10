@@ -64,6 +64,10 @@ deterministic, has a single imports section, and contains no package directive.
 | palindromic-tree | Online eertree of distinct and total palindromes |
 | dp-optimization | Monotone divide/conquer DP and convex hull trick |
 | game-theory | Grundy numbers, retrograde outcomes and alpha-beta minimax |
+| exact-geometry | BigInteger-exact integer geometry, hulls, closest pair and rotating calipers |
+| number-theory | Modular arithmetic, Miller-Rabin and Pollard-Brent factorization |
+| polynomial-ntt | Exact modular convolution modulo 998244353 |
+| polynomial-fft | Approximate Double polynomial convolution |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
