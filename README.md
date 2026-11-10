@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Number theory and polynomial convolution:** [docs/number_theory.md](docs/number_theory.md) covers safe modular arithmetic, CRT, deterministic 64-bit primality, Pollard–Rho factoring, and NTT.
+
 - **Exact computational geometry:** [docs/exact_geometry.md](docs/exact_geometry.md) adds overflow-safe convex hull, segment intersections, polygon classification, calipers and closest-pair queries.
 
 - **DP and adversarial games:** [docs/dp_and_games.md](docs/dp_and_games.md) adds monotone divide/conquer DP, lower convex hull trick, Sprague-Grundy, retrograde outcomes and minimax.
