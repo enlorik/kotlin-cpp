@@ -87,7 +87,7 @@ fun main() {
         }
         val parent = rootedParents(adj, root)
         val values = LongArray(n) { rng.nextLong(-100, 101) }
-        val words = MutableList(n) { ("a".code + rng.nextInt(26)).toChar().toString() }
+        val words = MutableList(n) { ('a'.code + rng.nextInt(26)).toChar().toString() }
         val generic = words.heavyLightTree(edges, concat, root)
         val fast = values.heavyLightSums(edges, root)
         val topo = fast.topology
@@ -98,7 +98,7 @@ fun main() {
             val v = rng.nextInt(n)
             if (rng.nextInt(5) == 0) {
                 val newValue = rng.nextLong(-100, 101)
-                val newWord = ("A".code + rng.nextInt(26)).toChar().toString()
+                val newWord = ('A'.code + rng.nextInt(26)).toChar().toString()
                 values[u] = newValue
                 words[u] = newWord
                 fast.set(u, newValue)
