@@ -59,6 +59,8 @@ each backend without changing its promises.
 
 - [x] Exact modular arithmetic, deterministic 64-bit primality, Pollard–Rho factoring, CRT and NTT modular convolution.
 
+- [x] KMP, Z-function and Aho–Corasick dictionary matching with randomized naive oracles.
+
 ## Architecture rule
 
 `monoid()` describes a lawful way to combine values; `action()` describes
