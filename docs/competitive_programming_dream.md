@@ -76,11 +76,11 @@ and palindrome enumeration.
 
 ## 6. Computational geometry
 
-- [ ] **Exact orientation/cross products** on integer points without
+- [x] **Exact orientation/cross products** on integer points without
   overflow; hull, segment intersection and on-segment predicates
-- [ ] **Closest pair** in O(n log n)
-- [ ] **Rotating calipers** for farthest pair/diameter and convex polygons
-- [ ] Polygon area, point-in-polygon, Minkowski sums
+- [x] **Closest pair** in O(n log n)
+- [x] **Rotating calipers** for farthest pair/diameter and convex polygons
+- [ ] Minkowski sums; [x] polygon area and point-in-polygon
 - [ ] Floating-point geometry separately, with numerical robustness policy
 
 **Prove it:** randomized small point sets against quadratic brute force.
