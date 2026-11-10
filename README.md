@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Advanced algorithm DSL:** [docs/advanced_algorithms.md](docs/advanced_algorithms.md) introduces signed Wavelet Matrix, Li Chao line optimization and iterative Heavy-Light Decomposition with order-preserving monoids.
+
 - **Declarative query planner:** [docs/query_planner.md](docs/query_planner.md) chooses the data structure from required operations and named algebra.
 - **Persistent history and Segment Tree Beats:** [docs/advanced_range_structures.md](docs/advanced_range_structures.md) supports rollback, branching and conditional range clamps.
 - **Performance guardrails:** [docs/query_planner.md](docs/query_planner.md#performance-regression-detection) checks identical deterministic workloads against generic backends.

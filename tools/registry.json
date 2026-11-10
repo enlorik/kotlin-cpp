@@ -1133,6 +1133,78 @@
       "kind": "extension function",
       "file": "range/LongQueryPlanner.kt",
       "description": "Compile LongArray.optimize { aggregate(monoid); support { ... } } into chosen data structure"
+    },
+    {
+      "name": "IntWaveletMatrix",
+      "kind": "class",
+      "file": "range/IntWaveletMatrix.kt",
+      "description": "Signed Int order statistics and rank/frequency/predecessor/successor queries in O(32)"
+    },
+    {
+      "name": "waveletMatrix",
+      "kind": "extension function",
+      "file": "range/IntWaveletMatrix.kt",
+      "description": "Create an immutable signed Int Wavelet Matrix from an IntArray"
+    },
+    {
+      "name": "LiChaoTree",
+      "kind": "class",
+      "file": "tree/LiChaoTree.kt",
+      "description": "Dynamic minimum/maximum line envelope with inclusive Long domain and segment insertion"
+    },
+    {
+      "name": "LiChaoLine",
+      "kind": "data class",
+      "file": "tree/LiChaoTree.kt",
+      "description": "Line slope*x + intercept for Li Chao evaluation"
+    },
+    {
+      "name": "liChao",
+      "kind": "extension function",
+      "file": "tree/LiChaoTree.kt",
+      "description": "Create a Li Chao min/max line tree from a LongRange"
+    },
+    {
+      "name": "HeavyLightTopology",
+      "kind": "class",
+      "file": "tree/HeavyLightTree.kt",
+      "description": "Iterative heavy-first topology with LCA, subtree intervals, positions and distances"
+    },
+    {
+      "name": "HeavyLightIndex",
+      "kind": "class",
+      "file": "tree/HeavyLightTree.kt",
+      "description": "Generic direction-preserving monoid path and rooted-subtree aggregation"
+    },
+    {
+      "name": "HeavyLightLongSums",
+      "kind": "class",
+      "file": "tree/HeavyLightTree.kt",
+      "description": "Primitive Long-sum heavy-light path/subtree index and point updates"
+    },
+    {
+      "name": "heavyLightTree",
+      "kind": "extension function",
+      "file": "tree/HeavyLightTree.kt",
+      "description": "Build generic Heavy-Light monoid index from values and tree edges"
+    },
+    {
+      "name": "heavyLightSums",
+      "kind": "extension function",
+      "file": "tree/HeavyLightTree.kt",
+      "description": "Build unboxed Long-sum Heavy-Light index from primitive arrays and edges"
+    },
+    {
+      "name": "heavyLight",
+      "kind": "extension function",
+      "file": "graph/HeavyLightGraphBridge.kt",
+      "description": "Build generic Heavy-Light path aggregation from a connected undirected SparseGraph"
+    },
+    {
+      "name": "heavyLightSums",
+      "kind": "extension function",
+      "file": "graph/HeavyLightGraphBridge.kt",
+      "description": "Build primitive HLD Long path/subtree sums from a SparseGraph"
     }
   ],
   "files": [
@@ -1196,6 +1268,10 @@
     "range/LongPrimitiveRangeIndex.kt",
     "range/LongQueryPlanner.kt",
     "tree/VersionedLongSum.kt",
-    "tree/LongBeatsTree.kt"
+    "tree/LongBeatsTree.kt",
+    "range/IntWaveletMatrix.kt",
+    "tree/LiChaoTree.kt",
+    "tree/HeavyLightTree.kt",
+    "graph/HeavyLightGraphBridge.kt"
   ]
 }
