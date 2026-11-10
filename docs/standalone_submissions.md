@@ -54,6 +54,10 @@ deterministic, has a single imports section, and contains no package directive.
 | query-planner | Declarative operation planner selecting static, mutable, lazy, Beats or persistent backends |
 | persistent-long-range | Versioned lazy Long sum range add/assign with branch and rollback |
 | segment-tree-beats | Unboxed Long Segment Tree Beats with chmin/chmax/add and sum/min/max queries |
+| wavelet-matrix | Signed Int rank, kth, frequency and predecessor/successor over static ranges |
+| li-chao | Dynamic Long min/max line envelopes, including x-segment insertion |
+| heavy-light | Iterative Heavy-Light with generic noncommutative path aggregates and Long path sums |
+| heavy-light-graph | Heavy-Light APIs integrated with SparseGraph for undirected trees |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
