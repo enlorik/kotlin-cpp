@@ -69,6 +69,8 @@ deterministic, has a single imports section, and contains no package directive.
 | ntt | Exact modular polynomial convolution under 998244353 |
 | kmp-z | Prefix-function, Z-function and KMP match positions |
 | aho-corasick | Multi-pattern matching with failure/dictionary suffix links |
+| knuth-dp | O(n²) Knuth-optimized interval DP for monotone optimal splits |
+| subset-transforms | SOS zeta/Mobius and OR/AND convolutions |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear
