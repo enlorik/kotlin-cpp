@@ -61,6 +61,8 @@ each backend without changing its promises.
 
 - [x] KMP, Z-function and Aho–Corasick dictionary matching with randomized naive oracles.
 
+- [x] Knuth interval DP, SOS/Mobius transforms and fast OR/AND convolutions with randomized brute-force oracles.
+
 ## Architecture rule
 
 `monoid()` describes a lawful way to combine values; `action()` describes
