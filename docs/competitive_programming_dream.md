@@ -76,23 +76,24 @@ and palindrome enumeration.
 
 ## 6. Computational geometry
 
-- [ ] **Exact orientation/cross products** on integer points without
+- [x] **Exact orientation/cross products** on integer points without
   overflow; hull, segment intersection and on-segment predicates
-- [ ] **Closest pair** in O(n log n)
-- [ ] **Rotating calipers** for farthest pair/diameter and convex polygons
-- [ ] Polygon area, point-in-polygon, Minkowski sums
+- [x] **Closest pair** in O(n log n)
+- [x] **Rotating calipers** for farthest pair/diameter and convex polygons
+- [x] Polygon area and point-in-polygon
+- [ ] Minkowski sums and additional polygon algorithms
 - [ ] Floating-point geometry separately, with numerical robustness policy
 
 **Prove it:** randomized small point sets against quadratic brute force.
 
 ## 7. Number theory and polynomial algebra
 
-- [ ] **Modular arithmetic**: normalization, multiplication that avoids
+- [x] **Modular arithmetic**: normalization, multiplication that avoids
   overflow, powers, extended GCD, modular inverses
-- [ ] **Primality**: deterministic Miller–Rabin for signed 64-bit inputs
-- [ ] **Factorization**: Pollard Rho, multiplicities, divisor/totient helpers
-- [ ] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
-- [ ] **FFT** for real/complex polynomials with explicit precision limits
+- [x] **Primality**: deterministic Miller–Rabin for signed 64-bit inputs
+- [x] **Factorization**: Pollard Rho, multiplicities, divisor/totient helpers
+- [x] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
+- [x] **FFT** for real/complex polynomials with explicit precision limits
 - [ ] CRT/Garner, formal power-series inverse/log/exp, combinatorics modulo
   primes and Lucas theorem
 
