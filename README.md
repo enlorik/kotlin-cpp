@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Exact computational geometry:** [docs/exact_geometry.md](docs/exact_geometry.md) adds overflow-safe convex hull, segment intersections, polygon classification, calipers and closest-pair queries.
+
 - **DP and adversarial games:** [docs/dp_and_games.md](docs/dp_and_games.md) adds monotone divide/conquer DP, lower convex hull trick, Sprague-Grundy, retrograde outcomes and minimax.
 
 - **Online string algorithms:** [docs/advanced_strings.md](docs/advanced_strings.md) covers suffix automata and palindromic trees with membership, occurrences and counts.
