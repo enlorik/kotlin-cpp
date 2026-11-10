@@ -1385,6 +1385,96 @@
       "kind": "function",
       "file": "geometry/ExactGeometry.kt",
       "description": "Divide-and-conquer closest pair distance squared"
+    },
+    {
+      "name": "modNormalize64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Normalize Long into [0, modulus) without overflow"
+    },
+    {
+      "name": "modAdd64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Overflow-safe Long modular addition"
+    },
+    {
+      "name": "modSubtract64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Overflow-safe Long modular subtraction"
+    },
+    {
+      "name": "modMultiply64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "BigInteger-safe 64-bit modular multiplication"
+    },
+    {
+      "name": "modPower64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Exact Long modular exponentiation"
+    },
+    {
+      "name": "extendedGcdExact",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "BigInteger extended Euclidean coefficients for Long inputs"
+    },
+    {
+      "name": "modInverse64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Modular inverse if coprime, else null"
+    },
+    {
+      "name": "chineseRemainder64",
+      "kind": "function",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Generalized CRT for noncoprime moduli"
+    },
+    {
+      "name": "ChineseRemainderResult",
+      "kind": "data class",
+      "file": "math/ModularArithmetic.kt",
+      "description": "Generalized CRT canonical residue and modulus"
+    },
+    {
+      "name": "isPrime64",
+      "kind": "function",
+      "file": "math/PrimeFactorization.kt",
+      "description": "Deterministic Miller-Rabin for signed positive Long values"
+    },
+    {
+      "name": "factor64",
+      "kind": "function",
+      "file": "math/PrimeFactorization.kt",
+      "description": "Pollard-Rho/Brent prime factorization into exponents"
+    },
+    {
+      "name": "eulerTotient64",
+      "kind": "function",
+      "file": "math/PrimeFactorization.kt",
+      "description": "Euler totient via distinct prime factors"
+    },
+    {
+      "name": "numberTheoreticTransform998244353",
+      "kind": "function",
+      "file": "math/NTT.kt",
+      "description": "In-place radix-2 NTT modulo 998244353"
+    },
+    {
+      "name": "convolution998244353",
+      "kind": "function",
+      "file": "math/NTT.kt",
+      "description": "Polynomial convolution modulo 998244353"
+    },
+    {
+      "name": "NTT_MOD",
+      "kind": "constant",
+      "file": "math/NTT.kt",
+      "description": "NTT prime 998244353"
     }
   ],
   "files": [
@@ -1459,6 +1549,9 @@
     "string/PalindromicTree.kt",
     "dp/Optimization.kt",
     "game/GameTheory.kt",
-    "geometry/ExactGeometry.kt"
+    "geometry/ExactGeometry.kt",
+    "math/ModularArithmetic.kt",
+    "math/PrimeFactorization.kt",
+    "math/NTT.kt"
   ]
 }
