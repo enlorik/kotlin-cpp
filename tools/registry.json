@@ -1241,6 +1241,36 @@
       "kind": "function",
       "file": "graph/RollbackConnectivity.kt",
       "description": "DSL for offline dynamic connectivity with chronological queries"
+    },
+    {
+      "name": "SuffixAutomaton",
+      "kind": "class",
+      "file": "string/SuffixAutomaton.kt",
+      "description": "Online suffix automaton with occurrence counts, distinct substrings and longest common substrings"
+    },
+    {
+      "name": "suffixAutomaton",
+      "kind": "extension function",
+      "file": "string/SuffixAutomaton.kt",
+      "description": "Construct a suffix automaton from a String"
+    },
+    {
+      "name": "PalindromicTree",
+      "kind": "class",
+      "file": "string/PalindromicTree.kt",
+      "description": "Online eertree palindrome indexing and total/distinct occurrence counts"
+    },
+    {
+      "name": "palindromicTree",
+      "kind": "extension function",
+      "file": "string/PalindromicTree.kt",
+      "description": "Construct palindromic tree from String"
+    },
+    {
+      "name": "PalindromeOccurrence",
+      "kind": "data class",
+      "file": "string/PalindromicTree.kt",
+      "description": "One distinct palindrome with length and overlapping frequency"
     }
   ],
   "files": [
@@ -1310,6 +1340,8 @@
     "tree/HeavyLightTree.kt",
     "graph/HeavyLightGraphBridge.kt",
     "tree/RerootingDp.kt",
-    "graph/RollbackConnectivity.kt"
+    "graph/RollbackConnectivity.kt",
+    "string/SuffixAutomaton.kt",
+    "string/PalindromicTree.kt"
   ]
 }
