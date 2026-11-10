@@ -81,6 +81,19 @@ MODULES["query-planner"] = (
     "tree/LongBeatsTree.kt",
     "range/LongQueryPlanner.kt",
 )
+MODULES["wavelet-matrix"] = ("range/IntWaveletMatrix.kt",)
+MODULES["li-chao"] = ("tree/LiChaoTree.kt",)
+MODULES["heavy-light"] = (
+    "shared/TypedAlgebra.kt",
+    "tree/SegmentTree.kt",
+    "tree/LongSumSegmentTree.kt",
+    "tree/HeavyLightTree.kt",
+)
+MODULES["heavy-light-graph"] = (
+    *MODULES["graph"],
+    *MODULES["heavy-light"],
+    "graph/HeavyLightGraphBridge.kt",
+)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
