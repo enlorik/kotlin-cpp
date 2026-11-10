@@ -1205,6 +1205,42 @@
       "kind": "extension function",
       "file": "graph/HeavyLightGraphBridge.kt",
       "description": "Build primitive HLD Long path/subtree sums from a SparseGraph"
+    },
+    {
+      "name": "RerootingDp",
+      "kind": "class",
+      "file": "tree/RerootingDp.kt",
+      "description": "Iterative generic O(n) all-root tree dynamic programming"
+    },
+    {
+      "name": "rerootingDp",
+      "kind": "function",
+      "file": "tree/RerootingDp.kt",
+      "description": "Compute all-root messages by monoid merge, finish and directed lift"
+    },
+    {
+      "name": "treeDistanceSums",
+      "kind": "function",
+      "file": "tree/RerootingDp.kt",
+      "description": "Compute sum of distances from every vertex in a tree"
+    },
+    {
+      "name": "RollbackDsu",
+      "kind": "class",
+      "file": "graph/RollbackConnectivity.kt",
+      "description": "Rollback union-find with snapshot, union, rollback and component size"
+    },
+    {
+      "name": "OfflineDynamicConnectivity",
+      "kind": "class",
+      "file": "graph/RollbackConnectivity.kt",
+      "description": "Offline add/remove edge queries using rollback DSU over time"
+    },
+    {
+      "name": "offlineConnectivity",
+      "kind": "function",
+      "file": "graph/RollbackConnectivity.kt",
+      "description": "DSL for offline dynamic connectivity with chronological queries"
     }
   ],
   "files": [
@@ -1272,6 +1308,8 @@
     "range/IntWaveletMatrix.kt",
     "tree/LiChaoTree.kt",
     "tree/HeavyLightTree.kt",
-    "graph/HeavyLightGraphBridge.kt"
+    "graph/HeavyLightGraphBridge.kt",
+    "tree/RerootingDp.kt",
+    "graph/RollbackConnectivity.kt"
   ]
 }
