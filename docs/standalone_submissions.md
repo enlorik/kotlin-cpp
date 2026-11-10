@@ -60,6 +60,8 @@ deterministic, has a single imports section, and contains no package directive.
 | heavy-light-graph | Heavy-Light APIs integrated with SparseGraph for undirected trees |
 | rerooting-dp | Generic O(n) all-roots tree DP with typed monoids |
 | offline-connectivity | Rollback union-find and offline edge add/remove connectivity |
+| suffix-automaton | Online substring membership, counts and longest common substrings |
+| palindromic-tree | Online eertree of distinct and total palindromes |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear

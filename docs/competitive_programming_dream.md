@@ -40,9 +40,9 @@ contributions; random trees against O(n²) all-roots brute force.
 
 ## 3. String algorithms
 
-- [ ] **Suffix automaton**: substring membership, distinct substrings,
+- [x] **Suffix automaton**: substring membership, distinct substrings,
   occurrence counts, longest common substring
-- [ ] **Palindromic tree (eertree)**: distinct palindromes, occurrence counts,
+- [x] **Palindromic tree (eertree)**: distinct palindromes, occurrence counts,
   longest palindrome, online character append
 - [ ] Suffix array + LCP/RMQ for offline substring queries
 - [ ] KMP/Z/rolling-hash APIs with explicit collision caveats

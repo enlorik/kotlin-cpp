@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Online string algorithms:** [docs/advanced_strings.md](docs/advanced_strings.md) covers suffix automata and palindromic trees with membership, occurrences and counts.
+
 - **Rerooting tree DP and rollback connectivity:** [docs/tree_dp_connectivity.md](docs/tree_dp_connectivity.md) adds generic all-roots DP, rollback DSU, and offline add/remove connectivity.
 
 - **Full competitive-programming dream roadmap:** [seven territories, complete checklist and verification standards](docs/competitive_programming_dream.md).

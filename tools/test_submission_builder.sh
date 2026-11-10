@@ -26,6 +26,7 @@ check_submission planner 'query-planner' tools/fixtures/SubmissionQueryPlanner.k
 check_submission advanced_ranges 'persistent-long-range,segment-tree-beats' tools/fixtures/SubmissionAdvancedRanges.kt
 check_submission advanced_ds 'wavelet-matrix,li-chao,heavy-light' tools/fixtures/SubmissionAdvancedAlgorithms.kt
 check_submission dynamic_trees 'rerooting-dp,offline-connectivity' tools/fixtures/SubmissionDynamicTrees.kt
+check_submission strings 'suffix-automaton,palindromic-tree' tools/fixtures/SubmissionStrings.kt
 check_submission heavy_light_graph 'heavy-light-graph' tools/fixtures/SubmissionHeavyLightGraph.kt
 check_submission graph 'graph,grid-bfs' tools/fixtures/SubmissionGraph.kt
 check_submission primitive 'sum-segment-tree' tools/fixtures/SubmissionSumSegmentTree.kt
@@ -34,7 +35,7 @@ check_submission palindrome 'fast-io,bounded-palindromes' tools/fixtures/Submiss
 
 # Every supported bundle must coexist when combined into one Kotlin file.
 check_submission combined \
-    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,primitive-long-lazy,primitive-long-index,query-planner,persistent-long-range,segment-tree-beats,grid-bfs,graph,range-index,range-program,online-range-program,bounded-palindromes,wavelet-matrix,li-chao,heavy-light-graph,rerooting-dp,offline-connectivity' \
+    'fast-io,advanced-binary-search,segment-tree,sum-segment-tree,primitive-long-lazy,primitive-long-index,query-planner,persistent-long-range,segment-tree-beats,grid-bfs,graph,range-index,range-program,online-range-program,bounded-palindromes,wavelet-matrix,li-chao,heavy-light-graph,rerooting-dp,offline-connectivity,suffix-automaton,palindromic-tree' \
     tools/fixtures/SubmissionBasics.kt
 
 
