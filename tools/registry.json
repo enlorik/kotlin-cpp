@@ -1475,6 +1475,42 @@
       "kind": "constant",
       "file": "math/NTT.kt",
       "description": "NTT prime 998244353"
+    },
+    {
+      "name": "prefixFunction",
+      "kind": "function",
+      "file": "string/KmpZ.kt",
+      "description": "KMP prefix border table in linear time"
+    },
+    {
+      "name": "zFunction",
+      "kind": "function",
+      "file": "string/KmpZ.kt",
+      "description": "Linear Z-function for longest matches with prefix"
+    },
+    {
+      "name": "kmpOccurrences",
+      "kind": "function",
+      "file": "string/KmpZ.kt",
+      "description": "Find overlapping pattern matches in linear time"
+    },
+    {
+      "name": "PatternMatch",
+      "kind": "data class",
+      "file": "string/AhoCorasick.kt",
+      "description": "Pattern index and half-open occurrence interval"
+    },
+    {
+      "name": "AhoCorasick",
+      "kind": "class",
+      "file": "string/AhoCorasick.kt",
+      "description": "Dictionary suffix-linked multi-pattern automaton"
+    },
+    {
+      "name": "ahoCorasick",
+      "kind": "extension function",
+      "file": "string/AhoCorasick.kt",
+      "description": "Build multi-pattern matcher from List<String>"
     }
   ],
   "files": [
@@ -1552,6 +1588,8 @@
     "geometry/ExactGeometry.kt",
     "math/ModularArithmetic.kt",
     "math/PrimeFactorization.kt",
-    "math/NTT.kt"
+    "math/NTT.kt",
+    "string/KmpZ.kt",
+    "string/AhoCorasick.kt"
   ]
 }

@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **String matching:** [docs/pattern_matching.md](docs/pattern_matching.md) adds KMP, Z-functions and Aho–Corasick multi-pattern matching.
+
 - **Number theory and polynomial convolution:** [docs/number_theory.md](docs/number_theory.md) covers safe modular arithmetic, CRT, deterministic 64-bit primality, Pollard–Rho factoring, and NTT.
 
 - **Exact computational geometry:** [docs/exact_geometry.md](docs/exact_geometry.md) adds overflow-safe convex hull, segment intersections, polygon classification, calipers and closest-pair queries.

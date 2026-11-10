@@ -45,8 +45,9 @@ contributions; random trees against O(n²) all-roots brute force.
 - [x] **Palindromic tree (eertree)**: distinct palindromes, occurrence counts,
   longest palindrome, online character append
 - [ ] Suffix array + LCP/RMQ for offline substring queries
-- [ ] KMP/Z/rolling-hash APIs with explicit collision caveats
-- [ ] Aho–Corasick dictionary matching
+- [x] KMP/Z substring matching
+- [ ] Rolling-hash API with explicit collision policy
+- [x] Aho–Corasick dictionary matching
 
 **Prove it:** exhaustive short strings and randomized brute-force substring
 and palindrome enumeration.

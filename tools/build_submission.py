@@ -106,6 +106,8 @@ MODULES["game-theory"] = ("game/GameTheory.kt",)
 MODULES["exact-geometry"] = ("geometry/ExactGeometry.kt",)
 MODULES["number-theory"] = ("math/ModularArithmetic.kt", "math/PrimeFactorization.kt")
 MODULES["ntt"] = ("math/NTT.kt",)
+MODULES["kmp-z"] = ("string/KmpZ.kt",)
+MODULES["aho-corasick"] = ("string/AhoCorasick.kt",)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
