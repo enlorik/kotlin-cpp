@@ -80,7 +80,8 @@ and palindrome enumeration.
   overflow; hull, segment intersection and on-segment predicates
 - [x] **Closest pair** in O(n log n)
 - [x] **Rotating calipers** for farthest pair/diameter and convex polygons
-- [ ] Minkowski sums; [x] polygon area and point-in-polygon
+- [x] Polygon area and point-in-polygon
+- [ ] Minkowski sums
 - [ ] Floating-point geometry separately, with numerical robustness policy
 
 **Prove it:** randomized small point sets against quadratic brute force.
