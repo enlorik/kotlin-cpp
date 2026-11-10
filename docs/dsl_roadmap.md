@@ -55,6 +55,8 @@ each backend without changing its promises.
 
 - [x] Monotone split DP, monotone convex hull, Sprague-Grundy, retrograde games and alpha-beta with randomized oracles.
 
+- [x] Exact integer geometry: convex hull, polygon and segment predicates, rotating calipers and O(n log n) closest pair.
+
 ## Architecture rule
 
 `monoid()` describes a lawful way to combine values; `action()` describes
