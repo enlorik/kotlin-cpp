@@ -62,6 +62,8 @@ deterministic, has a single imports section, and contains no package directive.
 | offline-connectivity | Rollback union-find and offline edge add/remove connectivity |
 | suffix-automaton | Online substring membership, counts and longest common substrings |
 | palindromic-tree | Online eertree of distinct and total palindromes |
+| dp-optimization | Monotone divide/conquer DP and convex hull trick |
+| game-theory | Grundy numbers, retrograde outcomes and alpha-beta minimax |
 | bounded-palindromes | Unboxed block-assign sums, painted string and dynamic bounded-palindrome queries |
 
 Multiple --modules flags or a comma-separated list work. Shared files appear

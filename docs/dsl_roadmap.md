@@ -53,6 +53,8 @@ each backend without changing its promises.
 - [x] Rollback DSU with multiset-aware offline dynamic connectivity.
 - [x] Online suffix automaton and palindromic tree (eertree).
 
+- [x] Monotone split DP, monotone convex hull, Sprague-Grundy, retrograde games and alpha-beta with randomized oracles.
+
 ## Architecture rule
 
 `monoid()` describes a lawful way to combine values; `action()` describes

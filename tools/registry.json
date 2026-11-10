@@ -1271,6 +1271,54 @@
       "kind": "data class",
       "file": "string/PalindromicTree.kt",
       "description": "One distinct palindrome with length and overlapping frequency"
+    },
+    {
+      "name": "divideConquerPartitionRow",
+      "kind": "function",
+      "file": "dp/Optimization.kt",
+      "description": "Compute monotone-optimum partition DP row in O(n log n)"
+    },
+    {
+      "name": "PartitionDpRow",
+      "kind": "data class",
+      "file": "dp/Optimization.kt",
+      "description": "DP values and chosen split indices"
+    },
+    {
+      "name": "MonotoneMinHull",
+      "kind": "class",
+      "file": "dp/Optimization.kt",
+      "description": "Convex hull trick with decreasing slopes and exact intersection checks"
+    },
+    {
+      "name": "monotoneMinHull",
+      "kind": "function",
+      "file": "dp/Optimization.kt",
+      "description": "Build line hull via Kotlin DSL"
+    },
+    {
+      "name": "spragueGrundy",
+      "kind": "function",
+      "file": "game/GameTheory.kt",
+      "description": "Grundy numbers for impartial DAG games with decreasing-state edges"
+    },
+    {
+      "name": "subtractionGrundy",
+      "kind": "function",
+      "file": "game/GameTheory.kt",
+      "description": "Grundy numbers for positive subtraction games"
+    },
+    {
+      "name": "retrogradeGame",
+      "kind": "function",
+      "file": "game/GameTheory.kt",
+      "description": "Win/lose/draw classification of finite directed games"
+    },
+    {
+      "name": "alphaBetaMinimax",
+      "kind": "function",
+      "file": "game/GameTheory.kt",
+      "description": "Generic depth-limited alpha-beta minimax"
     }
   ],
   "files": [
@@ -1342,6 +1390,8 @@
     "tree/RerootingDp.kt",
     "graph/RollbackConnectivity.kt",
     "string/SuffixAutomaton.kt",
-    "string/PalindromicTree.kt"
+    "string/PalindromicTree.kt",
+    "dp/Optimization.kt",
+    "game/GameTheory.kt"
   ]
 }

@@ -53,9 +53,9 @@ and palindrome enumeration.
 
 ## 4. Dynamic-programming optimizations
 
-- [ ] **Divide-and-conquer DP optimization** for monotone optima, with
+- [x] **Divide-and-conquer DP optimization** for monotone optima, with
   documented monotonicity precondition and caller-provided cost
-- [ ] **Convex hull trick** for monotone line slopes/queries; Li Chao is
+- [x] **Convex hull trick** for monotone line slopes/queries; Li Chao is
   already available for arbitrary insertion order
 - [ ] Knuth optimization with quadrangle inequality preconditions
 - [ ] SOS DP, subset/zeta transforms, bitset optimizations
@@ -65,9 +65,9 @@ and palindrome enumeration.
 
 ## 5. Game theory
 
-- [ ] **Sprague–Grundy**: mex, win/lose states, disjoint-sum XOR
-- [ ] **Retrograde win/lose/draw** on directed game graphs
-- [ ] Generic minimax/negamax with alpha–beta pruning for finite
+- [x] **Sprague–Grundy**: mex, win/lose states, disjoint-sum XOR
+- [x] **Retrograde win/lose/draw** on directed game graphs
+- [x] Generic minimax/negamax with alpha–beta pruning for finite
   perfect-information games (document depth/terminal rules)
 - [ ] Nim, subtraction games, periodicity detection
 - [ ] Explicit impartial/normal-play assumptions, not silently universalize SG
