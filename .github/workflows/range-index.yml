@@ -44,5 +44,7 @@ jobs:
         run: bash tools/test_primitive_long_lazy.sh
       - name: Verify query planning, persistent branches, Beats and performance
         run: bash tools/test_query_planner.sh
+      - name: Validate Wavelet Matrix, Li Chao, and Heavy-Light
+        run: bash tools/test_advanced_algorithms.sh
       - name: Run reproducible non-gating performance observations
         run: bash tools/benchmark_range_index.sh
