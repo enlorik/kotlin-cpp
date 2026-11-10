@@ -25,7 +25,8 @@ check_submission primitive_monoids 'primitive-long-index,bounded-palindromes' to
 check_submission planner 'query-planner' tools/fixtures/SubmissionQueryPlanner.kt
 check_submission advanced_ranges 'persistent-long-range,segment-tree-beats' tools/fixtures/SubmissionAdvancedRanges.kt
 check_submission advanced_ds 'wavelet-matrix,li-chao,heavy-light' tools/fixtures/SubmissionAdvancedAlgorithms.kt
-check_submission dynamic_trees 'rerooting-dp,offline-connectivity' tools/fixtures/SubmissionDynamicTrees.kt
+check_submission dynamic_trees 'rerooting-dp,offline-connectivity,suffix-automaton,palindromic-tree' tools/fixtures/SubmissionDynamicTrees.kt
+check_submission strings 'suffix-automaton,palindromic-tree' tools/fixtures/SubmissionStrings.kt
 check_submission heavy_light_graph 'heavy-light-graph' tools/fixtures/SubmissionHeavyLightGraph.kt
 check_submission graph 'graph,grid-bfs' tools/fixtures/SubmissionGraph.kt
 check_submission primitive 'sum-segment-tree' tools/fixtures/SubmissionSumSegmentTree.kt
