@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **Exact geometry and number theory:** [docs/geometry_number_theory.md](docs/geometry_number_theory.md) covers exact hulls, intersections, closest pair, calipers, Miller-Rabin, factorization and FFT/NTT.
+
 - **DP and adversarial games:** [docs/dp_and_games.md](docs/dp_and_games.md) adds monotone divide/conquer DP, lower convex hull trick, Sprague-Grundy, retrograde outcomes and minimax.
 
 - **Online string algorithms:** [docs/advanced_strings.md](docs/advanced_strings.md) covers suffix automata and palindromic trees with membership, occurrences and counts.
