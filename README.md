@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **DP and adversarial games:** [docs/dp_and_games.md](docs/dp_and_games.md) adds monotone divide/conquer DP, lower convex hull trick, Sprague-Grundy, retrograde outcomes and minimax.
+
 - **Online string algorithms:** [docs/advanced_strings.md](docs/advanced_strings.md) covers suffix automata and palindromic trees with membership, occurrences and counts.
 
 - **Rerooting tree DP and rollback connectivity:** [docs/tree_dp_connectivity.md](docs/tree_dp_connectivity.md) adds generic all-roots DP, rollback DSU, and offline add/remove connectivity.
