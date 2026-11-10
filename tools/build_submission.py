@@ -101,6 +101,8 @@ MODULES["rerooting-dp"] = (
 MODULES["offline-connectivity"] = ("graph/RollbackConnectivity.kt",)
 MODULES["suffix-automaton"] = ("string/SuffixAutomaton.kt",)
 MODULES["palindromic-tree"] = ("string/PalindromicTree.kt",)
+MODULES["dp-optimization"] = ("dp/Optimization.kt",)
+MODULES["game-theory"] = ("game/GameTheory.kt",)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",
