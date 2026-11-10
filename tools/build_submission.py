@@ -108,6 +108,8 @@ MODULES["number-theory"] = ("math/ModularArithmetic.kt", "math/PrimeFactorizatio
 MODULES["ntt"] = ("math/NTT.kt",)
 MODULES["kmp-z"] = ("string/KmpZ.kt",)
 MODULES["aho-corasick"] = ("string/AhoCorasick.kt",)
+MODULES["knuth-dp"] = ("dp/KnuthOptimization.kt",)
+MODULES["subset-transforms"] = ("dp/SubsetTransforms.kt",)
 MODULES["bounded-palindromes"] = (
     "range/BlockAssignSum.kt",
     "string/PaintedString.kt",

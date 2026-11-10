@@ -1511,6 +1511,66 @@
       "kind": "extension function",
       "file": "string/AhoCorasick.kt",
       "description": "Build multi-pattern matcher from List<String>"
+    },
+    {
+      "name": "KnuthIntervalResult",
+      "kind": "class",
+      "file": "dp/KnuthOptimization.kt",
+      "description": "Knuth interval dynamic programming values and chosen splits"
+    },
+    {
+      "name": "knuthIntervalDp",
+      "kind": "function",
+      "file": "dp/KnuthOptimization.kt",
+      "description": "O(n²) interval DP for monotone-optimal split indices"
+    },
+    {
+      "name": "subsetZeta",
+      "kind": "extension function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Sum over submasks transform"
+    },
+    {
+      "name": "subsetMobius",
+      "kind": "extension function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Inverse submask zeta transform"
+    },
+    {
+      "name": "supersetZeta",
+      "kind": "extension function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Sum over supermasks transform"
+    },
+    {
+      "name": "supersetMobius",
+      "kind": "extension function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Inverse supermask zeta transform"
+    },
+    {
+      "name": "orConvolution",
+      "kind": "function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Fast OR-mask convolution via SOS transforms"
+    },
+    {
+      "name": "andConvolution",
+      "kind": "function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Fast AND-mask convolution via SOS transforms"
+    },
+    {
+      "name": "subsetZetaLong",
+      "kind": "extension function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Convert Int array to Long and compute submask zeta"
+    },
+    {
+      "name": "supersetZetaLong",
+      "kind": "extension function",
+      "file": "dp/SubsetTransforms.kt",
+      "description": "Convert Int array to Long and compute supermask zeta"
     }
   ],
   "files": [
@@ -1590,6 +1650,8 @@
     "math/PrimeFactorization.kt",
     "math/NTT.kt",
     "string/KmpZ.kt",
-    "string/AhoCorasick.kt"
+    "string/AhoCorasick.kt",
+    "dp/KnuthOptimization.kt",
+    "dp/SubsetTransforms.kt"
   ]
 }
