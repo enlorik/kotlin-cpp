@@ -1751,6 +1751,54 @@
       "kind": "function",
       "file": "geometry/FiniteDoubleGeometry.kt",
       "description": "Convex hull of finite Double points"
+    },
+    {
+      "name": "StringFingerprint",
+      "kind": "class",
+      "file": "string/RollingHash.kt",
+      "description": "Length-aware double fingerprint"
+    },
+    {
+      "name": "RollingHash",
+      "kind": "class",
+      "file": "string/RollingHash.kt",
+      "description": "Substring fingerprints and verified equality"
+    },
+    {
+      "name": "rollingHash",
+      "kind": "extension function",
+      "file": "string/RollingHash.kt",
+      "description": "Build immutable string hash index"
+    },
+    {
+      "name": "TreeDiameterResult",
+      "kind": "class",
+      "file": "tree/RootedTreeToolkit.kt",
+      "description": "Unweighted diameter endpoints and length"
+    },
+    {
+      "name": "RootedTreeToolkit",
+      "kind": "class",
+      "file": "tree/RootedTreeToolkit.kt",
+      "description": "Tree diameter, centroid decomposition and connected knapsack"
+    },
+    {
+      "name": "rootedTree",
+      "kind": "extension function",
+      "file": "graph/TreeToolkitBridge.kt",
+      "description": "Validate and root SparseGraph"
+    },
+    {
+      "name": "virtualTreeIndex",
+      "kind": "extension function",
+      "file": "graph/TreeToolkitBridge.kt",
+      "description": "Build virtual tree index from SparseGraph"
+    },
+    {
+      "name": "rerootingTree",
+      "kind": "extension function",
+      "file": "graph/TreeToolkitBridge.kt",
+      "description": "Monoid rerooting on SparseGraph"
     }
   ],
   "files": [
@@ -1844,6 +1892,9 @@
     "dp/BitsetSubsetSum.kt",
     "game/NormalPlayGames.kt",
     "geometry/MinkowskiSum.kt",
-    "geometry/FiniteDoubleGeometry.kt"
+    "geometry/FiniteDoubleGeometry.kt",
+    "string/RollingHash.kt",
+    "tree/RootedTreeToolkit.kt",
+    "graph/TreeToolkitBridge.kt"
   ]
 }
