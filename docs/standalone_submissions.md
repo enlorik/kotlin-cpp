@@ -63,6 +63,9 @@ deterministic, has a single imports section, and contains no package directive.
 | normal-play-games | Explicit impartial games, Nim winning moves and proven subtraction periods |
 | minkowski-sum | Exact convex Minkowski sums with checked coordinates |
 | double-geometry | Exact predicates for finite Double coordinates |
+| rolling-hash | Double substring fingerprints and collision-verified equality |
+| tree-toolkit | Unweighted diameter, centroid decomposition and connected knapsack |
+| tree-toolkit-graph | Rooted tree toolkit, virtual trees and monoid rerooting on SparseGraph |
 | prime-combinatorics | Factorial tables and Lucas theorem modulo primes |
 | garner | Mixed-radix CRT reconstruction modulo an arbitrary target |
 | bitset-subset-sum | Word-packed 0/1 subset-sum reachability |
