@@ -99,6 +99,8 @@ MODULES["rerooting-dp"] = (
     "tree/RerootingDp.kt",
 )
 MODULES["offline-connectivity"] = ("graph/RollbackConnectivity.kt",)
+MODULES["suffix-array"] = ("string/SuffixArray.kt",)
+MODULES["parity-connectivity"] = ("graph/ParityRollback.kt",)
 MODULES["suffix-automaton"] = ("string/SuffixAutomaton.kt",)
 MODULES["palindromic-tree"] = ("string/PalindromicTree.kt",)
 MODULES["dp-optimization"] = ("dp/Optimization.kt",)

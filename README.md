@@ -159,3 +159,7 @@ println(lazy.query(0, 4)) // 2
 For supported combinations and explicit custom algebra see the
 [operation-driven API guide](docs/operation_driven_range_apis.md).
 Validate with `bash tools/test_operation_apis.sh`.
+
+### Suffix arrays and parity connectivity
+
+See [suffix arrays and dynamic bipartiteness](docs/suffix_parity.md) for `String.suffixArray()`, `ParityRollbackDsu` and `offlineBipartiteness`.
