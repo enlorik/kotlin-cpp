@@ -167,3 +167,7 @@ See [suffix arrays and dynamic bipartiteness](docs/suffix_parity.md) for `String
 ### Virtual trees, SMAWK and formal power series
 
 See [virtual trees, SMAWK and formal power series](docs/virtual_smawk_fps.md) for `VirtualTreeIndex`, `smawkRowMinima`, `fpsInverse`, `fpsLog` and `fpsExp`.
+
+### Prime combinatorics, Garner and bitset DP
+
+See [combinatorics, Garner and packed subset sum](docs/combinatorics_garner_bitset.md) for `PrimeCombinatorics`, `GarnerIndex`, `garnerMod` and `IntArray.subsetSumBitset`.
