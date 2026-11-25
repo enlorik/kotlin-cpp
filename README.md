@@ -175,3 +175,7 @@ See [combinatorics, Garner and packed subset sum](docs/combinatorics_garner_bits
 ### Periodic games and robust geometry
 
 See [periodic games and geometry](docs/periodic_games_geometry.md) for `PeriodicSubtractionGame`, `winningNimMove`, `minkowskiSumExact` and exact finite-Double predicates.
+
+### Rooted tree toolkit and rolling hashes
+
+See [tree toolkit and rolling hashes](docs/tree_hash.md) for `graph.rootedTree()`, `graph.virtualTreeIndex()`, `graph.rerootingTree()` and `String.rollingHash()`.
