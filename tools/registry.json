@@ -1583,6 +1583,36 @@
       "kind": "function",
       "file": "math/FftConvolution.kt",
       "description": "Floating-point polynomial convolution"
+    },
+    {
+      "name": "SuffixArray",
+      "kind": "class",
+      "file": "string/SuffixArray.kt",
+      "description": "Counting-sort suffix array, LCP and substring search"
+    },
+    {
+      "name": "suffixArray",
+      "kind": "extension function",
+      "file": "string/SuffixArray.kt",
+      "description": "Construct a suffix array index"
+    },
+    {
+      "name": "ParityRollbackDsu",
+      "kind": "class",
+      "file": "graph/ParityRollback.kt",
+      "description": "Rollback XOR constraints"
+    },
+    {
+      "name": "OfflineDynamicBipartiteness",
+      "kind": "class",
+      "file": "graph/ParityRollback.kt",
+      "description": "Offline add/remove and bipartiteness queries"
+    },
+    {
+      "name": "offlineBipartiteness",
+      "kind": "function",
+      "file": "graph/ParityRollback.kt",
+      "description": "Declarative offline bipartiteness solver"
     }
   ],
   "files": [
@@ -1665,6 +1695,8 @@
     "string/AhoCorasick.kt",
     "dp/KnuthOptimization.kt",
     "dp/SubsetTransforms.kt",
-    "math/FftConvolution.kt"
+    "math/FftConvolution.kt",
+    "string/SuffixArray.kt",
+    "graph/ParityRollback.kt"
   ]
 }
