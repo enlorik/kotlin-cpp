@@ -54,7 +54,10 @@ class VirtualTreeIndex(parents: IntArray) {
         for (k in up.indices.reversed()) if (!ancestor(up[k][v],b)) v = up[k][v]
         return up[0][v]
     }
-    fun distance(a: Int,b: Int): Int = depth[a]-depth[lca(a,b)] + (depth[b]-depth[lca(a,b)])
+    fun distance(a: Int,b: Int): Int {
+        val c = lca(a,b)
+        return (depth[a]-depth[c])+(depth[b]-depth[c])
+    }
     /** O(k log k + k log n) for k terminals; duplicates ignored; <= 2k-1 nodes.
      * Empty input returns an empty tree. Root is the LCA of all terminals.
      */
