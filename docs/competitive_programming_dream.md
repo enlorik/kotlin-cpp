@@ -32,7 +32,7 @@ contributions; random trees against O(n²) all-roots brute force.
 - [x] **Rollback DSU**: snapshots, union-by-size, component sizes, undo
 - [x] **Offline dynamic connectivity**: add/remove edges, connectivity and
   component-count queries using a segment tree over time
-- [ ] Bipartiteness with parity rollback; divide-and-conquer on time
+- [x] Bipartiteness with parity rollback; divide-and-conquer on time
 - [ ] Online dynamic connectivity only with an appropriate dynamic-tree
   backend, not pretending ordinary DSU can delete edges
 
@@ -44,7 +44,7 @@ contributions; random trees against O(n²) all-roots brute force.
   occurrence counts, longest common substring
 - [x] **Palindromic tree (eertree)**: distinct palindromes, occurrence counts,
   longest palindrome, online character append
-- [ ] Suffix array + LCP/RMQ for offline substring queries
+- [x] Suffix array + LCP/RMQ for offline substring queries
 - [x] KMP/Z substring matching
 - [ ] Rolling-hash API with explicit collision policy
 - [x] Aho–Corasick dictionary matching
