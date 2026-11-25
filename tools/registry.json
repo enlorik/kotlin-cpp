@@ -1571,6 +1571,18 @@
       "kind": "extension function",
       "file": "dp/SubsetTransforms.kt",
       "description": "Convert Int array to Long and compute supermask zeta"
+    },
+    {
+      "name": "FftConvolution",
+      "kind": "object",
+      "file": "math/FftConvolution.kt",
+      "description": "Approximate radix-2 FFT convolution"
+    },
+    {
+      "name": "convolutionFft",
+      "kind": "function",
+      "file": "math/FftConvolution.kt",
+      "description": "Floating-point polynomial convolution"
     }
   ],
   "files": [
@@ -1652,6 +1664,7 @@
     "string/KmpZ.kt",
     "string/AhoCorasick.kt",
     "dp/KnuthOptimization.kt",
-    "dp/SubsetTransforms.kt"
+    "dp/SubsetTransforms.kt",
+    "math/FftConvolution.kt"
   ]
 }

@@ -95,7 +95,7 @@ and palindrome enumeration.
 - [x] **Primality**: deterministic Miller–Rabin for signed 64-bit inputs
 - [x] **Factorization**: Pollard Rho, multiplicities, divisor/totient helpers
 - [x] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
-- [ ] **FFT** for real/complex polynomials with explicit precision limits
+- [x] **FFT** for real coefficients with explicit floating-point precision limitations
 - [ ] Garner, formal power-series inverse/log/exp, combinatorics modulo
   primes and Lucas theorem
 
