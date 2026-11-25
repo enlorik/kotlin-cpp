@@ -20,9 +20,9 @@ a working one-file submission-builder module.
 
 - [x] Generic **rerooting DP**: merge child contributions; remove one
   contribution with prefix/suffix products; calculate results for *every* root
-- [ ] Tree knapsack/convolution DP and diameter/centroid templates
+- [x] Connected cardinality tree knapsack, diameter and centroid decomposition
 - [x] Virtual trees and LCA-assisted queries
-- [ ] Integrate with `SparseGraph` and monoid DSL where lawful
+- [x] Tree toolkit, virtual trees and monoid rerooting integrated with `SparseGraph`
 
 **Prove it:** sum of distances from every possible root; noncommutative
 contributions; random trees against O(n²) all-roots brute force.
@@ -46,7 +46,7 @@ contributions; random trees against O(n²) all-roots brute force.
   longest palindrome, online character append
 - [x] Suffix array + LCP/RMQ for offline substring queries
 - [x] KMP/Z substring matching
-- [ ] Rolling-hash API with explicit collision policy
+- [x] Rolling-hash API with explicit collision policy and exact verification
 - [x] Aho–Corasick dictionary matching
 
 **Prove it:** exhaustive short strings and randomized brute-force substring
