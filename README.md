@@ -1,5 +1,7 @@
 # kotlin-cpp
 
+- **FFT:** `convolutionFft(a, b)` computes approximate Double polynomial convolution in O((n+m) log(n+m)); use NTT for exact modular results.
+
 - **Knuth and SOS DP:** [docs/knuth_subset_dp.md](docs/knuth_subset_dp.md) adds O(n²) interval optimization and subset/superset transform algebra.
 
 - **String matching:** [docs/pattern_matching.md](docs/pattern_matching.md) adds KMP, Z-functions and Aho–Corasick multi-pattern matching.
