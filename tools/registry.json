@@ -1649,6 +1649,36 @@
       "kind": "function",
       "file": "math/FormalPowerSeries.kt",
       "description": "Truncated formal exponential modulo 998244353"
+    },
+    {
+      "name": "PrimeCombinatorics",
+      "kind": "class",
+      "file": "math/PrimeCombinatorics.kt",
+      "description": "Prime-modulus factorial tables and Lucas theorem"
+    },
+    {
+      "name": "GarnerIndex",
+      "kind": "class",
+      "file": "math/Garner.kt",
+      "description": "Reusable mixed-radix CRT reconstruction"
+    },
+    {
+      "name": "garnerMod",
+      "kind": "function",
+      "file": "math/Garner.kt",
+      "description": "Canonical CRT residue modulo an arbitrary positive target"
+    },
+    {
+      "name": "SubsetSumBitset",
+      "kind": "class",
+      "file": "dp/BitsetSubsetSum.kt",
+      "description": "Packed 0/1 subset sum reachability"
+    },
+    {
+      "name": "subsetSumBitset",
+      "kind": "extension function",
+      "file": "dp/BitsetSubsetSum.kt",
+      "description": "Construct packed reachability from weights"
     }
   ],
   "files": [
@@ -1736,6 +1766,9 @@
     "graph/ParityRollback.kt",
     "tree/VirtualTree.kt",
     "dp/Smawk.kt",
-    "math/FormalPowerSeries.kt"
+    "math/FormalPowerSeries.kt",
+    "math/PrimeCombinatorics.kt",
+    "math/Garner.kt",
+    "dp/BitsetSubsetSum.kt"
   ]
 }
