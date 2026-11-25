@@ -60,7 +60,7 @@ and palindrome enumeration.
   already available for arbitrary insertion order
 - [x] Knuth optimization with quadrangle inequality preconditions
 - [x] SOS DP and subset/superset zeta/Mobius transforms
-- [ ] Bitset DP optimizations
+- [x] Bitset DP: packed 0/1 subset-sum reachability
 - [x] SMAWK/totally-monotone matrix search where applicable
 
 **Prove it:** check optimized DP against O(n²) or O(n³) transitions.
@@ -97,7 +97,7 @@ and palindrome enumeration.
 - [x] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
 - [x] **FFT** for real coefficients with explicit floating-point precision limitations
 - [x] Formal power-series inverse/log/exp modulo 998244353
-- [ ] Garner, combinatorics modulo primes and Lucas theorem
+- [x] Garner, combinatorics modulo primes and Lucas theorem
 
 **Prove it:** small exact polynomial multiplication and trial-division
 factorization oracles, boundary cases and seeded randomized tests.
