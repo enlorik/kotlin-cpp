@@ -171,3 +171,7 @@ See [virtual trees, SMAWK and formal power series](docs/virtual_smawk_fps.md) fo
 ### Prime combinatorics, Garner and bitset DP
 
 See [combinatorics, Garner and packed subset sum](docs/combinatorics_garner_bitset.md) for `PrimeCombinatorics`, `GarnerIndex`, `garnerMod` and `IntArray.subsetSumBitset`.
+
+### Periodic games and robust geometry
+
+See [periodic games and geometry](docs/periodic_games_geometry.md) for `PeriodicSubtractionGame`, `winningNimMove`, `minkowskiSumExact` and exact finite-Double predicates.
