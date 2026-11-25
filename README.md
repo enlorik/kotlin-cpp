@@ -163,3 +163,7 @@ Validate with `bash tools/test_operation_apis.sh`.
 ### Suffix arrays and parity connectivity
 
 See [suffix arrays and dynamic bipartiteness](docs/suffix_parity.md) for `String.suffixArray()`, `ParityRollbackDsu` and `offlineBipartiteness`.
+
+### Virtual trees, SMAWK and formal power series
+
+See [virtual trees, SMAWK and formal power series](docs/virtual_smawk_fps.md) for `VirtualTreeIndex`, `smawkRowMinima`, `fpsInverse`, `fpsLog` and `fpsExp`.

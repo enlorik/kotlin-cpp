@@ -21,7 +21,7 @@ a working one-file submission-builder module.
 - [x] Generic **rerooting DP**: merge child contributions; remove one
   contribution with prefix/suffix products; calculate results for *every* root
 - [ ] Tree knapsack/convolution DP and diameter/centroid templates
-- [ ] Virtual trees and LCA-assisted queries
+- [x] Virtual trees and LCA-assisted queries
 - [ ] Integrate with `SparseGraph` and monoid DSL where lawful
 
 **Prove it:** sum of distances from every possible root; noncommutative
@@ -61,7 +61,7 @@ and palindrome enumeration.
 - [x] Knuth optimization with quadrangle inequality preconditions
 - [x] SOS DP and subset/superset zeta/Mobius transforms
 - [ ] Bitset DP optimizations
-- [ ] SMAWK/totally-monotone matrix search where applicable
+- [x] SMAWK/totally-monotone matrix search where applicable
 
 **Prove it:** check optimized DP against O(n²) or O(n³) transitions.
 
@@ -96,8 +96,8 @@ and palindrome enumeration.
 - [x] **Factorization**: Pollard Rho, multiplicities, divisor/totient helpers
 - [x] **NTT** over compatible prime moduli (e.g. 998244353) and convolution
 - [x] **FFT** for real coefficients with explicit floating-point precision limitations
-- [ ] Garner, formal power-series inverse/log/exp, combinatorics modulo
-  primes and Lucas theorem
+- [x] Formal power-series inverse/log/exp modulo 998244353
+- [ ] Garner, combinatorics modulo primes and Lucas theorem
 
 **Prove it:** small exact polynomial multiplication and trial-division
 factorization oracles, boundary cases and seeded randomized tests.
