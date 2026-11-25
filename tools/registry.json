@@ -1613,6 +1613,42 @@
       "kind": "function",
       "file": "graph/ParityRollback.kt",
       "description": "Declarative offline bipartiteness solver"
+    },
+    {
+      "name": "VirtualTree",
+      "kind": "class",
+      "file": "tree/VirtualTree.kt",
+      "description": "Compressed rooted tree with original vertices and edge lengths"
+    },
+    {
+      "name": "VirtualTreeIndex",
+      "kind": "class",
+      "file": "tree/VirtualTree.kt",
+      "description": "LCA and virtual tree construction"
+    },
+    {
+      "name": "smawkRowMinima",
+      "kind": "function",
+      "file": "dp/Smawk.kt",
+      "description": "Linear-oracle totally monotone row minima"
+    },
+    {
+      "name": "fpsInverse",
+      "kind": "function",
+      "file": "math/FormalPowerSeries.kt",
+      "description": "Truncated formal series inverse modulo 998244353"
+    },
+    {
+      "name": "fpsLog",
+      "kind": "function",
+      "file": "math/FormalPowerSeries.kt",
+      "description": "Truncated formal logarithm modulo 998244353"
+    },
+    {
+      "name": "fpsExp",
+      "kind": "function",
+      "file": "math/FormalPowerSeries.kt",
+      "description": "Truncated formal exponential modulo 998244353"
     }
   ],
   "files": [
@@ -1697,6 +1733,9 @@
     "dp/SubsetTransforms.kt",
     "math/FftConvolution.kt",
     "string/SuffixArray.kt",
-    "graph/ParityRollback.kt"
+    "graph/ParityRollback.kt",
+    "tree/VirtualTree.kt",
+    "dp/Smawk.kt",
+    "math/FormalPowerSeries.kt"
   ]
 }
