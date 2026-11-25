@@ -60,6 +60,9 @@ deterministic, has a single imports section, and contains no package directive.
 | heavy-light-graph | Heavy-Light APIs integrated with SparseGraph for undirected trees |
 | rerooting-dp | Generic O(n) all-roots tree DP with typed monoids |
 | offline-connectivity | Rollback union-find and offline edge add/remove connectivity |
+| normal-play-games | Explicit impartial games, Nim winning moves and proven subtraction periods |
+| minkowski-sum | Exact convex Minkowski sums with checked coordinates |
+| double-geometry | Exact predicates for finite Double coordinates |
 | prime-combinatorics | Factorial tables and Lucas theorem modulo primes |
 | garner | Mixed-radix CRT reconstruction modulo an arbitrary target |
 | bitset-subset-sum | Word-packed 0/1 subset-sum reachability |

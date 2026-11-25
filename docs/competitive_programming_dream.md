@@ -71,8 +71,8 @@ and palindrome enumeration.
 - [x] **Retrograde win/lose/draw** on directed game graphs
 - [x] Generic minimax/negamax with alpha–beta pruning for finite
   perfect-information games (document depth/terminal rules)
-- [ ] Nim, subtraction games, periodicity detection
-- [ ] Explicit impartial/normal-play assumptions, not silently universalize SG
+- [x] Nim, subtraction games, exact bounded periodicity detection
+- [x] Explicit impartial/normal-play assumptions and API
 
 **Prove it:** exhaustive small-state game trees.
 
@@ -83,8 +83,8 @@ and palindrome enumeration.
 - [x] **Closest pair** in O(n log n)
 - [x] **Rotating calipers** for farthest pair/diameter and convex polygons
 - [x] Polygon area and point-in-polygon
-- [ ] Minkowski sums
-- [ ] Floating-point geometry separately, with numerical robustness policy
+- [x] Minkowski sums
+- [x] Floating-point geometry separately, with exact predicates on represented finite doubles
 
 **Prove it:** randomized small point sets against quadratic brute force.
 

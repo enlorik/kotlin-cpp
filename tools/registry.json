@@ -1679,6 +1679,78 @@
       "kind": "extension function",
       "file": "dp/BitsetSubsetSum.kt",
       "description": "Construct packed reachability from weights"
+    },
+    {
+      "name": "ImpartialNormalPlay",
+      "kind": "class",
+      "file": "game/NormalPlayGames.kt",
+      "description": "Explicit finite impartial normal-play game"
+    },
+    {
+      "name": "NimMove",
+      "kind": "class",
+      "file": "game/NormalPlayGames.kt",
+      "description": "Winning Nim pile reduction"
+    },
+    {
+      "name": "nimSum64",
+      "kind": "function",
+      "file": "game/NormalPlayGames.kt",
+      "description": "Normal-play XOR of Long piles"
+    },
+    {
+      "name": "winningNimMove",
+      "kind": "function",
+      "file": "game/NormalPlayGames.kt",
+      "description": "Find a zero-XOR move"
+    },
+    {
+      "name": "GrundyPeriod",
+      "kind": "class",
+      "file": "game/NormalPlayGames.kt",
+      "description": "Proven eventual Grundy period"
+    },
+    {
+      "name": "PeriodicSubtractionGame",
+      "kind": "class",
+      "file": "game/NormalPlayGames.kt",
+      "description": "Exact full-window periodicity for subtraction games"
+    },
+    {
+      "name": "minkowskiSumExact",
+      "kind": "function",
+      "file": "geometry/MinkowskiSum.kt",
+      "description": "Exact convex Minkowski sum via edge merge"
+    },
+    {
+      "name": "DoublePoint",
+      "kind": "class",
+      "file": "geometry/FiniteDoubleGeometry.kt",
+      "description": "Finite floating-point point"
+    },
+    {
+      "name": "orientationDouble",
+      "kind": "function",
+      "file": "geometry/FiniteDoubleGeometry.kt",
+      "description": "Exact orientation sign on represented doubles"
+    },
+    {
+      "name": "pointOnSegmentDouble",
+      "kind": "function",
+      "file": "geometry/FiniteDoubleGeometry.kt",
+      "description": "Exact point-on-segment predicate"
+    },
+    {
+      "name": "segmentsIntersectDouble",
+      "kind": "function",
+      "file": "geometry/FiniteDoubleGeometry.kt",
+      "description": "Exact closed-segment intersection predicate"
+    },
+    {
+      "name": "convexHullDouble",
+      "kind": "function",
+      "file": "geometry/FiniteDoubleGeometry.kt",
+      "description": "Convex hull of finite Double points"
     }
   ],
   "files": [
@@ -1769,6 +1841,9 @@
     "math/FormalPowerSeries.kt",
     "math/PrimeCombinatorics.kt",
     "math/Garner.kt",
-    "dp/BitsetSubsetSum.kt"
+    "dp/BitsetSubsetSum.kt",
+    "game/NormalPlayGames.kt",
+    "geometry/MinkowskiSum.kt",
+    "geometry/FiniteDoubleGeometry.kt"
   ]
 }
